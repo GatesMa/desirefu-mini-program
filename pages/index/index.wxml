@@ -1,0 +1,90 @@
+<!--index.wxml-->
+<cu-custom bgColor="tx-blue" isBack="{{false}}">
+  <view slot="title">DesireFU</view>
+</cu-custom>
+
+<!--页面根标签-->
+<view class="baseImg">
+  <!--pics文件夹下的background.jpg文件-->
+  <image class='background' src="../../images/img_0182.png" mode="widthFix"></image>
+</view>
+
+<view class="flex-sub solid-bottom margin-top">
+  <view class="text-xl padding">
+    <text class="cuIcon-titles text-blue"></text>
+    <text class="text-black text-bold">请选择账号进行登陆</text>
+  </view>
+</view>
+<view class="padding-top">
+
+  <scroll-view scroll-x class="bg-white nav padding-left" scroll-with-animation scroll-left="{{scrollLeft}}">
+    <view class="cu-btn round margin-right {{index==TabCur?'text-blue cur':''}}" wx:for="{{canLoginAccountData}}"
+      wx:key="index" bindtap="tabSelect" data-id="{{index}}">
+      {{item.platform}}
+    </view>
+    <view class="cu-btn round margin-right {{TabCur==-1?'text-orange cur':''}}" bindtap="otherTabSelect">
+      账号申请
+    </view>
+  </scroll-view>
+
+  <view wx:if="{{canLoginAccountData[TabCur].account_list.size == 0}}"
+    class="cu-list menu sm-border card-menu margin-top radius shadow-warp bg-white margin-top">
+    <view class="cu-item arrow">
+      <view class="content">
+        <text class="cuIcon-circlefill text-grey"></text>
+        <text class="text-grey">无可用账号登陆</text>
+      </view>
+    </view>
+  </view>
+  <view wx:else class="cu-list menu sm-border card-menu margin-top radius shadow-warp bg-white margin-top">
+    <view class="cu-item arrow" wx:for="{{canLoginAccountData[TabCur].account_list}}" wx:key="index"
+      data-id="{{index}}">
+      <view class="content flex">
+        <view wx:if="{{item.account_status==0}}">
+          <text class="cuIcon-info text-orange"></text>
+        </view>
+        <view wx:elif="{{item.account_status==1}}">
+          <text class="cuIcon-roundcheck lg text-blue"></text>
+        </view>
+        <view wx:elif="{{item.account_status==2}}">
+          <text class="cuIcon-warn text-red"></text>
+        </view>
+        <view wx:elif="{{item.account_status==3}}">
+          <text class="cuIcon-lock text-black"></text>
+        </view>
+        <view wx:else>
+          <text class="cuIcon-question text-grey"></text>
+        </view>
+        <view class="flex-treble padding-sm margin-xs radius text-black text-cut">{{item.account_name}}</view>
+        <view class="flex-sub padding-sm margin-xs radius text-grey text-xs">ID:{{item.account_id}}</view>
+        <view class="flex-sub padding-sm margin-xs radius text-grey text-xs">{{item.role_name}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{TabCur == -1}}"
+    class="cu-list menu sm-border card-menu margin-top radius shadow-warp bg-white">
+    <view class="cu-item arrow">
+      <view class="content" bindtap="addNormal">
+        <text class="cuIcon-people text-blue"></text>
+        <text class="text-grey">学生账号申请</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="addCompetitionCreator">
+        <text class="cuIcon-light text-bold"></text>
+        <text class="text-grey">比赛创建者账号申请</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="addOSS">
+        <text class="cuIcon-global text-cyan"></text>
+        <text class="text-grey">运营人员账号申请</text>
+      </view>
+    </view>
+  </view>
+
+
+</view>
+
+<!-- <text class="text-black text-bold">{{TabCur}}</text> -->

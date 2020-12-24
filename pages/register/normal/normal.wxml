@@ -1,0 +1,45 @@
+<cu-custom bgColor="bg-gradual-tx-blue" isBack="{{true}}">
+  <view slot="backText">DesireFU</view>
+</cu-custom>
+
+<view class="cu-bar justify-center bg-white" style='margin-top: 20rpx;'>
+  <view class="action border-title">
+    <text class="text-xl text-bold">补充身份信息</text>
+    <text class="bg-grey" style="width:2rem"></text>
+    <!-- 底部样式 last-child选择器-->
+  </view>
+</view>
+
+<form bindsubmit="formSubmit">
+  <view class="cu-form-group margin-left margin-right margin-top">
+    <view class="title">高校学院</view>
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange"
+      value="{{multiIndex}}" range="{{multiArray}}">
+      <view class="picker">
+        {{multiArray[0][multiIndex[0]]}} - {{multiArray[1][multiIndex[1]]}}
+      </view>
+    </picker>
+  </view>
+  <view class="cu-form-group margin-left margin-right">
+    <view class="title">专业</view>
+    <input placeholder="专业" name="major" type='text'></input>
+    <text class="cuIcon-info text-orange"></text>
+  </view>
+  <view class="cu-form-group margin-left margin-right">
+    <view class="title">学号</view>
+    <input placeholder="学号" name="stuId" type='text'></input>
+    <text class="cuIcon-info text-orange"></text>
+  </view>
+
+  <view class="cu-form-group margin-left margin-right">
+    <view class="title">真实姓名</view>
+    <input placeholder="真实姓名" name="realName" type='text'></input>
+    <text class="cuIcon-info text-orange"></text>
+  </view>
+  <view class="cu-form-group align-start margin-left margin-right">
+    <view class="title">个人介绍</view>
+    <textarea placeholder="简短介绍（可选）" name="memo"></textarea>
+  </view>
+  <button class="cu-btn lg line-blue button-hover" id='register' formType="submit">提交审核</button>
+</form>
+<view class='margin-bottom padding-bottom'></view>

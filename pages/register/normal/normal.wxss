@@ -1,0 +1,14 @@
+/* pages/register/normal/normal.wxss */
+#register {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 120px;
+  margin-top:10px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
