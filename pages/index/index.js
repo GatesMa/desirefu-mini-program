@@ -21,8 +21,8 @@ Page({
     })
   },
   onLoad: function () {
-    wx.showLoading({
-      title: '加载数据中',
+    this.setData({
+      loadModal: true
     })
     console.log('1:'  + new Date())
     // 1. 获取userInfo、openId、userId
@@ -75,7 +75,9 @@ Page({
                 })
               },
               complete: () => {
-                wx.hideLoading()
+                this.setData({
+                  loadModal: false
+                })
               }
             })
           })
@@ -98,6 +100,23 @@ Page({
     })
   },
   addNormal() {
+    // 如果存在学生账号
+    // if (this.data.canLoginAccountData[0].platform_type == 1) {
+    //   wx.showModal({
+    //     title: '提示',
+    //     content: '一个微信号只能创建或绑定一个学生账号',
+    //     showCancel: false,
+    //     confirmText: '收到',
+    //     success (res) {
+    //       if (res.confirm) {
+    //         console.log('用户点击确定')
+    //       } else if (res.cancel) {
+    //         console.log('用户点击取消')
+    //       }
+    //     }
+    //   })
+    //   return
+    // }
     wx.navigateTo({
       url: '../register/normal/normal'
     })
@@ -131,5 +150,6 @@ Page({
         }
       }
     })
-  }
+  },
+
 })
