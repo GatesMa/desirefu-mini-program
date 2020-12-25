@@ -64,6 +64,18 @@ App({
   // 登录，获取openId，换成userId
   wxLogin() {
     return new Promise((resolve, reject) => {
+      var that = this
+      // 先尝试本地缓存中获取
+      wx.getStorage({
+        key: 'openId',
+        success: function(res) {
+          console.log('res.data:' + res.data)
+          that.globalData.openId = res.data;
+          console.log('cache find openId:' + that.globalData.openId)
+          return
+        }  
+      })
+      // 如果没有的话再从后端接口去拿
       wx.login({
         success: res => {
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
@@ -81,6 +93,13 @@ App({
             success: (res) => {
               var openId = res.data.data.open_id //返回openid
               this.globalData.openId = openId;
+
+              // 本地存储，以免每次进入都需要很长的加载时间，微信的接口很慢
+              wx.setStorage({
+                key: 'openId',
+                data: openId
+              })
+
               resolve(res);
             }
           })
