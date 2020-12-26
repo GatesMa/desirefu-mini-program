@@ -14,6 +14,15 @@ Page({
     userId: '',
     canLoginAccountData: [], // 用户可以登陆的账号列表s
   },
+  navigateToSystem: function(e) {
+    var item = e.currentTarget.dataset.item
+    console.log(item)
+    if (item.account_type == 1) {
+      wx.navigateTo({
+        url: '../normal/index/index',
+      })
+    }
+  },
   //事件处理函数
   bindViewTap: function () {
     wx.navigateTo({

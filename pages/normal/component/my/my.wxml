@@ -1,0 +1,6 @@
+<cu-custom bgColor="tx-blue" isBack="{{false}}">
+  <view slot="title">DesireFU</view>
+</cu-custom>
+<view class="component_my_wrapper text-center">
+  <text class="title">My</text>
+</view>

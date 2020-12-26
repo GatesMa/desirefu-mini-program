@@ -12,7 +12,7 @@
 
 <!--页面根标签-->
 <view class="baseImg">
-  <!--pics文件夹下的background.jpg文件--> 
+  <!--pics文件夹下的background.jpg文件-->
   <image class='background' src="../../images/img_0182.png" mode="widthFix"></image>
 </view>
 
@@ -44,28 +44,28 @@
     </view>
   </view>
   <view wx:else class="cu-list menu sm-border card-menu margin-top radius shadow-warp bg-white margin-top">
-    <view class="cu-item arrow" wx:for="{{canLoginAccountData[TabCur].account_list}}" wx:key="index"
-      data-id="{{index}}">
-      <view class="content flex">
-        <view wx:if="{{item.account_status==0}}">
-          <text class="cuIcon-info text-orange"></text>
-        </view>
-        <view wx:elif="{{item.account_status==1}}">
-          <text class="cuIcon-roundcheck lg text-blue"></text>
-        </view>
-        <view wx:elif="{{item.account_status==2}}">
-          <text class="cuIcon-warn text-red"></text>
-        </view>
-        <view wx:elif="{{item.account_status==3}}">
-          <text class="cuIcon-lock text-black"></text>
-        </view>
-        <view wx:else>
-          <text class="cuIcon-question text-grey"></text>
-        </view>
+    <view class="cu-item arrow content flex" wx:for="{{canLoginAccountData[TabCur].account_list}}" wx:key="account_id"
+      wx:for-index="idx" wx:for-item="item" data-item="{{item}}" catchtap="navigateToSystem">
+        <block>
+          <view wx:if="{{item.account_status==0}}">
+            <text class="cuIcon-info text-orange"></text>
+          </view>
+          <view wx:elif="{{item.account_status==1}}">
+            <text class="cuIcon-roundcheck lg text-blue"></text>
+          </view>
+          <view wx:elif="{{item.account_status==2}}">
+            <text class="cuIcon-warn text-red"></text>
+          </view>
+          <view wx:elif="{{item.account_status==3}}">
+            <text class="cuIcon-lock text-black"></text>
+          </view>
+          <view wx:else>
+            <text class="cuIcon-question text-grey"></text>
+          </view>
+        </block>
         <view class="flex-treble padding-sm margin-xs radius text-black text-cut">{{item.account_name}}</view>
         <view class="flex-sub padding-sm margin-xs radius text-grey text-xs">ID:{{item.account_id}}</view>
         <view class="flex-sub padding-sm margin-xs radius text-grey text-xs">{{item.role_name}}</view>
-      </view>
     </view>
   </view>
 
@@ -91,6 +91,10 @@
   </view>
 
 
+</view>
+
+<view class='section_text text-xs text-shadow text-grey text-center'>
+  @四川大学计算机学院
 </view>
 
 <!-- <text class="text-black text-bold">{{TabCur}}</text> -->

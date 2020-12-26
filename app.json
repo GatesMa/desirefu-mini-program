@@ -1,12 +1,14 @@
 {
   "pages": [
+
     "pages/index/index",
     "pages/logs/logs",
-    "pages/register/normal/normal"
+    "pages/register/normal/normal",
+    "pages/normal/index/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
-    "navigationBarTitleText": "Color UI",
+    "navigationBarTitleText": "DesireFU",
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#ffffff"

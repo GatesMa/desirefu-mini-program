@@ -30,3 +30,11 @@ page {
   height: 450rpx;
 }
 
+.section_text {
+  position: fixed;
+  text-align: center;
+  bottom: 50rpx;
+  left: 0;
+  right: 0;
+}
+

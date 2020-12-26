@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "component_car": "/pages/normal/component/car/car",
+    "component_index": "/pages/normal/component/index/index",
+    "component_my": "/pages/normal/component/my/my"
+  }
+}

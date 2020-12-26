@@ -69,7 +69,6 @@ App({
       wx.getStorage({
         key: 'openId',
         success: function(res) {
-          console.log('res.data:' + res.data)
           that.globalData.openId = res.data;
           console.log('cache find openId:' + that.globalData.openId)
           return
