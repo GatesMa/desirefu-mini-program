@@ -7,18 +7,18 @@ Page({
   data: {
     currentTab: 0,
     items: [{
-        "iconPath": "/images/tabbar/index2.png",
-        "selectedIconPath": "/images/tabbar/index1.png",
+        "iconPath": "/images/tabbar/info.png",
+        "selectedIconPath": "/images/tabbar/info-selec.png",
         "text": "首页"
       },
       {
-        "iconPath": "/images/tabbar/car2.png",
-        "selectedIconPath": "/images/tabbar/car1.png",
-        "text": "购物车"
+        "iconPath": "/images/tabbar/search.png",
+        "selectedIconPath": "/images/tabbar/search-selec.png",
+        "text": "搜索"
       },
       {
-        "iconPath": "/images/tabbar/my2.png",
-        "selectedIconPath": "/images/tabbar/my1.png",
+        "iconPath": "/images/tabbar/usercenter.png",
+        "selectedIconPath": "/images/tabbar/user-selec.png",
         "text": "我的"
       }
     ]

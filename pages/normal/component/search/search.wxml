@@ -1,7 +1,7 @@
 <cu-custom bgColor="tx-blue" isBack="{{false}}">
   <view slot="title">DesireFU</view>
 </cu-custom>
-<view class="component_car_wrapper text-center">
+<view class="component_search_wrapper text-center">
   <text class="title">Car</text>
 </view>
 

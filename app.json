@@ -1,10 +1,9 @@
 {
   "pages": [
-
+    "pages/normal/index/index",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/register/normal/normal",
-    "pages/normal/index/index"
+    "pages/register/normal/normal"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
