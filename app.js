@@ -5,7 +5,12 @@ App({
     openId: null,
     baseUrl: null,
     userId: null,
-    env: null
+    env: null,
+    windowHeight: null,
+    // colorui
+    StatusBar: null,
+    Custom: null,
+    CustomBar: null
   },
   onLaunch: function () {
     // 1. 展示本地存储能力
@@ -33,6 +38,14 @@ App({
         } else {
           this.globalData.CustomBar = e.statusBarHeight + 50;
         }
+
+        // 计算高度，换算为rpx
+        let clientHeight = e.windowHeight,
+          clientWidth = e.windowWidth,
+          rpxR = 750 / clientWidth;
+        var calc = clientHeight * rpxR;
+        console.log(calc)
+        this.globalData.windowHeight = calc;
       }
     })
 
@@ -68,11 +81,11 @@ App({
       // 先尝试本地缓存中获取
       wx.getStorage({
         key: 'openId',
-        success: function(res) {
+        success: function (res) {
           that.globalData.openId = res.data;
           console.log('cache find openId:' + that.globalData.openId)
           return
-        }  
+        }
       })
       // 如果没有的话再从后端接口去拿
       wx.login({
@@ -165,6 +178,25 @@ App({
           reject(err);
         }
       })
+    })
+  },
+  // 获取屏幕高度
+  getWinHeight() {
+    return new Promise((resolve, reject) => {
+      wx.getSystemInfo({
+        success: function (res) {
+          let clientHeight = res.windowHeight,
+            clientWidth = res.windowWidth,
+            rpxR = 750 / clientWidth;
+          var calc = clientHeight * rpxR;
+          console.log(calc)
+          this.globalData.windowHeight = calc;
+          resolve(res);
+        },
+        fail: (err) => {
+          reject(err);
+        }
+      });
     })
   }
 })

@@ -9,19 +9,20 @@ Page({
     items: [{
         "iconPath": "/images/tabbar/info.png",
         "selectedIconPath": "/images/tabbar/info-selec.png",
-        "text": "首页"
+        "text": "比赛"
       },
       {
         "iconPath": "/images/tabbar/search.png",
         "selectedIconPath": "/images/tabbar/search-selec.png",
-        "text": "搜索"
+        "text": "组队"
       },
       {
         "iconPath": "/images/tabbar/usercenter.png",
         "selectedIconPath": "/images/tabbar/user-selec.png",
         "text": "我的"
       }
-    ]
+    ],
+    tabbarHeight: 60 // tabbar高度，默认60，会在onLoad中动态修改
   },
   swichNav: function (e) {
     let that = this;
@@ -37,7 +38,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 获取tabber栏的高度
+    const query = wx.createSelectorQuery().in(this)
+    query.select('.nav-tabs').boundingClientRect((rect) => {
+      console.log(rect.height)
+      this.setData({
+        tabbarHeight: rect.height
+      })
+    }).exec()
   },
 
   /**
