@@ -11,6 +11,7 @@
 </view>
 
 
+<!-- 防止tabbar遮挡 -->
 <view style="padding-top: {{tabbarHeight}}px"></view>
 
 
