@@ -328,6 +328,9 @@ Component({
               icon: 'none',
               duration: 2000
             })
+            this.setData({
+              loadModal: false
+            })
             reject(err);
           }
         })
