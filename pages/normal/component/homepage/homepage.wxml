@@ -27,16 +27,20 @@
     <text class="text-black text-bold">请选择账号进行登陆</text>
   </view> -->
   <view class="padding-left padding-right cu-bar">
-    <button class="cu-btn round text-xs text-grey padding-top-xm" bindtap="showModal" data-target="state" style="height:65rpx">
+    <button class="cu-btn round text-xs text-grey padding-top-xm" bindtap="showModal" data-target="state"
+      style="height:65rpx">
       <text class="cuIcon-unfold"></text>状态：{{stateName}}
     </button>
-    <button class="cu-btn round text-xs text-grey margin-left-sm padding-top-xm" bindtap="showModal" data-target="type" style="height:65rpx">
+    <button class="cu-btn round text-xs text-grey margin-left-sm padding-top-xm" bindtap="showModal" data-target="type"
+      style="height:65rpx">
       <text class="cuIcon-unfold"></text>等级：{{typeName}}
     </button>
-    <button class="cu-btn round text-xs text-grey margin-left-sm padding-top-xm" bindtap="showModal" data-target="sort" style="height:65rpx">
+    <button class="cu-btn round text-xs text-grey margin-left-sm padding-top-xm" bindtap="showModal" data-target="sort"
+      style="height:65rpx">
       <text class="cuIcon-unfold"></text>排序
     </button>
-    <button class="cu-btn round text-xs text-blue margin-left-sm padding-top-xm line-blue" bindtap="getCompetitions" style="height:65rpx">搜索🔍</button>
+    <button class="cu-btn round text-xs text-blue margin-left-sm padding-top-xm line-blue" bindtap="fillCompetitions"
+      style="height:65rpx">搜索🔍</button>
   </view>
 
   <view class="flex solid-bottom">
@@ -61,12 +65,12 @@
 <view class="cu-modal bottom-modal {{modalName=='state'?'show':''}}" bindtap="hideModal">
   <view class="cu-dialog">
     <view class="cu-list menu radius shadow-warp bg-white">
-    <view class="cu-item" wx:for="{{stateList}}" wx:key="state" data-item="{{item}}" catchtap="chooseState">
-      <view class="content">
-        <text class="text-grey text-xs">{{item.stateName}}</text>
+      <view class="cu-item" wx:for="{{stateList}}" wx:key="state" data-item="{{item}}" catchtap="chooseState">
+        <view class="content">
+          <text class="text-grey text-xs">{{item.stateName}}</text>
+        </view>
       </view>
     </view>
-  </view>
   </view>
 </view>
 
@@ -74,12 +78,12 @@
 <view class="cu-modal bottom-modal {{modalName=='type'?'show':''}}" bindtap="hideModal">
   <view class="cu-dialog">
     <view class="cu-list menu radius shadow-warp bg-white">
-    <view class="cu-item" wx:for="{{typeList}}" wx:key="state" data-item="{{item}}" catchtap="chooseType">
-      <view class="content">
-        <text class="text-grey text-xs">{{item.typeName}}</text>
+      <view class="cu-item" wx:for="{{typeList}}" wx:key="state" data-item="{{item}}" catchtap="chooseType">
+        <view class="content">
+          <text class="text-grey text-xs">{{item.typeName}}</text>
+        </view>
       </view>
     </view>
-  </view>
   </view>
 </view>
 
@@ -87,12 +91,12 @@
 <view class="cu-modal bottom-modal {{modalName=='sort'?'show':''}}" bindtap="hideModal">
   <view class="cu-dialog">
     <view class="cu-list menu radius shadow-warp bg-white">
-    <view class="cu-item" wx:for="{{sortList}}" wx:key="state" data-item="{{item}}" catchtap="chooseSort">
-      <view class="content">
-        <text class="text-grey text-xs">{{item.name}}</text>
+      <view class="cu-item" wx:for="{{sortList}}" wx:key="state" data-item="{{item}}" catchtap="chooseSort">
+        <view class="content">
+          <text class="text-grey text-xs">{{item.name}}</text>
+        </view>
       </view>
     </view>
-  </view>
   </view>
 </view>
 
@@ -127,4 +131,13 @@
       </view>
     </view>
   </view>
+</view>
+
+<view class="flex solid-bottom padding justify-between">
+  <button class="cu-btn padding-sm margin-xs radius text-gray text-sm" bindtap="scrollBack">
+    <text class="cuIcon-back"></text>上一页
+  </button>
+  <button class="cu-btn padding-sm margin-xs radius text-gray text-sm" bindtap="scrollFront">
+    <text class="cuIcon-right"></text>下一页
+  </button>
 </view>

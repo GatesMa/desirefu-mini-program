@@ -36,7 +36,7 @@ Component({
     // 列表相关
     competitions: [], // 比赛列表
     page: 1,
-    pageSize: 10,
+    pageSize: 5,
 
     // model相关
     modalName: null,
@@ -148,10 +148,7 @@ Component({
 
     },
     attached: function () {
-      this.setData({
-        loadModal: true
-      })
-      this.getCompetitions()
+      this.fillCompetitions()
     },
     moved: function () {
 
@@ -210,7 +207,7 @@ Component({
         title: '修改排序方式为：' + item.name,
         icon: 'none',
         duration: 1000
-      })      
+      })
     },
     // 标题input
     titleinput(e) {
@@ -224,60 +221,120 @@ Component({
         founder: e.detail.value
       })
     },
-    // 获取比赛列表
-    getCompetitions() {
+    scrollBack() {
+      // 第一页不允许翻页
+      if (this.data.page == 1) {
+        wx.showToast({
+          title: '已是第一页',
+          icon: 'none',
+          duration: 2000
+        })
+        return
+      }
 
-      var v_state = this.data.state == -1 ? null : this.data.state;
-      var v_type = this.data.type == -1 ? null : this.data.type;
-      var v_sortField = this.data.sortField
-      var v_sortType = this.data.sortType
-      var v_title = this.data.title ? this.data.title : null;
-      var v_founder = this.data.founder ? this.data.founder : null;
+      this.setData({
+        page: this.data.page - 1,
+        loadModal: true
+      })
 
-      console.log('param:',v_state,v_type,v_sortField,v_sortType,v_title,v_founder)
+      this.getCompetitionData().then((list) => {
+        // console.log('competitionList:', list)
+        this.setData({
+          competitions: list,
+          loadModal: false
+        })
+      })
+    },
+    scrollFront() {
 
-      wx.request({
-        url: app.globalData.baseUrl + '/desire_fu/v1/competition/select_scroll',
-        data: {
-          status: 1, // 默认只获取正常状态，不获取草稿
-          state:  this.data.state == -1 ? null : this.data.state,
-          type: this.data.type == -1 ? null : this.data.type,
-          sort_field: this.data.sortField,
-          sort_seq: this.data.sortType,
-          title: this.data.title ? this.data.title : null,
-          founder: this.data.founder ? this.data.founder : null,
-          page: {
-            page_num: this.data.page,
-            page_size: this.data.pageSize
-          }
-        },
-        method: "POST",
-        header: {
-          'content-type': 'application/json',
-          'Accept': 'application/json'
-        },
-        success: (res) => {
-          console.log('res:', res.data)
-          // console.log('canLoginAccountData:' + canLoginAccountData)
-          this.setData({
-            competitions: res.data.data.list
-          })
-        },
-        fail: (err) => {
+      this.setData({
+        page: this.data.page + 1,
+        loadModal: true
+      })
+
+      this.getCompetitionData().then((list) => {
+        // console.log('competitionList:', list)
+        // console.log('list.length, ', list.length)
+        // console.log('list, ', list == null)
+        // 这一页是空的
+        if (list == null || list.length == 0) {
           wx.showToast({
-            title: '获取数据异常',
-            icon: 'error',
+            title: '已是最后一页',
+            icon: 'none',
             duration: 2000
           })
-        },
-        complete: () => {
+          // page设置回去
           this.setData({
+            page: this.data.page - 1,
+            loadModal: false
+          })
+        } else {
+          this.setData({
+            competitions: list,
             loadModal: false
           })
         }
       })
     },
-    
+    // 获取比赛列表
+    fillCompetitions() {
+      this.setData({
+        loadModal: true
+      })
+
+      this.getCompetitionData().then((list) => {
+        // console.log('competitionList:', list)
+        this.setData({
+          competitions: list,
+          loadModal: false
+        })
+      })
+    },
+
+    getCompetitionData() {
+      return new Promise((resolve, reject) => {
+
+        wx.request({
+          url: app.globalData.baseUrl + '/desire_fu/v1/competition/select_scroll',
+          data: {
+            status: 1, // 默认只获取正常状态，不获取草稿
+            state: this.data.state == -1 ? null : this.data.state,
+            type: this.data.type == -1 ? null : this.data.type,
+            sort_field: this.data.sortField,
+            sort_seq: this.data.sortType,
+            title: this.data.title ? this.data.title : null,
+            founder: this.data.founder ? this.data.founder : null,
+            page: {
+              page_num: this.data.page,
+              page_size: this.data.pageSize
+            }
+          },
+          method: "POST",
+          header: {
+            'content-type': 'application/json',
+            'Accept': 'application/json'
+          },
+          success: (res) => {
+            // console.log('res:', res.data)
+            // console.log('canLoginAccountData:' + canLoginAccountData)
+            // this.setData({
+            //   competitions: res.data.data.list
+            // })
+            resolve(res.data.data.list);
+          },
+          fail: (err) => {
+            wx.showToast({
+              title: '获取数据异常',
+              icon: 'none',
+              duration: 2000
+            })
+            reject(err);
+          }
+        })
+      })
+
+    }
+
   }
 
 })
