@@ -1,0 +1,5 @@
+/* pages/competition/component/list/list.wxss */
+page {
+  height: 100%;
+  background-color: #ffffff;
+}

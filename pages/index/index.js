@@ -16,10 +16,15 @@ Page({
   },
   navigateToSystem: function(e) {
     var item = e.currentTarget.dataset.item
-    console.log(item)
+    // 全局设置account信息
+    app.globalData.account = item
     if (item.account_type == 1) {
       wx.navigateTo({
         url: '../normal/index/index',
+      })
+    } else if (item.account_type == 2) {
+      wx.navigateTo({
+        url: '../competition/index/index',
       })
     }
   },

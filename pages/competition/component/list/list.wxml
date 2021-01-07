@@ -1,0 +1,181 @@
+<!--pages/competition/component/list/list.wxml-->
+<cu-custom bgColor="tx-blue" isBack="{{false}}">
+  <view slot="title">比赛管理</view>
+</cu-custom>
+
+<view class="padding  text-center text-grey bg-white shadow-warp">
+  <view class="flex">
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-orange">12</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-all"></text> 全部</view>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-blue">10</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-hot"></text> 有效</view>
+    </view>
+    <view class="flex flex-sub flex-direction">
+      <view class="text-xxl text-green">1004</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-attentionfill"></text> 浏览</view>
+    </view>
+  </view>
+  <view class="flex margin-top-sm">
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-yellow">5</view>
+      <view class="margin-top-sm">未开始</view>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-olive">5</view>
+      <view class="margin-top-sm">进行中</view>
+    </view>
+    <view class="flex flex-sub flex-direction">
+      <view class="text-xxl text-gray">2</view>
+      <view class="margin-top-sm">已结束</view>
+    </view>
+  </view>
+</view>
+
+<!-- 筛选组 -->
+<view class="padding-top padding-bottom-xs solid-bottom">
+  <!-- 第一排 -->
+  <view class="padding-left padding-right cu-bar">
+    <button class="cu-btn round text-xs text-grey padding-top-xm" bindtap="showModal" data-target="state"
+      style="height:65rpx">
+      <text class="cuIcon-unfold"></text>状态：{{stateName}}
+    </button>
+    <button class="cu-btn round text-xs text-grey margin-left-sm padding-top-xm" bindtap="showModal" data-target="type"
+      style="height:65rpx">
+      <text class="cuIcon-unfold"></text>等级：{{typeName}}
+    </button>
+    <button class="cu-btn round text-xs text-grey margin-left-sm padding-top-xm" bindtap="showModal" data-target="sort"
+      style="height:65rpx">
+      <text class="cuIcon-unfold"></text>排序
+    </button>
+    <button class="cu-btn round text-xs text-blue margin-left-sm padding-top-xm line-blue" bindtap="fillCompetitions"
+      style="height:65rpx">搜索🔍</button>
+  </view>
+
+  <!-- 第二排 -->
+  <view class="flex">
+    <view class="flex-sub cu-bar search">
+      <view class="search-form round">
+        <text class="text-xs padding-left-sm text-grey">比赛名称：</text>
+        <input type="text" class="text-xs" data-title='title' bindinput='titleinput' placeholder="-"></input>
+      </view>
+    </view>
+    <view class="flex-sub cu-bar search">
+      <view class="search-form round">
+        <text class="text-xs padding-left-sm text-grey">举办方：</text>
+        <input type="text" class="text-xs" data-title='founder' bindinput='founderinput' placeholder="-"></input>
+      </view>
+    </view>
+  </view>
+  <!-- 第三排 -->
+  <view class="flex  p-xs margin-left margin-right margin-top-sm margin-bottom">
+    <view class="flex-sub radius">
+      <button class="cu-btn round text-xs text-grey" bindtap="showModal" data-target="status" style="height:65rpx">
+        <text class="cuIcon-unfold"></text>是否草稿：{{statusName}}
+      </button>
+    </view>
+  </view>
+
+</view>
+
+
+
+<!-- model -->
+<!-- 状态 -->
+<view class="cu-modal bottom-modal {{modalName=='state'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog">
+    <view class="cu-list menu radius shadow-warp bg-white">
+      <view class="cu-item" wx:for="{{stateList}}" wx:key="state" data-item="{{item}}" catchtap="chooseState">
+        <view class="content">
+          <text class="text-grey text-xs">{{item.stateName}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 等级 -->
+<view class="cu-modal bottom-modal {{modalName=='type'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog">
+    <view class="cu-list menu radius shadow-warp bg-white">
+      <view class="cu-item" wx:for="{{typeList}}" wx:key="state" data-item="{{item}}" catchtap="chooseType">
+        <view class="content">
+          <text class="text-grey text-xs">{{item.typeName}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 排序 -->
+<view class="cu-modal bottom-modal {{modalName=='sort'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog">
+    <view class="cu-list menu radius shadow-warp bg-white">
+      <view class="cu-item" wx:for="{{sortList}}" wx:key="state" data-item="{{item}}" catchtap="chooseSort">
+        <view class="content">
+          <text class="text-grey text-xs">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- status -->
+<view class="cu-modal bottom-modal {{modalName=='status'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog">
+    <view class="cu-list menu radius shadow-warp bg-white">
+      <view class="cu-item" wx:for="{{statusList}}" wx:key="status" data-item="{{item}}" catchtap="chooseStatus">
+        <view class="content">
+          <text class="text-grey text-xs">{{item.statusName}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 卡片 -->
+<view class="cu-card article ">
+  <view class="cu-item shadow solid-bottom" wx:for="{{competitions}}" wx:key="competition_id" wx:for-index="idx"
+    wx:for-item="item">
+    <view class="title">
+      <view class="text-cut">{{item.title}}</view>
+    </view>
+    <view class="content">
+      <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFill"></image>
+      <view class="desc">
+        <view class="text-content">{{item.content}}</view>
+        <!-- 标签 -->
+        <view>
+          <view wx:if="{{item.type==4}}" class="cu-tag bg-red light sm round">国际级</view>
+          <view wx:elif="{{item.type==3}}" class="cu-tag bg-orange light sm round">国家级</view>
+          <view wx:elif="{{item.type==2}}" class="cu-tag bg-blue light sm round">省级</view>
+          <view wx:elif="{{item.type==1}}" class="cu-tag bg-green light sm round">校级</view>
+          <view wx:elif="{{item.type==0}}" class="cu-tag bg-blueLight light sm round">院级</view>
+        </view>
+      </view>
+    </view>
+    <view class="flex padding-top padding-left justify-between">
+      <view class="text-gray text-sm">
+        {{item.created_ime}}
+      </view>
+      <view class="text-gray text-sm text-right">
+        <text class="cuIcon-attentionfill margin-lr-xs"></text>{{item.pv}}
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 翻页按钮 -->
+<view class="flex solid-bottom padding justify-between">
+  <button class="cu-btn padding-sm margin-xs radius text-gray text-sm" bindtap="scrollBack">
+    <text class="cuIcon-back"></text>上一页
+  </button>
+  <button class="cu-btn padding-sm margin-xs radius text-gray text-sm" bindtap="scrollFront">
+    <text class="cuIcon-right"></text>下一页
+  </button>
+</view>

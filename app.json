@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/normal/index/index",
     "pages/index/index",
+    "pages/competition/index/index",
+
+    "pages/normal/index/index",
     "pages/logs/logs",
     "pages/register/normal/normal"
   ],

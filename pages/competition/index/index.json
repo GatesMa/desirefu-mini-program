@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "component_list": "/pages/competition/component/list/list",
+    "component_my": "/pages/competition/component/my/my"
+  }
+}

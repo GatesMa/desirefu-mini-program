@@ -64,7 +64,7 @@ App({
     console.log('当前环境：' + env)
     var baseApi = {
       // 开发版
-      develop: "http://localhost:8088",
+      develop: "http://192.168.124.8:8088", // localhost
       // 体验版
       trial: "https://gatesma.cn:8088",
       // 正式版
