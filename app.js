@@ -1,5 +1,8 @@
 //app.js
 App({
+  data: {
+    richTextContents: null // 富文本 编辑器
+  },
   globalData: {
     userInfo: null,
     openId: null,

@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/competition/add/add",
     "pages/index/index",
     "pages/competition/index/index",
-
     "pages/normal/index/index",
     "pages/logs/logs",
     "pages/register/normal/normal"
@@ -15,7 +15,8 @@
     "backgroundColor": "#ffffff"
   },
   "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom"
+    "cu-custom": "/colorui/components/cu-custom",
+    "richText": "/components/richText/richText"
   },
   "sitemapLocation": "sitemap.json"
 }

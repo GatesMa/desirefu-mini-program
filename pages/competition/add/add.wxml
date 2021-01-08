@@ -1,0 +1,86 @@
+<!--pages/competition/add/add.wxml-->
+<cu-custom bgColor="bg-gradual-tx-blue" isBack="{{true}}">
+  <view slot="backText">编辑比赛</view>
+</cu-custom>
+
+<view class="cu-bar bg-white">
+  <view class="action sub-title">
+    <text class="text-xl text-bold text-blue">操作</text>
+    <text class="text-ABC text-blue">Competition</text>
+  </view>
+  <view class="action">
+    <button class="cu-btn round line-blue">发布</button>
+    <button class="cu-btn round line-green margin-left">草稿</button>
+  </view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom margin-top margin-bottom-sm">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>基本信息
+  </view>
+</view>
+<view class="bg-white">
+  <view class="cu-form-group">
+    <view class="title text-black">标题</view>
+    <input placeholder="输入比赛标题"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title text-black">创办方</view>
+    <input placeholder="输入比赛创办方"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title text-black">比赛等级</view>
+    <picker bindchange="typeChange" value="{{type}}" range="{{typeList}}" range-key="typeName">
+      <view class="picker">
+        {{typeList[type].typeName}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="cu-form-group">
+    <view class="title text-black">开始时间</view>
+    <picker mode="date" value="{{begin_time}}" start="2020-01-01" end="2030-01-01" bindchange="startDateChange">
+      <view class="picker">
+        {{begin_time}}
+      </view>
+    </picker>
+  </view>
+  <view class="cu-form-group">
+    <view class="title text-black">结束时间</view>
+    <picker mode="date" value="{{end_time}}" start="2020-01-01" end="2030-01-01" bindchange="endDateChange">
+      <view class="picker">
+        {{end_time}}
+      </view>
+    </picker>
+  </view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom margin-top margin-bottom-sm">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>正文
+  </view>
+</view>
+
+
+<richText 
+  id='richText' 
+  readOnly='{{readOnly}}'
+  placeholder='{{placeholder}}' 
+  formatDate='YY/MM/DD'
+  buttonTxt='保存'
+  bind:clearBeforeEvent='clearBeforeEvent'
+  bind:clearSuccess='clearSuccess'
+  bind:undo='undo'
+  bind:restore='restore'
+  bind:onEditorReady='onEditorReady' 
+  bind:bindfocus='bindfocus' 
+  bind:bindblur='bindblur' 
+  bind:bindinput='bindinput' 
+  bind:insertImageEvent='insertImageEvent' 
+  bind:getEditorContent='getEditorContent'></richText>
+
+<view class="tip">备注：
+<view>1.改变图片大小，按住节点一小会儿再拖动。</view>
+<view>2.编辑器上的保存是离线保存，希望保存为草稿至服务器，点击页面头部的草稿按钮</view>
+</view>
+<view class="preview" bindtap="preview">预览</view>

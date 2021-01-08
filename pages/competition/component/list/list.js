@@ -28,7 +28,7 @@ Component({
 
     // model相关
     modalName: null,
-    // 状态选择 
+    // 状态选择
     state: -1,
     stateName: '全部',
     stateList: [{
@@ -43,28 +43,6 @@ Component({
     }, {
       state: '2',
       stateName: '已结束'
-    }],
-    // 状态选择 
-    type: -1,
-    typeName: '全部',
-    typeList: [{
-      type: '-1',
-      typeName: '全部'
-    }, {
-      type: '0',
-      typeName: '院级'
-    }, {
-      type: '1',
-      typeName: '校级'
-    }, {
-      type: '2',
-      typeName: '省级'
-    }, {
-      type: '3',
-      typeName: '国家级'
-    }, {
-      type: '4',
-      typeName: '国际级'
     }],
     // 省级选择 
     type: -1,

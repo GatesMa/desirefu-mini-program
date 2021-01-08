@@ -53,8 +53,8 @@ Component({
     },
     showQrcode() {
       wx.previewImage({
-        urls: ['https://image.weilanwl.com/color2.0/zanCode.jpg'],
-        current: 'https://image.weilanwl.com/color2.0/zanCode.jpg' // 当前显示图片的http链接      
+        urls: ['https://gatesma.cn/myfile/desirefu/img/zanCode.png'],
+        current: 'https://gatesma.cn/myfile/desirefu/img/zanCode.png' // 当前显示图片的http链接      
       })
     },
   }
