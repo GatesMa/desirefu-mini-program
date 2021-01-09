@@ -9,8 +9,8 @@
     <text class="text-ABC text-blue">Competition</text>
   </view>
   <view class="action">
-    <button class="cu-btn round line-blue">发布</button>
-    <button class="cu-btn round line-green margin-left">草稿</button>
+    <button class="cu-btn round line-green">草稿</button>
+    <button class="cu-btn round line-blue margin-left" bindtap="createCompetition">发布</button>
   </view>
 </view>
 
@@ -21,12 +21,14 @@
 </view>
 <view class="bg-white">
   <view class="cu-form-group">
-    <view class="title text-black">标题</view>
-    <input placeholder="输入比赛标题"></input>
+    <view class="title text-black" >标题</view>
+    <input placeholder="输入比赛标题" bindinput='titleinput'></input>
+    <text class="cuIcon-info text-orange"></text>
   </view>
   <view class="cu-form-group">
     <view class="title text-black">创办方</view>
-    <input placeholder="输入比赛创办方"></input>
+    <input placeholder="输入比赛创办方" bindinput='founderinput' ></input>
+    <text class="cuIcon-info text-orange"></text>
   </view>
   <view class="cu-form-group">
     <view class="title text-black">比赛等级</view>
@@ -55,32 +57,16 @@
   </view>
 </view>
 
-<view class="cu-bar bg-white solid-bottom margin-top margin-bottom-sm">
+<view class="cu-bar bg-white solid-bottom margin-top margin-bottom-sm bg-grey">
   <view class="action">
     <text class="cuIcon-title text-blue"></text>正文
   </view>
+  <view class="action">
+    <button class="cu-btn round" bindtap="navToEdit">编辑</button>
+  </view>
 </view>
 
-
-<richText 
-  id='richText' 
-  readOnly='{{readOnly}}'
-  placeholder='{{placeholder}}' 
-  formatDate='YY/MM/DD'
-  buttonTxt='保存'
-  bind:clearBeforeEvent='clearBeforeEvent'
-  bind:clearSuccess='clearSuccess'
-  bind:undo='undo'
-  bind:restore='restore'
-  bind:onEditorReady='onEditorReady' 
-  bind:bindfocus='bindfocus' 
-  bind:bindblur='bindblur' 
-  bind:bindinput='bindinput' 
-  bind:insertImageEvent='insertImageEvent' 
-  bind:getEditorContent='getEditorContent'></richText>
-
-<view class="tip">备注：
-<view>1.改变图片大小，按住节点一小会儿再拖动。</view>
-<view>2.编辑器上的保存是离线保存，希望保存为草稿至服务器，点击页面头部的草稿按钮</view>
+<view wx:if="{{hasContent}}" class="editor_container bg-white padding-left padding-right">
+	<editor id="editor" class="ql-container" read-only bindready="onEditorReady"></editor>
 </view>
-<view class="preview" bindtap="preview">预览</view>
+<view wx:else  class="padding-xl radius shadow shadow-lg bg-white margin-top bg-gray">空内容</view>

@@ -1,11 +1,13 @@
 {
   "pages": [
-    "pages/competition/add/add",
     "pages/index/index",
-    "pages/competition/index/index",
-    "pages/normal/index/index",
     "pages/logs/logs",
-    "pages/register/normal/normal"
+    "pages/normal/index/index",
+    "pages/register/normal/normal",
+    "pages/competition/index/index",
+    "pages/competition/preview/preview",
+    "pages/competition/add/add",
+    "pages/competition/edit/edit"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

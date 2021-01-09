@@ -1,4 +1,8 @@
 /* pages/competition/add/add.wxss */
+page {
+  height: 100%;
+  background-color: #ffffff;
+}
 .cu-form-group .title {
   min-width: calc(4em + 30rpx);
 }
@@ -27,19 +31,19 @@
   border-radius: 30rpx;
 }
 
-.tip{
-  color: #999;
-  font-size: 24rpx;
-  padding: 0 20rpx 20rpx 20rpx;
+.container {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%;
 }
-.preview{
-  width: 80%;
-  height: 80rpx;
-  line-height: 80rpx;
-  margin: 0 auto;
-  margin-bottom: 50rpx;
-  text-align: center;
-  font-size:26rpx;
-  color: #ffffff;
-  background-color: #bf98d2;
+
+.ql-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow: auto;
+  padding: 10px 10px 20px 10px;
 }

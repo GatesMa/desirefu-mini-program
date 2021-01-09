@@ -1,0 +1,7 @@
+<cu-custom bgColor="bg-gradual-tx-blue" isBack="{{true}}">
+  <view slot="backText">预览</view>
+</cu-custom>
+
+<view class="editor_container bg-white padding-left padding-right">
+	<editor id="editor" class="ql-container" read-only bindready="onEditorReady"></editor>
+</view>

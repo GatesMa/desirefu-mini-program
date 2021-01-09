@@ -1,4 +1,7 @@
 const supportDateFormat = ['YY-MM', 'YY.MM.DD', 'YY-MM-DD', 'YY/MM/DD', 'YY.MM.DD HH:MM', 'YY/MM/DD HH:MM', 'YY-MM-DD HH:MM']; //支持的日期格式
+
+const app = getApp();
+
 Component({
   /**
    * 组件的属性列表
@@ -31,6 +34,10 @@ Component({
   data: {
     formats: {}, //样式集合
     textTool: false, //文本工具是否显示，默认隐藏
+
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    Custom: app.globalData.Custom
   },
 
   /**
@@ -73,19 +80,27 @@ Component({
       this.createSelectorQuery().select('#editor').context(res => {
         console.log('createSelectorQuery=>', res)
         this.editorCtx = res.context;
-        let rtTxt = '';
-        this.setContents(rtTxt); //设置富文本内容
       }).exec();
     },
 
     //设置富文本内容
     setContents(rechtext) {
-      this.editorCtx.setContents({
-        html: rechtext,
-        success: res => {
-          console.log('[setContents success]', res)
-        }
-      })
+      if (this.editorCtx == null) {
+        this.createSelectorQuery().select('#editor').context(res => {
+          console.log('createSelectorQuery=>', res)
+          this.editorCtx = res.context;
+          this.setContents(rechtext); //设置富文本内容
+        }).exec();
+      } else {
+        this.editorCtx.setContents({
+          html: rechtext,
+          success: res => {
+            console.log('[setContents success]', res)
+            console.log('rechtext:', rechtext)
+          }
+        })
+      }
+      
     },
 
     //撤销
