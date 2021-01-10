@@ -13,8 +13,10 @@ Page({
     openId: '',
     userId: '',
     canLoginAccountData: [], // 用户可以登陆的账号列表s
+
+    grant: true, // 是否已经授权
   },
-  navigateToSystem: function(e) {
+  navigateToSystem: function (e) {
     var item = e.currentTarget.dataset.item
     // 全局设置account信息
     app.globalData.account = item
@@ -35,13 +37,91 @@ Page({
     })
   },
   onLoad: function () {
+    this.grantUserInfo().then(res => {
+      if (res) {
+        // 已经有授权
+        this.setData({
+          grant: true
+        })
+        this.init()
+      } else {
+        // 没有授权，展示授权窗口
+        this.setData({
+          grant: false
+        })
+      }
+    })
+    
+
+  },
+
+  // 查询是否已授权，如果没有授权，展示授权按钮
+  grantUserInfo() {
+    return new Promise((resolve, reject) => {
+      wx.getSetting({
+        success: res => {
+          if (res.authSetting['scope.userInfo']) {
+            console.log('已授权用户信息')
+            resolve(true);
+          } else {
+            console.log('没有授权')
+            resolve(false);
+          }
+        },
+        fail: err => {
+          reject(err)
+        }
+      })
+    })
+    
+  },
+
+  getUserInfo(e) {
+    // 权限检测，是否已授权，防止用户点击拒绝
+    let that = this;
+    // 获取用户信息
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          console.log("=====已授权=====")
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          console.log(e)
+          app.globalData.userInfo = e.detail.userInfo
+          // 设置信息，取消模态框
+          that.setData({
+            userInfo: e.detail.userInfo,
+            hasUserInfo: true,
+            grant: true
+          })
+          // 执行init方法，调用后端接口获取user绑定的账号信息、openid等
+          that.init()
+        } else {
+          console.log("=====未授权=====")
+          wx.showModal({
+            title: '拜托了',
+            content: '不授权真的用不了',
+            showCancel: false,
+            success (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          })
+        }
+      }
+    })
+
+
+  },
+
+  init() {
     this.setData({
       loadModal: true
     })
-    console.log('1:'  + new Date())
+    console.log('1:' + new Date())
     // 1. 获取userInfo、openId、userId
     app.getUserInfo().then(() => {
-      console.log('2:'  + new Date())
+      console.log('2:' + new Date())
       // console.log('userInfo index:' + app.globalData.userInfo.nickName)
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -49,7 +129,7 @@ Page({
       })
       // 2. 获取openId,等待app.js回调完成
       app.wxLogin().then(() => {
-        console.log('3:'  + new Date())
+        console.log('3:' + new Date())
         // console.log('openId index:' + app.globalData.openId)
         this.setData({
           openId: app.globalData.openId,
@@ -57,7 +137,7 @@ Page({
         if (app.globalData.openId) {
           // 3. 获取userId
           app.getUserId(app.globalData.openId).then(() => {
-            console.log('4:'  + new Date())
+            console.log('4:' + new Date())
             // console.log('userId index:' + app.globalData.userId)
             this.setData({
               userId: app.globalData.userId,
@@ -74,7 +154,7 @@ Page({
                 'Accept': 'application/json'
               },
               success: (res) => {
-                console.log('5:'  + new Date())
+                console.log('5:' + new Date())
                 var canLoginAccountData = res.data.data
                 this.setData({
                   canLoginAccountData: canLoginAccountData
@@ -98,10 +178,9 @@ Page({
         }
       })
     })
-
-
-
   },
+
+
   tabSelect(e) {
     this.setData({
       TabCur: e.currentTarget.dataset.id,
@@ -121,7 +200,7 @@ Page({
         content: '一个微信号只能创建或绑定一个学生账号',
         showCancel: false,
         confirmText: '收到',
-        success (res) {
+        success(res) {
           if (res.confirm) {
             console.log('用户点击确定')
           } else if (res.cancel) {
@@ -141,7 +220,7 @@ Page({
       content: '申请比赛创建者账号请发邮件至开发者邮箱申请',
       showCancel: false,
       confirmText: '收到',
-      success (res) {
+      success(res) {
         if (res.confirm) {
           console.log('用户点击确定')
         } else if (res.cancel) {
@@ -156,7 +235,7 @@ Page({
       content: '申请运营人员账号请发邮件至开发者邮箱申请',
       showCancel: false,
       confirmText: '收到',
-      success (res) {
+      success(res) {
         if (res.confirm) {
           console.log('用户点击确定')
         } else if (res.cancel) {

@@ -128,14 +128,28 @@ Component({
     },
     attached: function () {
       this.fillCompetitions()
+      console.log('attached')
     },
     moved: function () {
-
     },
     detached: function () {
-
     },
   },
+
+  pageLifetimes: {
+    show: function() {
+      // 页面被展示
+      console.log('show')
+      this.fillCompetitions()
+    },
+    hide: function() {
+      // 页面被隐藏
+    },
+    resize: function(size) {
+      // 页面尺寸变化
+    }
+  },
+
 
   /**
    * 组件的方法列表

@@ -10,6 +10,24 @@
   <view class='gray-text'>加载中...</view>
 </view>
 
+<view class="cu-modal {{!grant?'show':''}}">
+  <view class="cu-dialog">
+    <view class="solids-bottom padding-xs flex align-center">
+      <view class="flex-sub text-center">
+        <view class="solid-bottom padding">
+          <text>需要授权才能继续</text>
+        </view>
+        <view class="padding">
+          <button class="cu-btn line-blue" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权用户信息 </button>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="padding-xl">
+      <button class="cu-btn " open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权用户信息 </button>
+    </view> -->
+  </view>
+</view>
+
 <!--页面根标签-->
 <view class="baseImg">
   <!--pics文件夹下的background.jpg文件-->
@@ -46,26 +64,26 @@
   <view wx:else class="cu-list menu sm-border card-menu margin-top radius shadow-warp bg-white margin-top">
     <view class="cu-item arrow content flex" wx:for="{{canLoginAccountData[TabCur].account_list}}" wx:key="account_id"
       wx:for-index="idx" wx:for-item="item" data-item="{{item}}" catchtap="navigateToSystem">
-        <block>
-          <view wx:if="{{item.account_status==0}}">
-            <text class="cuIcon-info text-orange"></text>
-          </view>
-          <view wx:elif="{{item.account_status==1}}">
-            <text class="cuIcon-roundcheck lg text-blue"></text>
-          </view>
-          <view wx:elif="{{item.account_status==2}}">
-            <text class="cuIcon-warn text-red"></text>
-          </view>
-          <view wx:elif="{{item.account_status==3}}">
-            <text class="cuIcon-lock text-black"></text>
-          </view>
-          <view wx:else>
-            <text class="cuIcon-question text-grey"></text>
-          </view>
-        </block>
-        <view class="flex-treble padding-sm margin-xs radius text-black text-cut">{{item.account_name}}</view>
-        <view class="flex-sub padding-sm margin-xs radius text-grey text-xs">ID:{{item.account_id}}</view>
-        <view class="flex-sub padding-sm margin-xs radius text-grey text-xs">{{item.role_name}}</view>
+      <block>
+        <view wx:if="{{item.account_status==0}}">
+          <text class="cuIcon-info text-orange"></text>
+        </view>
+        <view wx:elif="{{item.account_status==1}}">
+          <text class="cuIcon-roundcheck lg text-blue"></text>
+        </view>
+        <view wx:elif="{{item.account_status==2}}">
+          <text class="cuIcon-warn text-red"></text>
+        </view>
+        <view wx:elif="{{item.account_status==3}}">
+          <text class="cuIcon-lock text-black"></text>
+        </view>
+        <view wx:else>
+          <text class="cuIcon-question text-grey"></text>
+        </view>
+      </block>
+      <view class="flex-treble padding-sm margin-xs radius text-black text-cut">{{item.account_name}}</view>
+      <view class="flex-sub padding-sm margin-xs radius text-grey text-xs">ID:{{item.account_id}}</view>
+      <view class="flex-sub padding-sm margin-xs radius text-grey text-xs">{{item.role_name}}</view>
     </view>
   </view>
 

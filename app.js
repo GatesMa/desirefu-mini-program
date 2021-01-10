@@ -128,9 +128,12 @@ App({
   // getUser，通过电话，名称等信息，获取user
   getUserInfo() {
     return new Promise((resolve, reject) => {
+      console.log('getUserInfo')
       wx.getSetting({
         success: res => {
+          console.log('getUserInfo 1 ', res.authSetting['scope.userInfo'])
           if (res.authSetting['scope.userInfo']) {
+            console.log('getUserInfo 2')
             // 1. 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
             wx.getUserInfo({
               success: res => {
@@ -147,6 +150,7 @@ App({
           }
         },
         fail: (err) => {
+          console.log('getUserInfo 3')
           reject(err);
         }
       })

@@ -38,7 +38,7 @@ Page({
 
     hasContent: false, // 文本框是否有内容
 
-    status: 0// 是否草稿
+    status: 0 // 是否草稿
   },
 
   navToEdit() {
@@ -91,6 +91,29 @@ Page({
     })
   },
 
+  // 发布按钮
+  publish() {
+    var that = this
+    //设置status为非草稿，待审核状态
+    that.setData({
+      status: 1
+    }, () => {
+      console.log(that.data.status)
+      this.createCompetition()
+    })
+  },
+
+  draft() {
+    var that = this
+    //设置status为草稿状态
+    that.setData({
+      status: 0
+    }, () => {
+      console.log(that.data.status)
+      this.createCompetition()
+    })
+  },
+
   // 创建比赛，发起请求
   createCompetition() {
     var type = this.data.type
@@ -115,7 +138,7 @@ Page({
 
     console.log('发起注册网络请求')
     wx.request({
-      url: app.globalData.baseUrl + '/desire_fu/v1/competition/add', 
+      url: app.globalData.baseUrl + '/desire_fu/v1/competition/add',
       method: 'POST',
       data: {
         account_id: app.globalData.account.account_id,
@@ -140,12 +163,15 @@ Page({
           icon: 'success',
           duration: 1000
         })
-
+        // 请求成功，back到首页
+        wx.navigateBack({
+          delta: 1
+        });
       }
     })
   },
 
-  
+
 
   /**
    * 生命周期函数--监听页面加载

@@ -40,7 +40,7 @@
     "useApiHostProcess": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.14.1",
+  "libVersion": "2.14.3",
   "appid": "wx8de0474336dab069",
   "projectname": "desirefu-mini-program",
   "debugOptions": {

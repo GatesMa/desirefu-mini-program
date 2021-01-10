@@ -1,7 +1,7 @@
 /* pages/competition/add/add.wxss */
 page {
   height: 100%;
-  background-color: #ffffff;
+  background-color: #f8f8f8;
 }
 .cu-form-group .title {
   min-width: calc(4em + 30rpx);
