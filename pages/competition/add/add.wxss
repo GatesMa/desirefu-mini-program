@@ -7,6 +7,12 @@ page {
   min-width: calc(4em + 30rpx);
 }
 
+.tip{
+  color: #999;
+  font-size: 24rpx;
+  padding: 0 20rpx 20rpx 20rpx;
+}
+
 /* 日期选择 */
 .picker_group {
   height: 85rpx;

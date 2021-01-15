@@ -1,6 +1,7 @@
 // pages/competition/edit/edit.js
 const app = getApp();
 let richText = null; //富文本编辑器实例
+var common = require("../../../common.js")
 
 Page({
 
@@ -53,14 +54,14 @@ Page({
   },
 
   //清空编辑器事件
-  clearBeforeEvent(){
+  clearBeforeEvent() {
     console.log('[clearBeforeEvent callback]')
     wx.showModal({
       cancelText: '取消',
       confirmText: '确认',
       content: '确认清空编辑器内容吗？',
       success: (result) => {
-        if(result.confirm){
+        if (result.confirm) {
           richText.clear();
         }
       },
@@ -69,7 +70,7 @@ Page({
   },
 
   //清空编辑器成功回调
-  clearSuccess(){
+  clearSuccess() {
     console.log('[clearSuccess callback]')
   },
 
@@ -83,13 +84,22 @@ Page({
     wx.chooseImage({
       count: 1,
       success: res => {
-        let path = res.tempFilePaths[0];
-        //调用子组件方法，图片应先上传再插入，不然预览时无法查看图片。
-        richText.insertImageMethod(path).then(res => {
-          console.log('[insert image success callback]=>', res)
-        }).catch(res => {
-          console.log('[insert image fail callback]=>', res)
-        });
+        // 上传获取url
+        common.uploadFile(res.tempFilePaths[0], 'IMG').then((url) => {
+          //调用子组件方法，图片应先上传再插入，不然预览时无法查看图片。
+          richText.insertImageMethod(url).then(res => {
+            console.log('[insert image success callback]=>', res)
+          }).catch(res => {
+            console.log('[insert image fail callback]=>', res)
+          });
+        }).catch(() => {
+          wx.showToast({
+            title: '出现问题',
+            icon: 'none',
+            duration: 1000
+          })
+        })
+
       }
     })
   },
@@ -141,7 +151,7 @@ Page({
   },
 
   //预览富文本
-  preview(){
+  preview() {
     wx.navigateTo({
       url: `../preview/preview`,
     })
@@ -158,7 +168,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**

@@ -107,9 +107,9 @@
       <view class="text-cut">{{item.title}}</view>
     </view>
     <view class="content">
-      <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFill"></image>
+      <image wx:if="{{item.overview_img}}" src="{{item.overview_img}}" mode="aspectFill"></image>
       <view class="desc">
-        <view class="text-content">{{item.content}}</view>
+        <view class="text-content">{{item.overview_text}}</view>
         <!-- 标签 -->
         <view>
           <view wx:if="{{item.type==4}}" class="cu-tag bg-red light sm round">国际级</view>

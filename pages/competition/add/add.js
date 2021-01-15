@@ -1,6 +1,7 @@
 // pages/competition/add/add.js
 const app = getApp();
 let richText = null; //富文本编辑器实例
+var common = require("../../../common.js")
 
 Page({
 
@@ -38,7 +39,58 @@ Page({
 
     hasContent: false, // 文本框是否有内容
 
-    status: 0 // 是否草稿
+    status: 0, // 是否草稿
+
+    overviewImgList: [], // 概览图片
+    overviewText: '', // 概览文字
+  },
+
+  // 图片选择框
+  ChooseImage() {
+    wx.chooseImage({
+      count: 4, //默认9
+      sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album'], //从相册选择
+      success: (res) => {
+        if (this.data.overviewImgList.length != 0) {
+          this.setData({
+            overviewImgList: this.data.overviewImgList.concat(res.tempFilePaths)
+          })
+        } else {
+          this.setData({
+            overviewImgList: res.tempFilePaths
+          })
+        }
+      }
+    });
+  },
+  ViewImage(e) {
+    wx.previewImage({
+      urls: this.data.overviewImgList,
+      current: e.currentTarget.dataset.url
+    });
+  },
+  DelImg(e) {
+    wx.showModal({
+      title: '你好',
+      content: '确定要删除这张图片吗？',
+      cancelText: '再看看',
+      confirmText: '再见',
+      success: res => {
+        if (res.confirm) {
+          this.data.overviewImgList.splice(e.currentTarget.dataset.index, 1);
+          this.setData({
+            overviewImgList: this.data.overviewImgList
+          })
+        }
+      }
+    })
+  },
+  // 概要文本
+  overviewInput(e) {
+    this.setData({
+      overviewText: e.detail.value
+    })
   },
 
   navToEdit() {
@@ -132,25 +184,51 @@ Page({
     if (!isProblem) {
       return
     }
-
+    // 打印参数
     console.log(type, begin_time, end_time, title, founder, account_id, account_type, userId, status)
+    console.log(this.data.overviewImgList)
+    console.log(this.data.overviewText)
     console.log('content:', content)
+    // 打印参数
 
     console.log('发起注册网络请求')
+
+    var overviewText = this.data.overviewText
+
+    if (this.data.overviewImgList.length != 0) {
+      // 如果有概要图片，先上传，获取上传链接
+      common.uploadFile(this.data.overviewImgList[0], 'IMG').then((url) => {
+        this.requestCreateCompe(account_id, account_type, begin_time, end_time, content, founder, status, title, type, userId, url, overviewText)
+      }).catch(()=> {
+        wx.showToast({
+          title: '出现问题',
+          icon: 'none',
+          duration: 1000
+        })
+      })
+    } else {
+      this.requestCreateCompe(account_id, account_type, begin_time, end_time, content, founder, status, title, type, userId, '', overviewText)
+    }
+    
+  },
+
+  requestCreateCompe(account_id, account_type, begin_time, end_time, richTextContents, founder, status, title, type, userId, overviewImg, overviewText) {
     wx.request({
       url: app.globalData.baseUrl + '/desire_fu/v1/competition/add',
       method: 'POST',
       data: {
-        account_id: app.globalData.account.account_id,
-        account_type: app.globalData.account.account_type,
-        begin_time: this.data.begin_time,
-        end_time: this.data.end_time,
-        content: app.data.richTextContents,
-        founder: this.data.founder,
-        status: this.data.status,
-        title: this.data.title,
-        type: this.data.type,
-        user_id: app.globalData.userId
+        account_id: account_id,
+        account_type: account_type,
+        begin_time: begin_time,
+        end_time: end_time,
+        content: richTextContents,
+        founder: founder,
+        status: status,
+        title: title,
+        type: type,
+        user_id: userId,
+        overview_img: overviewImg,
+        overview_text: overviewText
       },
       header: {
         'content-type': 'application/json',
@@ -163,6 +241,8 @@ Page({
           icon: 'success',
           duration: 1000
         })
+        // app.data.richTextContents 设置为空
+        app.data.richTextContents = ''
         // 请求成功，back到首页
         wx.navigateBack({
           delta: 1
