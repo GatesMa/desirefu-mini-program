@@ -9,8 +9,9 @@
     <text class="text-ABC text-blue">Competition</text>
   </view>
   <view class="action">
-    <button class="cu-btn round line-green" bindtap="draft">草稿</button>
-    <button class="cu-btn round line-blue margin-left" bindtap="publish">发布</button>
+    <button class="cu-btn round line-yellow" bindtap="preview">预览</button>
+    <button class="cu-btn round line-green margin-left-sm" bindtap="draft">草稿</button>
+    <button class="cu-btn round line-blue margin-left-sm" bindtap="publish">发布</button>
   </view>
 </view>
 

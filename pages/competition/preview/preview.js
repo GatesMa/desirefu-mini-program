@@ -7,7 +7,8 @@ Page({
    */
   data: {
     type: 1,
-    competition: {}
+    competition: {},
+    isPre: false // 是否是预览
   },
 
   /**
@@ -15,9 +16,12 @@ Page({
    */
   onLoad: function (options) {
     var competition = JSON.parse(decodeURIComponent(options.competition));//解析得到对象
+    var isPre = options.isPre == 'true' // 是否预览
     console.log(competition)
+    console.log(isPre)
     this.setData({
-      competition: competition
+      competition: competition,
+      isPre: isPre
     })
     // 设置富文本的值
     wx.createSelectorQuery().select('#editor').context(res => {

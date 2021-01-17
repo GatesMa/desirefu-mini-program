@@ -166,6 +166,19 @@ Page({
     })
   },
 
+  // 预览修改
+  preview() {
+    var competition = {}
+    competition.title = this.data.title ? this.data.title : 'xxxxx'
+    competition.founder = this.data.founder ? this.data.founder : 'xxxxx'
+    competition.created_ime = '2020-01-01 xx:xx:xx'
+    competition.type = this.data.type
+    competition.content = app.data.richTextContents
+    wx.navigateTo({
+      url: '/pages/competition/preview/preview?isPre=true&competition=' + encodeURIComponent(JSON.stringify(competition))
+    })
+  },
+
   // 创建比赛，发起请求
   createCompetition() {
     var type = this.data.type
