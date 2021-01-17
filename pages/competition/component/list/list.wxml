@@ -1,6 +1,6 @@
 <!--pages/competition/component/list/list.wxml-->
-<cu-custom bgColor="tx-blue" isBack="{{false}}">
-  <view slot="title">比赛管理</view>
+<cu-custom bgColor="tx-blue" isBack="{{true}}">
+  <view slot="backText">比赛管理</view>
 </cu-custom>
 
 <view class="padding  text-center text-grey bg-white shadow-warp">
@@ -141,7 +141,7 @@
 <!-- 卡片 -->
 <view class="cu-card article ">
   <view class="cu-item shadow solid-bottom" wx:for="{{competitions}}" wx:key="competition_id" wx:for-index="idx"
-    wx:for-item="item">
+    wx:for-item="item" bindtap="navToPreview" data-item="{{item}}">
     <view class="title">
       <view class="text-cut">{{item.title}}</view>
     </view>

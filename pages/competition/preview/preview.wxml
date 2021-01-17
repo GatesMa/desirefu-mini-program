@@ -2,6 +2,30 @@
   <view slot="backText">预览</view>
 </cu-custom>
 
+<view class="text-xxl margin-left margin-top margin-right">
+  {{competition.title}}
+</view>
+
+<view class="flex p-xs margin-sm text-sm">
+  <view class="flex-sub margin-xs radius text-cut text-gray">
+    {{competition.founder}}
+  </view>
+  <view class="flex-sub margin-xs radius text-right text-gray">{{competition.created_ime}}</view>
+</view>
+
+<scroll-view scroll-x class="nav padding-left padding-bottom=text-sm" scroll-with-animation >
+  <view class="cu-tag text-gray radius">原创</view>
+
+  <view wx:if="{{type==4}}" class="cu-tag bg-red light radius">国际级</view>
+  <view wx:elif="{{type==3}}" class="cu-tag bg-orange light radius">国家级</view>
+  <view wx:elif="{{type==2}}" class="cu-tag bg-blue light radius">省级</view>
+  <view wx:elif="{{type==1}}" class="cu-tag bg-green light radius">校级</view>
+  <view wx:elif="{{type==0}}" class="cu-tag bg-brown light radius">院级</view>
+
+  <view class="cu-tag bg-brown light radius">官方</view>
+  
+</scroll-view>
+
 <view class="editor_container bg-white padding-left padding-right">
-	<editor id="editor" class="ql-container" read-only bindready="onEditorReady"></editor>
+  <editor id="editor" class="ql-container" read-only bindready="onEditorReady"></editor>
 </view>

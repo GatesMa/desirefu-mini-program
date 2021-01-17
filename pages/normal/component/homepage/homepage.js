@@ -336,6 +336,13 @@ Component({
         })
       })
 
+    },
+
+    // 跳转到详情页面
+    navToPreview(e) {
+      wx.navigateTo({
+        url: '/pages/competition/preview/preview?competition=' + encodeURIComponent(JSON.stringify(e.currentTarget.dataset.item))
+      })
     }
 
   }

@@ -130,22 +130,20 @@ Component({
       this.fillCompetitions()
       console.log('attached')
     },
-    moved: function () {
-    },
-    detached: function () {
-    },
+    moved: function () {},
+    detached: function () {},
   },
 
   pageLifetimes: {
-    show: function() {
+    show: function () {
       // 页面被展示
       console.log('show')
       this.fillCompetitions()
     },
-    hide: function() {
+    hide: function () {
       // 页面被隐藏
     },
-    resize: function(size) {
+    resize: function (size) {
       // 页面尺寸变化
     }
   },
@@ -333,6 +331,13 @@ Component({
         })
       })
 
+    },
+
+    // 跳转到详情页面
+    navToPreview(e) {
+      wx.navigateTo({
+        url: '/pages/competition/preview/preview?competition=' + encodeURIComponent(JSON.stringify(e.currentTarget.dataset.item))
+      })
     }
   }
 })

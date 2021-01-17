@@ -5,9 +5,9 @@
     "pages/normal/index/index",
     "pages/register/normal/normal",
     "pages/competition/index/index",
-    "pages/competition/preview/preview",
     "pages/competition/add/add",
-    "pages/competition/edit/edit"
+    "pages/competition/edit/edit",
+    "pages/competition/preview/preview"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
