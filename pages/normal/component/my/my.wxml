@@ -1,6 +1,45 @@
-<cu-custom bgColor="tx-blue" isBack="{{false}}">
-  <view slot="title">DesireFU</view>
-</cu-custom>
-<view class="component_my_wrapper text-center">
-  <text class="title">My</text>
-</view>
+<!--pages/competition/component/my/my.wxml-->
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg">
+    <image src="{{userInfo.avatarUrl}}" class="png round" mode="widthFix"></image>  
+    <view class="text-xl">学生账号(ID：{{account.account_id}})
+      <!-- <text class="text-df">v2.0</text> -->
+    </view>
+    <view class="margin-top-sm">
+      <text>{{userInfo.nickName}}</text>
+    </view>
+    <image src="/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-warp radius">
+    <view class="cu-item arrow">
+      <view class="content" bindtap="navToAddCompetition">
+        <text class="cuIcon-people text-blue"></text>
+        <text class="text-grey">账号信息</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/log/log" hover-class="none">
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">开发日志</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="showQrcode">
+        <text class="cuIcon-appreciatefill text-red"></text>
+        <text class="text-grey">赞赏支持</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="feedback">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">意见反馈</text>
+      </button>
+    </view>
+    <!-- <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/test/list" hover-class="none">
+        <text class="cuIcon-creativefill text-orange"></text>
+        <text class="text-grey">Bug测试</text>
+      </navigator>
+    </view> -->
+  </view>
+</scroll-view>

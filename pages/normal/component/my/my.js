@@ -1,41 +1,66 @@
 var app = getApp();
 
 Component({
-
-  /* 开启全局样式设置 */
   options: {
     addGlobalClass: true,
   },
-
-  /* 组件的属性列表 */
-  properties: {
-    name: {
-      type: String,
-      value: 'My'
-    }
-  },
-
-  /* 组件的初始数据 */
   data: {
+    userInfo: null, // 用户信息
+    account: null, // 账号信息
+    starCount: 0,
+    forksCount: 0,
+    visitTotal: 0,
+  },
+  attached() {
+    // 设置用户信息
+    this.setData({
+      userInfo: app.globalData.userInfo,
+      account: app.globalData.account,
+    })
+    console.log(app.globalData.account)
 
   },
-
-  /* 组件声明周期函数 */
-  lifetimes: {
-    attached: function () {
-
-    },
-    moved: function () {
-
-    },
-    detached: function () {
-
-    },
-  },
-
-  /* 组件的方法列表 */
   methods: {
-
+    coutNum(e) {
+      if (e > 1000 && e < 10000) {
+        e = (e / 1000).toFixed(1) + 'k'
+      }
+      if (e > 10000) {
+        e = (e / 10000).toFixed(1) + 'W'
+      }
+      return e
+    },
+    CopyLink(e) {
+      wx.setClipboardData({
+        data: e.currentTarget.dataset.link,
+        success: res => {
+          wx.showToast({
+            title: '已复制',
+            duration: 1000,
+          })
+        }
+      })
+    },
+    showModal(e) {
+      this.setData({
+        modalName: e.currentTarget.dataset.target
+      })
+    },
+    hideModal(e) {
+      this.setData({
+        modalName: null
+      })
+    },
+    showQrcode() {
+      wx.previewImage({
+        urls: ['https://gatesma.cn/myfile/desirefu/img/zanCode.png'],
+        current: 'https://gatesma.cn/myfile/desirefu/img/zanCode.png' // 当前显示图片的http链接      
+      })
+    },
+    navToAddCompetition() {
+      wx.navigateTo({
+        url: `/pages/competition/add/add`,
+      })
+    }
   }
-
 })
