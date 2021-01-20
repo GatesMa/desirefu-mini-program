@@ -16,8 +16,23 @@
     <text class="text-black">基本信息</text>
   </view>
   <view class="action padding-right">
-    <text class="text-blue">审核通过</text>
+    <view wx:if="{{account_status==0}}">
+      <text class="cuIcon-info text-orange"> 待审核</text>
+    </view>
+    <view wx:elif="{{account_status==1}}">
+      <text class="cuIcon-roundcheck lg text-blue"> 审核通过</text>
+    </view>
+    <view wx:elif="{{account_status==2}}">
+      <text class="cuIcon-warn text-red"> 审核不通过</text>
+    </view>
+    <view wx:elif="{{account_status==3}}">
+      <text class="cuIcon-lock text-black"> 冻结</text>
+    </view>
+    <view wx:else>
+      <text class="cuIcon-question text-grey"> 未知</text>
+    </view>
   </view>
+
 </view>
 <view class="cu-list menu">
   <view class="cu-item">
@@ -25,7 +40,7 @@
       <text class="text-gray">账号ID</text>
     </view>
     <view class="action  padding-right">
-      <text class="text-black">10000001</text>
+      <text class="text-black">{{normalAccount.account_id}}</text>
     </view>
   </view>
   <view class="cu-item">
@@ -33,7 +48,7 @@
       <text class="text-gray">学校</text>
     </view>
     <view class="action  padding-right">
-      <text class="text-black">四川大学</text>
+      <text class="text-black">{{normalAccount.college_name}}</text>
     </view>
   </view>
   <view class="cu-item">
@@ -41,7 +56,7 @@
       <text class="text-gray">学院</text>
     </view>
     <view class="action  padding-right">
-      <text class="text-black">计算机学院</text>
+      <text class="text-black">{{normalAccount.department_name}}</text>
     </view>
   </view>
   <view class="cu-item">
@@ -49,7 +64,7 @@
       <text class="text-gray">专业</text>
     </view>
     <view class="action  padding-right">
-      <text class="text-black">计算机科学与技术</text>
+      <text class="text-black">{{normalAccount.major}}</text>
     </view>
   </view>
   <view class="cu-item">
@@ -57,7 +72,7 @@
       <text class="text-gray">姓名</text>
     </view>
     <view class="action  padding-right">
-      <text class="text-black">马保国</text>
+      <text class="text-black">{{normalAccount.real_name}}</text>
     </view>
   </view>
   <view class="cu-item">
@@ -65,7 +80,7 @@
       <text class="text-gray">学号</text>
     </view>
     <view class="action  padding-right">
-      <text class="text-black">2017141461189</text>
+      <text class="text-black">{{normalAccount.stu_id}}</text>
     </view>
   </view>
 </view>

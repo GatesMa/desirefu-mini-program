@@ -12,7 +12,7 @@
   </view>
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-warp radius">
     <view class="cu-item arrow">
-      <view class="content" bindtap="navToAddCompetition">
+      <view class="content" bindtap="navToProfile">
         <text class="cuIcon-people text-blue"></text>
         <text class="text-grey">账号信息</text>
       </view>

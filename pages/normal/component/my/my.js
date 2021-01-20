@@ -57,9 +57,9 @@ Component({
         current: 'https://gatesma.cn/myfile/desirefu/img/zanCode.png' // 当前显示图片的http链接      
       })
     },
-    navToAddCompetition() {
+    navToProfile() {
       wx.navigateTo({
-        url: `/pages/competition/add/add`,
+        url: `/pages/normal/profile/profile`,
       })
     }
   }
