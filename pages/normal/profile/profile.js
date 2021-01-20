@@ -10,7 +10,6 @@ Page({
   data: {
     normalAccount: {},
     account_status: 0
-
   },
 
   /**
