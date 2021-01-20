@@ -1,0 +1,11 @@
+/* pages/normal/profile/profile.wxss */
+
+page {
+  background-color: #f8f8f8;
+}
+
+.tip{
+  color: #999;
+  font-size: 24rpx;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+}

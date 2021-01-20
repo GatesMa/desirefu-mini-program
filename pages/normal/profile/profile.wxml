@@ -1,0 +1,76 @@
+<!--pages/normal/profile/profile.wxml-->
+<cu-custom bgColor="bg-gradual-tx-blue" isBack="{{true}}">
+  <view slot="backText">账号信息</view>
+</cu-custom>
+
+<view class="cu-bar bg-white">
+  <view class="action border-title">
+    <text class="text-xl text-bold text-blue">学生账号</text>
+    <text class="bg-gradual-blue" style="width:3rem"></text>
+  </view>
+</view>
+
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>
+    <text class="text-black">基本信息</text>
+  </view>
+  <view class="action padding-right">
+    <text class="text-blue">审核通过</text>
+  </view>
+</view>
+<view class="cu-list menu">
+  <view class="cu-item">
+    <view class="content padding-left">
+      <text class="text-gray">账号ID</text>
+    </view>
+    <view class="action  padding-right">
+      <text class="text-black">10000001</text>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content padding-left">
+      <text class="text-gray">学校</text>
+    </view>
+    <view class="action  padding-right">
+      <text class="text-black">四川大学</text>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content padding-left">
+      <text class="text-gray">学院</text>
+    </view>
+    <view class="action  padding-right">
+      <text class="text-black">计算机学院</text>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content padding-left">
+      <text class="text-gray">专业</text>
+    </view>
+    <view class="action  padding-right">
+      <text class="text-black">计算机科学与技术</text>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content padding-left">
+      <text class="text-gray">姓名</text>
+    </view>
+    <view class="action  padding-right">
+      <text class="text-black">马保国</text>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content padding-left">
+      <text class="text-gray">学号</text>
+    </view>
+    <view class="action  padding-right">
+      <text class="text-black">2017141461189</text>
+    </view>
+  </view>
+</view>
+<view class="tip margin-left">
+  <view>1.基本信息在填写完成之后不支持个人修改</view>
+  <view>2.个人信息需要经过相关负责人审核</view>
+  <view>3.修改个人信息后需要重新审核账号</view>
+</view>
