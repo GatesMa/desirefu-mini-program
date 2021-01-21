@@ -3,7 +3,7 @@
   <view slot="backText">比赛管理</view>
 </cu-custom>
 
-<view class="padding  text-center text-grey bg-white shadow-warp">
+<view class="padding text-center text-grey bg-white shadow-warp">
   <view class="flex">
     <view class="flex flex-sub flex-direction solid-right">
       <view class="text-xxl text-orange">12</view>

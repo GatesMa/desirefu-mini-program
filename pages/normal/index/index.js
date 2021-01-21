@@ -9,12 +9,12 @@ Page({
     items: [{
         "iconPath": "/images/tabbar/info.png",
         "selectedIconPath": "/images/tabbar/info-selec.png",
-        "text": "比赛"
+        "text": "首页"
       },
       {
         "iconPath": "/images/tabbar/search.png",
         "selectedIconPath": "/images/tabbar/search-selec.png",
-        "text": "组队"
+        "text": "广场"
       },
       {
         "iconPath": "/images/tabbar/usercenter.png",

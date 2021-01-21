@@ -1,7 +1,7 @@
 var app = getApp();
 
 Component({
-  
+
   /* 开启全局样式设置 */
   options: {
     addGlobalClass: true,
@@ -76,31 +76,39 @@ Component({
       url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
     }, {
       id: 1,
-        type: 'image',
-        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
     }, {
       id: 2,
       type: 'image',
       url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
-    }]
+    }],
+
+    hideNotice: false,
   },
 
   /* 组件声明周期函数 */
   lifetimes: {
     attached: function () {
-   
-    },
-    moved: function () { 
 
     },
-    detached: function () { 
+    moved: function () {
+
+    },
+    detached: function () {
 
     },
   },
 
   /* 组件的方法列表 */
   methods: {
-
+    // 关闭通知
+    closeNotice(e) {
+      console.log(e);
+      this.setData({
+        hideNotice: true
+      })
+    },
   }
-  
+
 })
