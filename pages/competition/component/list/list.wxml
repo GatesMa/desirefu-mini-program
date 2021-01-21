@@ -41,15 +41,15 @@
 <view class="padding-top padding-bottom-xs solid-bottom">
   <!-- 第一排 -->
   <view class="padding-left padding-right cu-bar">
-    <button class="cu-btn round text-xs text-grey padding-top-xm" bindtap="showModal" data-target="state"
+    <button class="cu-btn round text-xs text-grey padding-top-xm line-grey" bindtap="showModal" data-target="state"
       style="height:65rpx">
       <text class="cuIcon-unfold"></text>状态：{{stateName}}
     </button>
-    <button class="cu-btn round text-xs text-grey margin-left-sm padding-top-xm" bindtap="showModal" data-target="type"
+    <button class="cu-btn round text-xs text-grey margin-left-sm padding-top-xm line-grey" bindtap="showModal" data-target="type"
       style="height:65rpx">
       <text class="cuIcon-unfold"></text>等级：{{typeName}}
     </button>
-    <button class="cu-btn round text-xs text-grey margin-left-sm padding-top-xm" bindtap="showModal" data-target="sort"
+    <button class="cu-btn round text-xs text-grey margin-left-sm padding-top-xm line-grey" bindtap="showModal" data-target="sort"
       style="height:65rpx">
       <text class="cuIcon-unfold"></text>排序
     </button>
@@ -61,13 +61,13 @@
   <view class="flex">
     <view class="flex-sub cu-bar search">
       <view class="search-form round">
-        <text class="text-xs padding-left-sm text-grey">比赛名称：</text>
+        <text class="text-xs padding-left-sm text-grey solid">比赛名称：</text>
         <input type="text" class="text-xs" data-title='title' bindinput='titleinput' placeholder="-"></input>
       </view>
     </view>
     <view class="flex-sub cu-bar search">
       <view class="search-form round">
-        <text class="text-xs padding-left-sm text-grey">举办方：</text>
+        <text class="text-xs padding-left-sm text-grey solid">举办方：</text>
         <input type="text" class="text-xs" data-title='founder' bindinput='founderinput' placeholder="-"></input>
       </view>
     </view>
@@ -75,7 +75,7 @@
   <!-- 第三排 -->
   <view class="flex  p-xs margin-left margin-right margin-top-sm margin-bottom">
     <view class="flex-sub radius">
-      <button class="cu-btn round text-xs text-grey" bindtap="showModal" data-target="status" style="height:65rpx">
+      <button class="cu-btn round text-xs text-grey line-grey" bindtap="showModal" data-target="status" style="height:65rpx">
         <text class="cuIcon-unfold"></text>是否草稿：{{statusName}}
       </button>
     </view>
