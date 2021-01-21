@@ -24,7 +24,7 @@
   </view>
 
 
-  <view class="margin-top">
+  <view class="margin-top solid-bottom">
     <!-- <view class="text-xl padding">
     <text class="cuIcon-titles text-blue"></text>
     <text class="text-black text-bold">请选择账号进行登陆</text>
@@ -104,7 +104,7 @@
   </view>
 
   <view class="cu-card article ">
-    <view class="padel cu-item shadow" wx:for="{{competitions}}" wx:key="competition_id" wx:for-index="idx"
+    <view class="padel cu-item shadow solid-bottom" wx:for="{{competitions}}" wx:key="competition_id" wx:for-index="idx"
       wx:for-item="item" bindtap="navToPreview" data-item="{{item}}">
       <view class="title">
         <view class="text-cut">{{item.title}}</view>

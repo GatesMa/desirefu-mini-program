@@ -60,14 +60,14 @@
   <!-- 第二排 -->
   <view class="flex">
     <view class="flex-sub cu-bar search">
-      <view class="search-form round">
-        <text class="text-xs padding-left-sm text-grey solid">比赛名称：</text>
+      <view class="search-form round solid">
+        <text class="text-xs padding-left-sm text-grey ">比赛名称：</text>
         <input type="text" class="text-xs" data-title='title' bindinput='titleinput' placeholder="-"></input>
       </view>
     </view>
     <view class="flex-sub cu-bar search">
-      <view class="search-form round">
-        <text class="text-xs padding-left-sm text-grey solid">举办方：</text>
+      <view class="search-form round solid">
+        <text class="text-xs padding-left-sm text-grey ">举办方：</text>
         <input type="text" class="text-xs" data-title='founder' bindinput='founderinput' placeholder="-"></input>
       </view>
     </view>
