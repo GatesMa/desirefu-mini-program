@@ -27,15 +27,15 @@
     <text class="text-black text-bold">请选择账号进行登陆</text>
   </view> -->
   <view class="padding-left padding-right cu-bar">
-    <button class="cu-btn round text-xs text-grey padding-top-xm" bindtap="showModal" data-target="state"
+    <button class="cu-btn round text-xs text-grey padding-top-xm line-grey" bindtap="showModal" data-target="state"
       style="height:65rpx">
       <text class="cuIcon-unfold"></text>状态：{{stateName}}
     </button>
-    <button class="cu-btn round text-xs text-grey margin-left-sm padding-top-xm" bindtap="showModal" data-target="type"
+    <button class="cu-btn round text-xs text-grey margin-left-sm padding-top-xm line-grey" bindtap="showModal" data-target="type"
       style="height:65rpx">
       <text class="cuIcon-unfold"></text>等级：{{typeName}}
     </button>
-    <button class="cu-btn round text-xs text-grey margin-left-sm padding-top-xm" bindtap="showModal" data-target="sort"
+    <button class="cu-btn round text-xs text-grey margin-left-sm padding-top-xm line-grey" bindtap="showModal" data-target="sort"
       style="height:65rpx">
       <text class="cuIcon-unfold"></text>排序
     </button>
@@ -45,13 +45,13 @@
 
   <view class="flex ">
     <view class="flex-sub cu-bar search">
-      <view class="search-form round">
+      <view class="search-form round solid">
         <text class="text-xs padding-left-sm text-grey">比赛名称：</text>
         <input type="text" class="text-xs" data-title='title' bindinput='titleinput' placeholder="-"></input>
       </view>
     </view>
     <view class="flex-sub cu-bar search">
-      <view class="search-form round">
+      <view class="search-form round solid">
         <text class="text-xs padding-left-sm text-grey">举办方：</text>
         <input type="text" class="text-xs" data-title='founder' bindinput='founderinput' placeholder="-"></input>
       </view>
@@ -140,4 +140,8 @@
   <button class="cu-btn padding-sm margin-xs radius text-gray text-sm" bindtap="scrollFront">
     <text class="cuIcon-right"></text>下一页
   </button>
+</view>
+
+<view class="weui-loadmore weui-loadmore_line">
+  <view class="weui-loadmore__tips weui-loadmore__tips_in-line">无更多内容</view>
 </view>

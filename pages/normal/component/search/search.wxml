@@ -30,8 +30,17 @@
   </view>
 </view>
 
-<swiper class="margin-left-sm margin-right-sm screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+<swiper class="margin-left-sm margin-right-sm screen-swiper square-dot" indicator-dots="true" circular="true"
+  autoplay="true" interval="5000" duration="500">
   <swiper-item wx:for="{{swiperList}}" wx:key>
     <image src="{{item.url}}" mode="aspectFill" class="padel"></image>
   </swiper-item>
 </swiper>
+
+<view class="weui-footer margin-top">
+  <view class="weui-footer__text">Copyright © gatesma.cn</view>
+</view>
+
+<view class="weui-loadmore weui-loadmore_line">
+  <view class="weui-loadmore__tips weui-loadmore__tips_in-line">四川大学计算机学院</view>
+</view>

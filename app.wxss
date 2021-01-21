@@ -1,6 +1,8 @@
 @import "colorui/main.wxss";
 @import "colorui/icon.wxss";
 
+/* @import "weui.wxss"; */
+
 .tx-blue {
 	background-image: linear-gradient(45deg, #1c56d2, #1c56d2);
 	color: #ffffff;
@@ -110,3 +112,46 @@
 .text-light {
   font-weight: 300;
 }
+
+
+/* weui复制过来的 */
+
+.weui-footer {
+  color: rgba(0, 0, 0, .3);
+  line-height: 1.4;
+  text-align: center;
+  font-size: 14px;
+}
+
+.weui-footer__text {
+  padding: 0 16px;
+  font-size: 12px
+}
+
+.weui-loadmore {
+  width: 65%;
+  margin: 1.5em auto;
+  line-height: 1em;
+  font-size: 12px;
+  text-align: center
+}
+
+.weui-loadmore__tips {
+  display: inline-block;
+  vertical-align: middle;
+  color: rgba(0, 0, 0, .3);
+}
+
+.weui-loadmore_line {
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  margin-top: 1.4em
+}
+
+.weui-loadmore_line .weui-loadmore__tips {
+  position: relative;
+  top: -.9em;
+  padding: 0.3em .55em;
+  color: rgba(0, 0, 0, .3);
+  background-color:  #f8f8f8;
+}
+
