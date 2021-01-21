@@ -21,7 +21,7 @@
 </view>
 
 
-<view class="margin-top solid-bottom">
+<view class="margin-top">
   <!-- <view class="text-xl padding">
     <text class="cuIcon-titles text-blue"></text>
     <text class="text-black text-bold">请选择账号进行登陆</text>
@@ -43,7 +43,7 @@
       style="height:65rpx">搜索🔍</button>
   </view>
 
-  <view class="flex solid-bottom">
+  <view class="flex ">
     <view class="flex-sub cu-bar search">
       <view class="search-form round">
         <text class="text-xs padding-left-sm text-grey">比赛名称：</text>
@@ -101,7 +101,7 @@
 </view>
 
 <view class="cu-card article ">
-  <view class="cu-item shadow solid-bottom" wx:for="{{competitions}}" wx:key="competition_id" wx:for-index="idx"
+  <view class="padel cu-item shadow" wx:for="{{competitions}}" wx:key="competition_id" wx:for-index="idx"
     wx:for-item="item" bindtap="navToPreview" data-item="{{item}}">
     <view class="title">
       <view class="text-cut">{{item.title}}</view>
@@ -124,7 +124,7 @@
       <view class="text-gray text-sm">
         {{item.created_ime}}
       </view>
-      <view class="text-gray text-sm text-right">
+      <view class="text-gray text-sm text-right padding-right-sm">
         <text class="cuIcon-attentionfill margin-lr-xs"></text>{{item.pv}}
         <!-- <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
         <text class="cuIcon-messagefill margin-lr-xs"></text> 30 -->
@@ -133,7 +133,7 @@
   </view>
 </view>
 
-<view class="flex solid-bottom padding justify-between">
+<view class="flex  padding justify-between">
   <button class="cu-btn padding-sm margin-xs radius text-gray text-sm" bindtap="scrollBack">
     <text class="cuIcon-back"></text>上一页
   </button>

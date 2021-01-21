@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/normal/index/index",
+
     "pages/index/index",
     "pages/logs/logs",
-    "pages/normal/index/index",
     "pages/normal/profile/profile",
     "pages/register/normal/normal",
     "pages/competition/index/index",
