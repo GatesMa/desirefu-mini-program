@@ -25,10 +25,6 @@
 
 
   <view class="margin-top solid-bottom">
-    <!-- <view class="text-xl padding">
-    <text class="cuIcon-titles text-blue"></text>
-    <text class="text-black text-bold">请选择账号进行登陆</text>
-  </view> -->
     <view class="padding-left padding-right cu-bar">
       <button class="cu-btn round text-xs text-grey padding-top-xm line-grey" bindtap="showModal" data-target="state"
         style="height:65rpx">
