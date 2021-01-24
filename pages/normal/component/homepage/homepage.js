@@ -18,19 +18,7 @@ Component({
   /* 组件的初始数据 */
   data: {
     cardCur: 0,
-    swiperList: [{
-      id: 0,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
-    }, {
-      id: 1,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
-    }, {
-      id: 2,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
-    }],
+    swiperList: [],
     loadModal: false, // 是否加载
 
     // 列表相关
@@ -149,6 +137,7 @@ Component({
     },
     attached: function () {
       this.fillCompetitions()
+      this.getNotification() // 通告
     },
     moved: function () {
 
@@ -336,6 +325,43 @@ Component({
         })
       })
 
+    },
+
+    // 公告栏
+    getNotification() {
+      wx.request({
+        url: app.globalData.baseUrl + '/desire_fu/v1/notification/select',
+        data: {
+          "status": 1,
+          "type": 1
+        },
+        method: "POST",
+        header: {
+          'content-type': 'application/json',
+          'Accept': 'application/json'
+        },
+        success: (res) => {
+          // console.log('res:', res.data.data.list)
+          this.setData({
+            swiperList: res.data.data.list
+          })
+        },
+        fail: (err) => {
+          wx.showToast({
+            title: '获取数据异常,可退出重试',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    },
+
+    navigateToNotice: function (e) {
+      var item = e.currentTarget.dataset.item
+      var competitionId = item.content // 比赛的id放在content里了
+      wx.navigateTo({
+        url: '/pages/competition/preview/preview?isPre=false&hasId=true&competitionId=' + competitionId
+      })
     },
 
     // 跳转到详情页面
