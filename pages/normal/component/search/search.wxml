@@ -30,17 +30,31 @@
 
 <!-- 显示一条通知 -->
 <view class="padel cu-bar bg-white margin-left-sm margin-right-sm " hidden='{{hideNotice}}'>
-  <view class='action'>
+  <view class='action' bindtap="showNotice">
     <view class="padding-right-sm text-sm">
       <text class='cuIcon-notification text-red'></text>
     </view>
     <view class="text-sm text-cut" style="width:500rpx">
-      新功能上线，bug修复
+      {{noticeContent}}
     </view>
   </view>
   <view class='action'>
     <view class="padding-right-sm text-sm" bindtap="closeNotice">
       <text class='cuIcon-close text-grey'></text>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{showModel?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">通知</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      {{noticeContent}}
     </view>
   </view>
 </view>

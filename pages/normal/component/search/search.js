@@ -85,12 +85,15 @@ Component({
     }],
 
     hideNotice: false,
+
+    noticeContent: '通知内容', //通知内容
+    showModel: false
   },
 
   /* 组件声明周期函数 */
   lifetimes: {
     attached: function () {
-
+      this.getNotificationType2()
     },
     moved: function () {
 
@@ -107,6 +110,43 @@ Component({
       console.log(e);
       this.setData({
         hideNotice: true
+      })
+    },
+    showNotice(e) {
+      this.setData({
+        showModel: true
+      })
+    },
+    hideModal(e) {
+      this.setData({
+        showModel: false
+      })
+    },
+    getNotificationType2() {
+      wx.request({
+        url: app.globalData.baseUrl + '/desire_fu/v1/notification/select',
+        data: {
+          "status": 1,
+          "type": 2
+        },
+        method: "POST",
+        header: {
+          'content-type': 'application/json',
+          'Accept': 'application/json'
+        },
+        success: (res) => {
+          console.log('res:', res.data.data.list)
+          this.setData({
+            noticeContent: res.data.data.list[0].content
+          })
+        },
+        fail: (err) => {
+          wx.showToast({
+            title: '获取数据异常,可退出重试',
+            icon: 'none',
+            duration: 2000
+          })
+        }
       })
     },
   }
