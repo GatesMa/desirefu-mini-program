@@ -72,16 +72,10 @@ Component({
 
     swiperList: [{
       id: 0,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
+      url: 'https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/notice1.png'
     }, {
       id: 1,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
-    }, {
-      id: 2,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
+      url: 'https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/notice2.png',
     }],
 
     hideNotice: false,
