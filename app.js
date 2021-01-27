@@ -71,7 +71,7 @@ App({
       // 体验版
       trial: "https://gatesma.cn:8088",
       // 正式版
-      release: "https://gatesma.cn:8088"
+      release: "https://gatesma.cn:8088" // 正式版本
     };
 
     // request请求baseURL
