@@ -20,3 +20,11 @@ page {
   padding: 10px 10px 20px 10px;
   color: #000;
 }
+
+
+/* 浮动按钮 */
+.float-btn {
+  position: fixed;
+  bottom: 50rpx;
+  right: 50rpx;
+}

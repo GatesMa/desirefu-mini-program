@@ -1,6 +1,6 @@
 <cu-custom bgColor="bg-gradual-tx-blue" isBack="{{true}}">
-  <view wx:if="{{isPre}}"  slot="backText">预览</view>
-  <view wx:else  slot="backText">详情</view>
+  <view wx:if="{{isPre}}" slot="backText">预览</view>
+  <view wx:else slot="backText">详情</view>
 </cu-custom>
 
 <view class="text-xxl margin-left margin-top margin-right">
@@ -14,7 +14,7 @@
   <view class="flex-sub margin-xs radius text-right text-gray">{{competition.created_ime}}</view>
 </view>
 
-<scroll-view scroll-x class="nav padding-left padding-bottom=text-sm" scroll-with-animation >
+<scroll-view scroll-x class="nav padding-left padding-bottom=text-sm" scroll-with-animation>
   <view class="cu-tag text-gray radius">原创</view>
 
   <view wx:if="{{competition.type==4}}" class="cu-tag bg-red light radius">国际级</view>
@@ -24,9 +24,13 @@
   <view wx:elif="{{competition.type==0}}" class="cu-tag bg-brown light radius">院级</view>
 
   <view class="cu-tag bg-brown light radius">官方</view>
-  
+
 </scroll-view>
 
 <view class="editor_container bg-white padding-left padding-right">
   <editor id="editor" class="ql-container" read-only bindready="onEditorReady"></editor>
 </view>
+
+<button class="cu-btn icon float-btn lg bg-orange">
+  <text class="cuIcon-more text-white"></text>
+</button>
