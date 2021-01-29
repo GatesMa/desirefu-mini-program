@@ -30,9 +30,9 @@
 <view class="editor_container bg-white padding-left padding-right">
   <editor id="editor" class="ql-container" read-only bindready="onEditorReady"></editor>
 </view>
-{{isFold}}
+
 <view class="grid col-1 padding-sm float-btn">
-  <view class="animation-{{isFold?'fade':''}} animation-reverse">
+  <view class="animation-{{isFold?'slide-bottom':''}} animation-reverse" style="animation-delay: 0.1s;">
     <view class="margin-tb-xs text-right" >
       <button class="cu-btn icon lg shadow basis-sm">
         <text class="cuIcon-like"></text>
@@ -53,7 +53,7 @@
   </view>
   <view class="margin-tb-xs text-right">
     <button class="cu-btn icon lg bg-orange basis-sm" bindtap="foldBtn">
-      <text class="cuIcon-more text-white"></text>
+      <text class="cuIcon-{{isFold?'moreandroid':'more'}} text-white"></text>
     </button>
   </view>
 
