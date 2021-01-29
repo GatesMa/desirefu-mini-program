@@ -30,7 +30,31 @@
 <view class="editor_container bg-white padding-left padding-right">
   <editor id="editor" class="ql-container" read-only bindready="onEditorReady"></editor>
 </view>
+{{isFold}}
+<view class="grid col-1 padding-sm float-btn">
+  <view class="animation-{{isFold?'fade':''}} animation-reverse">
+    <view class="margin-tb-xs text-right" >
+      <button class="cu-btn icon lg shadow basis-sm">
+        <text class="cuIcon-like"></text>
+      </button>
+    </view>
+    <view class="margin-tb-xs text-right">
+      <button class="cu-btn icon lg bg-brown shadow basis-sm">
+        <!-- <text class="cuIcon-add text-white"></text> -->
+        <text class="text-xs">组队</text>
+      </button>
+    </view>
+    <view class="margin-tb-xs text-right">
+      <button class="cu-btn icon lg bg-grey shadow basis-sm">
+        <!-- <text class="cuIcon-add text-white"></text> -->
+        <text class="text-xs">反馈</text>
+      </button>
+    </view>
+  </view>
+  <view class="margin-tb-xs text-right">
+    <button class="cu-btn icon lg bg-orange basis-sm" bindtap="foldBtn">
+      <text class="cuIcon-more text-white"></text>
+    </button>
+  </view>
 
-<button class="cu-btn icon float-btn lg bg-orange">
-  <text class="cuIcon-more text-white"></text>
-</button>
+</view>

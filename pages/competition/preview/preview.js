@@ -7,7 +7,10 @@ Page({
   data: {
     type: 1,
     competition: {},
-    isPre: false // 是否是预览
+    isPre: false, // 是否是预览
+
+
+    isFold: false, // 是否折叠按钮
   },
 
   /**
@@ -79,6 +82,12 @@ Page({
       }).exec()
     }
 
+  },
+
+  foldBtn() {
+    this.setData({
+      isFold: !this.data.isFold
+    })
   },
 
   /**
