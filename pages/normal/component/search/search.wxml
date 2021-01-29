@@ -29,7 +29,7 @@
 </view>
 
 <!-- 显示一条通知 -->
-<view class="padel cu-bar bg-white margin-left-sm margin-right-sm " hidden='{{hideNotice}}'>
+<view class="padel cu-bar bg-white margin-left-sm margin-right-sm animation-{{hideNoticeAni?'slide-bottom':''}} animation-reverse" hidden='{{hideNotice}}'>
   <view class='action' bindtap="showNotice">
     <view class="padding-right-sm text-sm">
       <text class='cuIcon-notification text-red'></text>

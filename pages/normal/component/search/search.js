@@ -79,7 +79,7 @@ Component({
     }],
 
     hideNotice: false,
-
+    hideNoticeAni: false, // 动画，比hideNotice早设置值
     noticeContent: '通知内容', //通知内容
     showModel: false
   },
@@ -101,10 +101,17 @@ Component({
   methods: {
     // 关闭通知
     closeNotice(e) {
+      var that = this;
       console.log(e);
-      this.setData({
-        hideNotice: true
+      that.setData({
+        hideNoticeAni: true
       })
+      // 500ms后隐藏元素
+      setTimeout(function() {
+        that.setData({
+          hideNotice: true
+        })
+      }, 500)
     },
     showNotice(e) {
       this.setData({
