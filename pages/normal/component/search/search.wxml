@@ -89,7 +89,7 @@
       <text class="cuIcon-title text-orange "></text> 当前账号概览
     </view>
   </view>
-  <view class="flex text-center">
+  <view class="flex text-center padding-bottom">
     <view class="flex flex-sub flex-direction">
       <view class="text-xxl text-orange">12</view>
       <view class="margin-top-sm">
