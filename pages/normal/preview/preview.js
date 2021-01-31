@@ -13,7 +13,16 @@ Page({
     isFold: false, // 是否折叠按钮
 
     organizeNickName: '', // 队伍名称
-    showInputName: false, // 是否显示模态框 
+
+    // 抽屉
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    Custom: app.globalData.Custom,
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    TabCur: 1,
+    scrollLeft: 0,
+    // 抽屉
   },
 
   /**
@@ -137,15 +146,15 @@ Page({
     })
   },
 
-  hideNameModal() {
+  hideModal() {
     this.setData({
-      showInputName:false
+      modalName: ''
     })
   },
 
-  showeNameModal() {
+  showModal(e) {
     this.setData({
-      showInputName:true
+      modalName: e.currentTarget.dataset.target
     })
   },
 

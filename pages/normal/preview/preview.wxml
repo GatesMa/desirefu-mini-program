@@ -1,86 +1,111 @@
-<cu-custom bgColor="bg-gradual-tx-blue" isBack="{{true}}">
-  <view wx:if="{{isPre}}" slot="backText">预览</view>
-  <view wx:else slot="backText">详情</view>
-</cu-custom>
+<scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}">
+  <cu-custom bgColor="bg-gradual-tx-blue" isBack="{{true}}">
+    <view wx:if="{{isPre}}" slot="backText">预览</view>
+    <view wx:else slot="backText">详情</view>
+  </cu-custom>
 
-<view class="text-xxl margin-left margin-top margin-right">
-  {{competition.title}}
-</view>
-
-<view class="flex p-xs margin-sm text-sm">
-  <view class="flex-sub margin-xs radius text-cut text-blue">
-    {{competition.founder}}
-  </view>
-  <view class="flex-sub margin-xs radius text-right text-gray">{{competition.created_ime}}</view>
-</view>
-
-<scroll-view scroll-x class="nav padding-left padding-bottom=text-sm" scroll-with-animation>
-  <view class="cu-tag text-gray radius">原创</view>
-
-  <view wx:if="{{competition.type==4}}" class="cu-tag bg-red light radius">国际级</view>
-  <view wx:elif="{{competition.type==3}}" class="cu-tag bg-orange light radius">国家级</view>
-  <view wx:elif="{{competition.type==2}}" class="cu-tag bg-blue light radius">省级</view>
-  <view wx:elif="{{competition.type==1}}" class="cu-tag bg-green light radius">校级</view>
-  <view wx:elif="{{competition.type==0}}" class="cu-tag bg-brown light radius">院级</view>
-
-  <view class="cu-tag bg-brown light radius">官方</view>
-
-</scroll-view>
-
-<view class="editor_container bg-white padding-left padding-right">
-  <editor id="editor" class="ql-container" read-only bindready="onEditorReady"></editor>
-</view>
-
-<view class="grid col-1 padding-sm float-btn">
-  <view class="animation-{{isFold?'slide-bottom':''}} animation-reverse" style="animation-delay: 0.1s;">
-    <view class="margin-tb text-right">
-      <button class="cu-btn icon lg shadow basis-sm">
-        <text class="cuIcon-like"></text>
-      </button>
-    </view>
-    <view class="margin-tb text-right">
-      <button class="cu-btn icon lg bg-brown shadow basis-sm" bindtap="showeNameModal">
-        <!-- <text class="cuIcon-add text-white"></text> -->
-        <text class="text-xs">组队</text>
-      </button>
-    </view>
-    <view class="margin-tb text-right">
-      <button class="cu-btn icon lg bg-grey shadow basis-sm" open-type="feedback">
-        <!-- <text class="cuIcon-add text-white"></text> -->
-        <text class="text-xs">反馈</text>
-      </button>
-    </view>
-  </view>
-  <view class="margin-tb text-right">
-    <button class="cu-btn icon lg bg-orange basis-sm" bindtap="foldBtn">
-      <text class="cuIcon-{{isFold?'moreandroid':'more'}} text-white"></text>
-    </button>
+  <!-- 头部内容：标题，时间，标签组 -->
+  <view class="text-xxl padding-left padding-top padding-right bg-white text-black">
+    {{competition.title}}
   </view>
 
-</view>
+  <view class="flex p-xs padding-sm text-sm bg-white">
+    <view class="flex-sub padding-xs radius text-cut text-blue">
+      {{competition.founder}}
+    </view>
+    <view class="flex-sub padding-xs radius text-right text-gray">{{competition.created_ime}}</view>
+  </view>
 
-<!-- 输入名称的对话框 -->
-<view class="cu-modal {{showInputName?'show':''}}">
-  <view class="cu-dialog">
-    <view class="cu-bar bg-white justify-end">
-      <view class="content">输入队伍名称</view>
-      <view class="action" bindtap="hideNameModal">
-        <text class="cuIcon-close text-red"></text>
+  <scroll-view scroll-x class="nav padding-left padding-bottom text-sm bg-white" scroll-with-animation>
+    <view class="cu-tag text-gray radius">原创</view>
+
+    <view wx:if="{{competition.type==4}}" class="cu-tag bg-red light radius">国际级</view>
+    <view wx:elif="{{competition.type==3}}" class="cu-tag bg-orange light radius">国家级</view>
+    <view wx:elif="{{competition.type==2}}" class="cu-tag bg-blue light radius">省级</view>
+    <view wx:elif="{{competition.type==1}}" class="cu-tag bg-green light radius">校级</view>
+    <view wx:elif="{{competition.type==0}}" class="cu-tag bg-brown light radius">院级</view>
+
+    <view class="cu-tag bg-brown light radius">官方</view>
+
+  </scroll-view>
+
+  <view class="editor_container bg-white padding-left padding-right">
+    <editor id="editor" class="ql-container" read-only bindready="onEditorReady"></editor>
+  </view>
+
+  <view class="grid col-1 padding-sm float-btn">
+    <view class="animation-{{isFold?'slide-bottom':''}} animation-reverse" style="animation-delay: 0.1s;">
+      <view class="margin-tb text-right">
+        <button class="cu-btn icon lg shadow basis-sm">
+          <text class="cuIcon-like"></text>
+        </button>
+      </view>
+      <view class="margin-tb text-right">
+        <button class="cu-btn icon lg bg-brown shadow basis-sm" data-target="nameModal" bindtap="showModal">
+          <!-- <text class="cuIcon-add text-white"></text> -->
+          <text class="text-xs">组队</text>
+        </button>
+      </view>
+      <view class="margin-tb text-right">
+        <button class="cu-btn icon lg bg-olive shadow basis-sm" data-target="viewModal" bindtap="showModal">
+          <!-- <text class="cuIcon-add text-white"></text> -->
+          <text class="text-xs">加入</text>
+          <view class="cu-tag badge cuIcon-hot bg-red"></view>
+        </button>
+      </view>
+      <view class="margin-tb text-right">
+        <button class="cu-btn icon lg bg-grey shadow basis-sm" open-type="feedback">
+          <!-- <text class="cuIcon-add text-white"></text> -->
+          <text class="text-xs">反馈</text>
+        </button>
       </view>
     </view>
-    <view class="padding-xl">
-      <view class="cu-bar search">
-        <view class="search-form ">
-          <text class="cuIcon-community"></text>
-          <input type="text" placeholder="队伍名称" confirm-type="done" bindinput="nameInput"></input>
+    <view class="margin-tb text-right">
+      <button class="cu-btn icon lg bg-orange basis-sm" bindtap="foldBtn">
+        <text class="cuIcon-{{isFold?'moreandroid':'more'}} text-white"></text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 输入名称的对话框 -->
+  <view class="cu-modal show" hidden="{{modalName!='nameModal'}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">输入队伍名称</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="padding-xl">
+        <view class="cu-bar search">
+          <view class="search-form ">
+            <text class="cuIcon-community"></text>
+            <input type="text" placeholder="队伍名称" confirm-type="done" bindinput="nameInput"></input>
+          </view>
+        </view>
+      </view>
+      <view class="cu-bar bg-white justify-end">
+        <view class="action">
+          <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+          <button class="cu-btn bg-green margin-left" bindtap="organize">确定</button>
         </view>
       </view>
     </view>
-    <view class="cu-bar bg-white justify-end">
-      <view class="action">
-        <button class="cu-btn line-green text-green" bindtap="hideNameModal">取消</button>
-        <button class="cu-btn bg-green margin-left" bindtap="organize">确定</button>
-      </view>
-    </view>
   </view>
+</scroll-view>
+
+
+<!-- 全屏抽屉显示 -->
+<view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
+	<text class="cuIcon-pullright"></text>
 </view>
+<scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}">
+	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
+		<view class="cu-item arrow" wx:for="{{20}}" wx:key="index">
+			<view class="content">
+				<text class="cuIcon-github text-grey"></text>
+				<text class="text-grey">{{index +1}}</text>
+			</view>
+		</view>
+	</view>
+</scroll-view>
