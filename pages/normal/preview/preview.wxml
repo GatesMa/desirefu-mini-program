@@ -31,7 +31,7 @@
   <editor id="editor" class="ql-container" read-only bindready="onEditorReady"></editor>
 </view>
 
-<view class="grid col-1 padding-sm float-btn" hidden="{{!showFoldBtn}}">
+<view class="grid col-1 padding-sm float-btn">
   <view class="animation-{{isFold?'slide-bottom':''}} animation-reverse" style="animation-delay: 0.1s;">
     <view class="margin-tb text-right">
       <button class="cu-btn icon lg shadow basis-sm">

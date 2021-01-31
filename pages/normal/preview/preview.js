@@ -14,8 +14,6 @@ Page({
 
     organizeNickName: '', // 队伍名称
     showInputName: false, // 是否显示模态框 
-
-    showFoldBtn: true, // 是否展示按钮
   },
 
   /**
@@ -23,12 +21,7 @@ Page({
    */
   onLoad: function (options) {
     var hasId = options.hasId == 'true' // 是否是通过id查看详情
-    // 是否展示按钮
-    var showFoldBtn = options.showFoldBtn == 'true' // 是否展示按钮
-    this.setData({
-      showFoldBtn: showFoldBtn
-    })
-    console.log(showFoldBtn)
+    
     var isPre = options.isPre == 'true' // 是否预览
     if (hasId) {
       var competitionId = options.competitionId
