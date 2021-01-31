@@ -360,14 +360,14 @@ Component({
       var item = e.currentTarget.dataset.item
       var competitionId = item.content // 比赛的id放在content里了
       wx.navigateTo({
-        url: '/pages/competition/preview/preview?isPre=false&hasId=true&competitionId=' + competitionId
+        url: '/pages/normal/preview/preview?isPre=false&hasId=true&competitionId=' + competitionId
       })
     },
 
     // 跳转到详情页面
     navToPreview(e) {
       wx.navigateTo({
-        url: '/pages/competition/preview/preview?isPre=false&competition=' + encodeURIComponent(JSON.stringify(e.currentTarget.dataset.item))
+        url: '/pages/normal/preview/preview?isPre=false&showFoldBtn=true&competition=' + encodeURIComponent(JSON.stringify(e.currentTarget.dataset.item))
       })
     }
 

@@ -1,0 +1,38 @@
+<cu-custom bgColor="bg-gradual-tx-blue" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">日志</view></cu-custom>
+<view class="cu-timeline">
+  <view class="cu-item text-green">
+    <view class="bg-gradual-tx-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-green">v1.0.0</view>
+        <view class="cu-tag line-white">2021/01/10</view>
+      </view>
+      <view class="margin-top-sm text-content">
+        <view>1.比赛详情页</view>
+        <view>2.详情页按钮组</view>
+        <view>3.广场样式概览</view>
+        <view>4.优化动画效果</view>
+      </view>
+    </view>   
+  </view>
+  <view class="cu-item text-green">
+    <view class="bg-gradual-tx-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-green">v1.0.0</view>
+        <view class="cu-tag line-white">2020/12/23</view>
+      </view>
+      <view class="margin-top-sm text-content">
+        <view>1.比赛列表页</view>
+        <view>2.个人信息页</view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-item text-green">
+    <view class="bg-gradual-tx-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-green">v1.0.0</view>
+        <view class="cu-tag line-white">2020/10/25</view>
+      </view>
+      <view class="margin-top-sm text-content">账号列表页</view>
+    </view>
+  </view>
+</view>

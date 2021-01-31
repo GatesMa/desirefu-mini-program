@@ -18,7 +18,7 @@
       </view>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/log/log" hover-class="none">
+      <navigator class="content" url="/pages/normal/log/log" hover-class="none">
         <text class="cuIcon-formfill text-green"></text>
         <text class="text-grey">开发日志</text>
       </navigator>
