@@ -51,8 +51,11 @@ Page({
         })
       }
     })
-    
+  },
 
+  onShow: function () {
+    // 每次回到这个界面的时候请求当前账号列表
+    this.getCanLoginAccount()
   },
 
   // 查询是否已授权，如果没有授权，展示授权按钮
@@ -143,40 +146,44 @@ Page({
               userId: app.globalData.userId,
             })
             // 4. 通过userId获取可以登陆的账号
-            wx.request({
-              url: app.globalData.baseUrl + '/desire_fu/v1/login/can_login_account',
-              data: {
-                user_id: app.globalData.userId
-              },
-              method: "POST",
-              header: {
-                'content-type': 'application/json',
-                'Accept': 'application/json'
-              },
-              success: (res) => {
-                console.log('5:' + new Date())
-                var canLoginAccountData = res.data.data
-                this.setData({
-                  canLoginAccountData: canLoginAccountData
-                })
-                // console.log('canLoginAccountData:' + canLoginAccountData)
-              },
-              fail: (err) => {
-                wx.showToast({
-                  title: '获取数据异常',
-                  icon: 'error',
-                  duration: 2000
-                })
-              },
-              complete: () => {
-                this.setData({
-                  loadModal: false
-                })
-              }
-            })
+            this.getCanLoginAccount()
           })
         }
       })
+    })
+  },
+
+  getCanLoginAccount() {
+    wx.request({
+      url: app.globalData.baseUrl + '/desire_fu/v1/login/can_login_account',
+      data: {
+        user_id: app.globalData.userId
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/json',
+        'Accept': 'application/json'
+      },
+      success: (res) => {
+        console.log('5:' + new Date())
+        var canLoginAccountData = res.data.data
+        this.setData({
+          canLoginAccountData: canLoginAccountData
+        })
+        // console.log('canLoginAccountData:' + canLoginAccountData)
+      },
+      fail: (err) => {
+        wx.showToast({
+          title: '获取数据异常',
+          icon: 'error',
+          duration: 2000
+        })
+      },
+      complete: () => {
+        this.setData({
+          loadModal: false
+        })
+      }
     })
   },
 
