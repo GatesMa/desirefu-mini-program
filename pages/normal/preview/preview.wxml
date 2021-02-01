@@ -71,7 +71,7 @@
   <view class="cu-modal show" hidden="{{modalName!='nameModal'}}">
     <view class="cu-dialog">
       <view class="cu-bar bg-white justify-end">
-        <view class="content">输入队伍名称</view>
+        <view class="content">输入队伍名称创建新队伍</view>
         <view class="action" bindtap="hideModal">
           <text class="cuIcon-close text-red"></text>
         </view>
@@ -97,15 +97,131 @@
 
 <!-- 全屏抽屉显示 -->
 <view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
-	<text class="cuIcon-pullright"></text>
+  <text class="cuIcon-pullright"></text>
 </view>
 <scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}">
-	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
-		<view class="cu-item arrow" wx:for="{{20}}" wx:key="index">
-			<view class="content">
-				<text class="cuIcon-github text-grey"></text>
-				<text class="text-grey">{{index +1}}</text>
-			</view>
-		</view>
-	</view>
+  <view class="cu-bar margin-top-xl solid-bottom ">
+    <view class="action text-white">
+      队伍列表
+    </view>
+  </view>
+
+  <view class="cu-list menu card-menu  margin-bottom-xl shadow-lg">
+    <view class="cu-item">
+      <view class="content padding-tb-sm">
+        <view class="text-red">
+          大创突击队<view class="cu-tag round bg-red sm">申请人数多</view>
+        </view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-favor margin-right-xs"></text> 队长：四川大学计算机学院计算机科学与技术专业马龙同学
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">ID: 123456</view>
+        <view class="cu-tag round bg-orange sm">6 人</view>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content padding-tb-sm">
+        <view class="text-grey">凯尔</view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-info margin-right-xs"></text> 队长：我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">ID: 123456</view>
+        <view class="cu-tag round bg-orange sm">5 人</view>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <view class="text-grey">
+          互联网巨头<view class="cu-tag round bg-red sm">队长参加比赛多</view>
+        </view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-info margin-right-xs"></text> 队长：我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">ID: 123456</view>
+        <view class="cu-tag round bg-orange sm">2 人</view>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content padding-tb-sm">
+        <view class="text-grey">大创突击队</view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-favor margin-right-xs"></text> 队长：四川大学计算机学院计算机科学与技术专业马龙同学
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">ID: 123456</view>
+        <view class="cu-tag round bg-orange sm">6 人</view>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content padding-tb-sm">
+        <view class="text-grey">凯尔</view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-info margin-right-xs"></text> 队长：我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">ID: 123456</view>
+        <view class="cu-tag round bg-orange sm">5 人</view>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <view class="text-grey">
+          互联网巨头<view class="cu-tag round bg-red sm">队长参加比赛多</view>
+        </view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-info margin-right-xs"></text> 队长：我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">ID: 123456</view>
+        <view class="cu-tag round bg-orange sm">2 人</view>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content padding-tb-sm">
+        <view class="text-grey">大创突击队</view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-favor margin-right-xs"></text> 队长：四川大学计算机学院计算机科学与技术专业马龙同学
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">ID: 123456</view>
+        <view class="cu-tag round bg-orange sm">6 人</view>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content padding-tb-sm">
+        <view class="text-grey">凯尔</view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-info margin-right-xs"></text> 队长：我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">ID: 123456</view>
+        <view class="cu-tag round bg-orange sm">5 人</view>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <view class="text-grey">
+          互联网巨头<view class="cu-tag round bg-red sm">队长参加比赛多</view>
+        </view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-info margin-right-xs"></text> 队长：我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">ID: 123456</view>
+        <view class="cu-tag round bg-orange sm">2 人</view>
+      </view>
+    </view>
+  </view>
 </scroll-view>
