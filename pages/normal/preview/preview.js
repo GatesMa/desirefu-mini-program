@@ -23,6 +23,7 @@ Page({
     TabCur: 1,
     scrollLeft: 0,
     // 抽屉
+    organizeList: []
   },
 
   /**
@@ -95,6 +96,37 @@ Page({
       }).exec()
     }
 
+    // 获取队伍列表
+    this.getOrganize()
+
+  },
+
+  // 队伍列表
+  getOrganize() {
+    wx.request({
+      url: app.globalData.baseUrl + '/desire_fu/v1/organize/list',
+      data: {
+        "competitionId": this.data.competition.competition_id
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/json',
+        'Accept': 'application/json'
+      },
+      success: (res) => {
+        console.log('res:', res.data.data)
+        this.setData({
+          organizeList: res.data.data
+        })
+      },
+      fail: (err) => {
+        wx.showToast({
+          title: '获取数据异常,可退出重试',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
   },
 
   foldBtn() {
