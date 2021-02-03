@@ -31,7 +31,7 @@ Page({
    */
   onLoad: function (options) {
     var hasId = options.hasId == 'true' // 是否是通过id查看详情
-    
+
     var isPre = options.isPre == 'true' // 是否预览
     if (hasId) {
       var competitionId = options.competitionId
@@ -125,6 +125,53 @@ Page({
           icon: 'none',
           duration: 2000
         })
+      }
+    })
+  },
+
+  // 发起队伍请求
+  applicationOrganize(e) {
+    var item = e.currentTarget.dataset.item
+    var organizeId = item.organizeId // 队伍Id
+    wx.showModal({
+      title: '提示',
+      content: '确定向该队伍发起进队请求吗',
+      success(res) {
+        if (res.confirm) {
+          wx.request({
+            url: app.globalData.baseUrl + '/desire_fu/v1/organize_application/add', // 仅为示例，并非真实的接口地址
+            method: 'POST',
+            data: {
+              accountType: 1,
+              accountId: app.globalData.account.account_id,
+              createdUserId: app.globalData.userId,
+              organizeId: organizeId
+            },
+            header: {
+              'content-type': 'application/json',
+              'Accept': 'application/json'
+            },
+            success(res) {
+              console.log('请求成功...')
+              if (res.data.code == 0) {
+                wx.showToast({
+                  title: '创建申请成功',
+                  icon: 'success',
+                  duration: 1000
+                })
+              } else {
+                wx.showToast({
+                  title: res.data.message,
+                  icon: 'error',
+                  duration: 1000
+                })
+              }
+              
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
       }
     })
   },
