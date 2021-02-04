@@ -155,7 +155,7 @@ Page({
               console.log('请求成功...')
               var content = ''
               if (res.data.code == 0) {
-                content = '创建申请成功'
+                content = '申请成功，等待队长审批'
               } else {
                 content = res.data.message
               }
