@@ -4,6 +4,18 @@
     <view class="bg-gradual-tx-blue content shadow">
       <view class="cu-capsule radius">
         <view class="cu-tag bg-white text-green">v1.0.0</view>
+        <view class="cu-tag line-white">2021/02/03</view>
+      </view>
+      <view class="margin-top-sm text-content">
+        <view>1.比赛详情页左滑显示队伍列表</view>
+        <view>2.点击队伍发送入队申请</view>
+      </view>
+    </view>   
+  </view>
+  <view class="cu-item text-green">
+    <view class="bg-gradual-tx-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-green">v1.0.0</view>
         <view class="cu-tag line-white">2021/01/10</view>
       </view>
       <view class="margin-top-sm text-content">

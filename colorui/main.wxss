@@ -53,6 +53,7 @@ page {
 	--gradualPink: linear-gradient(45deg, #ec008c, #6739b6);
 	--gradualBlue: linear-gradient(45deg, #0081ff, #1cbbb4);
 	--txGradualBlue: linear-gradient(45deg, #1c56d2, #366ce5);
+	--dfuBgColor1: linear-gradient(45deg, #b5d2ec, #b5d2ec);
 
 	/* 阴影透明色 */
 	--ShadowSize: 6rpx 6rpx 8rpx;
@@ -3613,6 +3614,11 @@ scroll-view.cu-steps .cu-item {
 
 .bg-gradual-tx-blue {
 	background-image: var(--txGradualBlue);
+	color: var(--white);
+}
+
+.bg-gradual-dfu-1 {
+	background-image: var(--dfuBgColor1);
 	color: var(--white);
 }
 

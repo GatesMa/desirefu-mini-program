@@ -107,10 +107,10 @@
   </view>
 
   <view class="cu-list menu card-menu  margin-bottom-xl shadow-lg">
-    <view class="cu-item" wx:for="{{organizeList}}" wx:key="organizeId" wx:for-index="idx" bindtap="navToPreview" data-item="{{item}}" bindtap="applicationOrganize">
+    <view class="cu-item" wx:for="{{organizeList}}" wx:key="organizeId" wx:for-index="idx" data-item="{{item}}" bindtap="applicationOrganize">
       <view class="content padding-tb-sm">
         <view class="text-{{item.memberNum>=1?'red':'grey'}}">
-          {{item.nickName}}{{typeof(item.memberNum)}}<view class="cu-tag round bg-red sm" wx:if="{{item.memberNum>=1}}">申请人数多</view>
+          {{item.nickName}}<view class="cu-tag round bg-red sm" wx:if="{{item.memberNum>=1}}">申请人数多</view>
         </view>
         <view class="text-gray text-sm">
           <text class="cuIcon-{{idx%3==0?'favor':'info'}} margin-right-xs"></text> 

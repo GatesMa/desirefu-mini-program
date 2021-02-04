@@ -10,7 +10,9 @@
     "pages/competition/index/index",
     "pages/competition/add/add",
     "pages/competition/preview/preview",
-    "pages/competition/edit/edit"
+    "pages/competition/edit/edit",
+    "pages/normal/inside/application/application",
+    "pages/normal/inside/msg/msg"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

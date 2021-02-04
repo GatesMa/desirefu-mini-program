@@ -1,0 +1,13 @@
+/* pages/normal/inside/application/application.wxss */
+page {
+  height: 100%;
+  background-color: #ffffff;
+}
+
+.container{
+  width: 100vw;
+  height: 40vw;
+  background: url(https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/dfu1.png);
+  background-size:100% 100%;
+  -moz-background-size:100% 100%;
+}

@@ -153,20 +153,20 @@ Page({
             },
             success(res) {
               console.log('请求成功...')
+              var content = ''
               if (res.data.code == 0) {
-                wx.showToast({
-                  title: '创建申请成功',
-                  icon: 'success',
-                  duration: 1000
-                })
+                content = '创建申请成功'
               } else {
-                wx.showToast({
-                  title: res.data.message,
-                  icon: 'error',
-                  duration: 1000
-                })
+                content = res.data.message
               }
-              
+              wx.showModal({
+                title: '提示',
+                content: content,
+                showCancel: false,
+                success (res) {
+                  // do noting
+                }
+              })
             }
           })
         } else if (res.cancel) {

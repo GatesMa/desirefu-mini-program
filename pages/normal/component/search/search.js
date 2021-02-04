@@ -150,6 +150,12 @@ Component({
         }
       })
     },
+    // 跳转到通知页
+    navToApplication() {
+      wx.navigateTo({
+        url: '/pages/normal/inside/application/application'
+      })
+    }
   }
 
 })

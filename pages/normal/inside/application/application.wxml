@@ -1,0 +1,33 @@
+<!--pages/normal/inside/application/application.wxml-->
+<cu-custom bgColor="tx-blue" isBack="{{true}}">
+  <view slot="backText">入队请求</view>
+</cu-custom>
+<!-- <image src="https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/dfu1.png" class="png" mode="scaleToFill" style="width:100%"></image> -->
+
+<view class="container">
+  <view class="text-xxl padding-top padding-left padding-right">
+    <text class="cuIcon-emoji text-red"></text><text class="text-white text-bold"> 入队请求列表</text>
+  </view>
+  <view class="padding-bottom padding-left padding-right">
+    <text class="text-white">如果你作为队伍的队长，且有同学向该队伍发起申请，你可以在这里查看并进行同意或拒绝</text>
+  </view>
+</view>
+
+<view class="cu-list menu card-menu  margin-bottom-xl shadow-lg ">
+  <view class="cu-item solid-bottom" wx:for="{{applications}}" wx:key="id" data-item="{{item}}" bindtap="applicationOrganize">
+    <view class="content padding-tb-sm">
+      <view class="flex justify-between">
+        <view class="text-black">入队申请</view>
+        <view class="text-gray text-xs">（ID: {{item.id}}）{{item.created_time}}</view>
+      </view>
+      <view class="text-gray text-sm">
+        <text class="cuIcon-right margin-right-xs"></text>
+        申请人：{{item.applicant.college_name+item.applicant.department_name+item.applicant.major+item.applicant.real_name}}
+      </view>
+      <view class="text-gray text-sm">
+        <text class="cuIcon-right margin-right-xs"></text>
+        申请加入的队伍名称：{{item.organize.nickName}}（ID: {{item.organize.organizeId}}）
+      </view>
+    </view>
+  </view>
+</view>
