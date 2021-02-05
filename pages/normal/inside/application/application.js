@@ -44,6 +44,24 @@ Page({
     })
   },
 
+  // 处理请求
+  handleApplication(e) {
+    var item = e.currentTarget.dataset.item
+    
+    wx.showModal({
+      title: '审批',
+      content: '这是一个模态弹窗',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -14,7 +14,7 @@
 </view>
 
 <view class="cu-list menu card-menu  margin-bottom-xl shadow-lg ">
-  <view class="cu-item solid-bottom" wx:for="{{applications}}" wx:key="id" data-item="{{item}}" bindtap="applicationOrganize">
+  <view class="cu-item solid-bottom" wx:for="{{applications}}" wx:key="id" data-item="{{item}}" bindtap="handleApplication">
     <view class="content padding-tb-sm">
       <view class="flex justify-between">
         <view class="text-black">入队申请</view>
