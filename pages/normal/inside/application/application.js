@@ -47,16 +47,51 @@ Page({
   // 处理请求
   handleApplication(e) {
     var item = e.currentTarget.dataset.item
-    
+    var that = this
     wx.showModal({
       title: '审批',
-      content: '这是一个模态弹窗',
+      content: '请选择对该请求的操作',
+      cancelText: '拒绝',
+      confirmText: '通过',
       success(res) {
+        var status = 0
         if (res.confirm) {
-          console.log('用户点击确定')
+          status = 1
         } else if (res.cancel) {
-          console.log('用户点击取消')
+          status = 2
         }
+        wx.request({
+          url: app.globalData.baseUrl + '/desire_fu/v1/organize_application/update',
+          data: {
+            "id": item.id,
+            "status": status,
+            "userId": app.globalData.userId
+          },
+          method: "POST",
+          header: {
+            'content-type': 'application/json',
+            'Accept': 'application/json'
+          },
+          success: (res) => {
+            if (res.data.code != 0) {
+              wx.showToast({
+                title: '操作异常,可退出重试',
+                icon: 'none',
+                duration: 2000
+              })
+            } else {
+              // 刷新请求列表
+              wx.showToast({
+                title: '审批成功',
+                icon: 'success',
+                duration: 2000
+              })
+              that.getApplication()
+            }
+          },
+          fail: (err) => {
+          }
+        })
       }
     })
 
