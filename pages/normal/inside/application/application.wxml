@@ -14,20 +14,26 @@
 </view>
 
 <view class="cu-list menu card-menu  margin-bottom-xl shadow-lg ">
-  <view class="cu-item solid-bottom" wx:for="{{applications}}" wx:key="id" data-item="{{item}}" bindtap="handleApplication">
-    <view class="content padding-tb-sm">
-      <view class="flex justify-between">
-        <view class="text-black">入队申请</view>
-        <view class="text-gray text-xs">（ID: {{item.id}}）{{item.created_time}}</view>
-      </view>
-      <view class="text-gray text-sm">
-        <text class="cuIcon-right margin-right-xs"></text>
-        申请人：{{item.applicant.college_name+item.applicant.department_name+item.applicant.major+item.applicant.real_name}}
-      </view>
-      <view class="text-gray text-sm">
-        <text class="cuIcon-right margin-right-xs"></text>
-        申请加入的队伍名称：{{item.organize.nickName}}（ID: {{item.organize.organizeId}}）
+  <view wx:if="{{applications==null || applications.length==0}}" class="padding text-center">
+    <view class="padding-xl radius shadow shadow-lg bg-white margin-top">空</view>
+  </view>
+  <block wx:else>
+    <view class="cu-item solid-bottom" wx:for="{{applications}}" wx:key="id" data-item="{{item}}"
+      bindtap="handleApplication">
+      <view class="content padding-tb-sm">
+        <view class="flex justify-between">
+          <view class="text-black">入队申请</view>
+          <view class="text-gray text-xs">（ID: {{item.id}}）{{item.created_time}}</view>
+        </view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-right margin-right-xs"></text>
+          申请人：{{item.applicant.college_name+item.applicant.department_name+item.applicant.major+item.applicant.real_name}}
+        </view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-right margin-right-xs"></text>
+          申请加入的队伍名称：{{item.organize.nickName}}（ID: {{item.organize.organizeId}}）
+        </view>
       </view>
     </view>
-  </view>
+  </block>
 </view>
