@@ -13,12 +13,12 @@
   </view>
 </view>
 
-<view class="cu-list menu card-menu  margin-bottom-xl shadow-lg ">
+<view class="cu-list menu card-menu  margin-bottom-xl shadow-lg solid">
   <view wx:if="{{applications==null || applications.length==0}}" class="padding text-center">
     <view class="padding-xl radius shadow shadow-lg bg-white margin-top">空</view>
   </view>
   <block wx:else>
-    <view class="cu-item solid-bottom" wx:for="{{applications}}" wx:key="id" data-item="{{item}}"
+    <view class="cu-item" wx:for="{{applications}}" wx:key="id" data-item="{{item}}"
       bindtap="handleApplication">
       <view class="content padding-tb-sm">
         <view class="flex justify-between">
@@ -32,6 +32,10 @@
         <view class="text-gray text-sm">
           <text class="cuIcon-right margin-right-xs"></text>
           申请加入的队伍名称：{{item.organize.nickName}}（ID: {{item.organize.organizeId}}）
+        </view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-right margin-right-xs"></text>
+          比赛：{{item.organize.competition.title}}
         </view>
       </view>
     </view>
