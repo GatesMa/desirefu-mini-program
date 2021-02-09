@@ -16,19 +16,19 @@
   <view class="cu-list menu  margin-bottom-xl shadow-lg solids-top">
     <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{msgList}}" wx:key="id"
       bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd"
-      data-target="move-box-{{index}}" data-item="item">
+      data-target="move-box-{{index}}" data-item="{{item}}" data-idx="{{index}}" bindtap="showDetail">
       <view class="content padding-tb-sm">
         <view>
-          <text class="cuIcon-title text-red margin-right-xs"></text> 11111
+          <text class="cuIcon-{{item.status==0?'title':''}} text-red margin-right-xs"></text> 11111
         </view>
         <view class="text-gray text-sm">
-          <text class="margin-right-xs"></text> 内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
+          <view class="margin-right-xs text-cut" style="width:{{item.status==0?600:700}}rpx">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内</view> 
         </view>
         <view class="text-grey text-sm">
           <text class="cuIcon-time"></text> 2020-02-12 12:21:12
         </view>
       </view>
-      <view class="action text-red text-sm">新！</view>
+      <view class="action text-red text-sm" wx:if="{{item.status==0}}">新！</view>
       <view class="move">
         <view class="bg-grey">已读</view>
         <view class="bg-red">删除</view>
@@ -36,3 +36,18 @@
     </view>
   </view>
 </scroll-view>
+
+<!-- 显示一条通知 -->
+<view class="cu-modal {{showModel?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">{{item.title}}</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      {{item.content}}
+    </view>
+  </view>
+</view>

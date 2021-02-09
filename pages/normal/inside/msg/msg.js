@@ -1,12 +1,22 @@
 // pages/normal/inside/msg/msg.js
+var app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     msgList: [],
-    page: 1
+    page: 1,
+    showModel: false
+  },
+
+  
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.getMsg() // 获取消息列表
   },
 
   getMsg() {
@@ -15,7 +25,7 @@ Page({
       data: {
         "accountId": 11,
         "page": {
-          "page_num": page,
+          "page_num": this.data.page,
           "page_size": 10
         }
       },
@@ -37,6 +47,60 @@ Page({
           duration: 2000
         })
       }
+    })
+  },
+
+  // 展示消息详情
+  showDetail(e) {
+    var item = e.currentTarget.dataset.item
+    console.log(item)
+    this.setData({
+      item: item
+    },()=>{
+      //同步
+      this.setData({
+        showModel: true
+      })
+    })
+    // 设置item的status为1
+    var tmpMsgList = this.data.msgList
+    tmpMsgList[e.currentTarget.dataset.idx].status = 1
+    this.setData({
+      msgList: tmpMsgList
+    })
+
+    // 同时请求后端接口设为已读
+    this.readMsg(item.id)
+  },
+
+  readMsg(id) {
+    wx.request({
+      url: app.globalData.baseUrl + '/desire_fu/v1/message/update_status',
+      data: {
+        "ids": [id],
+        "status": 1
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/json',
+        'Accept': 'application/json'
+      },
+      success: (res) => {
+        console.log(res.data)
+      },
+      fail: (err) => {
+        wx.showToast({
+          title: '发生异常',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+  },
+
+  hideModal(e) {
+    this.setData({
+      showModel: false
     })
   },
 
@@ -68,13 +132,6 @@ Page({
     this.setData({
       ListTouchDirection: null
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
   },
 
   /**
