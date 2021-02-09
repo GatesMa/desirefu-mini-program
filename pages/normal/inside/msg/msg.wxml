@@ -14,16 +14,21 @@
   </view>
 
   <view class="cu-list menu  margin-bottom-xl shadow-lg solids-top">
-    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{4}}" wx:key
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{msgList}}" wx:key="id"
       bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd"
-      data-target="move-box-{{index}}">
+      data-target="move-box-{{index}}" data-item="item">
       <view class="content padding-tb-sm">
         <view>
-          <text class="cuIcon-title text-red margin-right-xs"></text> 入队请求</view>
+          <text class="cuIcon-title text-red margin-right-xs"></text> 11111
+        </view>
         <view class="text-gray text-sm">
-          <text class="margin-right-xs"></text> 小目标还没有实现！</view>
+          <text class="margin-right-xs"></text> 内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
+        </view>
+        <view class="text-grey text-sm">
+          <text class="cuIcon-time"></text> 2020-02-12 12:21:12
+        </view>
       </view>
-      <view class="action text-grey text-sm">新！</view>
+      <view class="action text-red text-sm">新！</view>
       <view class="move">
         <view class="bg-grey">已读</view>
         <view class="bg-red">删除</view>

@@ -5,7 +5,39 @@ Page({
    * 页面的初始数据
    */
   data: {
+    msgList: [],
+    page: 1
+  },
 
+  getMsg() {
+    wx.request({
+      url: app.globalData.baseUrl + '/desire_fu/v1/message/select',
+      data: {
+        "accountId": 11,
+        "page": {
+          "page_num": page,
+          "page_size": 10
+        }
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/json',
+        'Accept': 'application/json'
+      },
+      success: (res) => {
+        console.log('res:', res.data.data)
+        this.setData({
+          msgList: res.data.data
+        })
+      },
+      fail: (err) => {
+        wx.showToast({
+          title: '获取数据异常,可退出重试',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
   },
 
   // ListTouch触摸开始
