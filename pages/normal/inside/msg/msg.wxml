@@ -30,8 +30,7 @@
       </view>
       <view class="action text-red text-sm" wx:if="{{item.status==0}}">新！</view>
       <view class="move">
-        <view class="bg-grey">已读</view>
-        <view class="bg-red">删除</view>
+        <view class="bg-red" bindtap="deleteMsg">删除</view>
       </view>
     </view>
   </view>
