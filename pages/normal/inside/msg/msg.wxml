@@ -1,2 +1,33 @@
 <!--pages/normal/inside/msg/msg.wxml-->
-<text>pages/normal/inside/msg/msg.wxml</text>
+<scroll-view scroll-y>
+  <cu-custom bgColor="tx-blue" isBack="{{true}}">
+    <view slot="backText">消息列表</view>
+  </cu-custom>
+  <view class="cu-bar bg-white solid-bottom ">
+    <view class="action">
+      <text class="cuIcon-message text-orange padding-left-xs"></text> 接收的消息列表
+    </view>
+    <view class="action">
+      <button class="cu-btn round line-blue shadow">
+        <text class="cuIcon-circle text-green padding-right-sm"></text> 全设已读</button>
+    </view>
+  </view>
+
+  <view class="cu-list menu  margin-bottom-xl shadow-lg solids-top">
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{4}}" wx:key
+      bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd"
+      data-target="move-box-{{index}}">
+      <view class="content padding-tb-sm">
+        <view>
+          <text class="cuIcon-title text-red margin-right-xs"></text> 入队请求</view>
+        <view class="text-gray text-sm">
+          <text class="margin-right-xs"></text> 小目标还没有实现！</view>
+      </view>
+      <view class="action text-grey text-sm">新！</view>
+      <view class="move">
+        <view class="bg-grey">已读</view>
+        <view class="bg-red">删除</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
