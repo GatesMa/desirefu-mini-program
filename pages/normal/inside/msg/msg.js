@@ -279,5 +279,16 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    //调用刷新时将执行的方法
+    this.data.page = 1
+    this.data.msgList = []
+    this.getMsg()
+    wx.stopPullDownRefresh();
   }
+
 })
