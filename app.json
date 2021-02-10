@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/normal/inside/msg/msg",
 
     "pages/index/index",
     "pages/logs/logs",
@@ -13,6 +12,7 @@
     "pages/competition/add/add",
     "pages/competition/preview/preview",
     "pages/competition/edit/edit",
+    "pages/normal/inside/msg/msg",
     "pages/normal/inside/application/application"
   ],
   "window": {

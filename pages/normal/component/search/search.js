@@ -155,6 +155,12 @@ Component({
       wx.navigateTo({
         url: '/pages/normal/inside/application/application'
       })
+    },
+    // 跳转到消息
+    navToMsg() {
+      wx.navigateTo({
+        url: '/pages/normal/inside/msg/msg'
+      })
     }
   }
 

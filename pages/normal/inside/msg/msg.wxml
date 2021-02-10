@@ -8,7 +8,7 @@
       <text class="cuIcon-message text-orange padding-left-xs"></text> 接收的消息列表
     </view>
     <view class="action">
-      <button class="cu-btn round line-blue shadow">
+      <button class="cu-btn round line-blue shadow" bindtap="readAll">
         <text class="cuIcon-circle text-green padding-right-sm"></text> 全设已读</button>
     </view>
   </view>

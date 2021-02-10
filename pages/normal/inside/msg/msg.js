@@ -23,7 +23,7 @@ Page({
     wx.request({
       url: app.globalData.baseUrl + '/desire_fu/v1/message/select',
       data: {
-        "accountId": 11,
+        "accountId": app.globalData.account.account_id,
         "page": {
           "page_num": this.data.page,
           "page_size": 10
@@ -114,6 +114,38 @@ Page({
       url: app.globalData.baseUrl + '/desire_fu/v1/message/delete',
       data: {
         "ids": [id]
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/json',
+        'Accept': 'application/json'
+      },
+      success: (res) => {
+        console.log(res.data)
+      },
+      fail: (err) => {
+        wx.showToast({
+          title: '发生异常',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+  },
+
+  readAll() {
+    // 1. 当前列表先全设已读
+    for (let i = 0; i < this.data.msgList.length; ++i) {
+      this.data.msgList[i].status = 1
+    }
+    this.setData({
+      msgList: this.data.msgList
+    })
+    // 2. 发请求后端数据设状态
+    wx.request({
+      url: app.globalData.baseUrl + '/desire_fu/v1/message/read_all_mag',
+      data: {
+        "accountId": app.globalData.account.account_id
       },
       method: "POST",
       header: {
