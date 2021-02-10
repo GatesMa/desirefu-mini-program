@@ -10,7 +10,7 @@ Page({
     showModel: false
   },
 
-  
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -56,21 +56,24 @@ Page({
     console.log(item)
     this.setData({
       item: item
-    },()=>{
+    }, () => {
       //同步
       this.setData({
         showModel: true
       })
     })
-    // 设置item的status为1
-    var tmpMsgList = this.data.msgList
-    tmpMsgList[e.currentTarget.dataset.idx].status = 1
-    this.setData({
-      msgList: tmpMsgList
-    })
+    // 如果是新消息
+    if (item.status == 0) {
+      // 设置item的status为1
+      var tmpMsgList = this.data.msgList
+      tmpMsgList[e.currentTarget.dataset.idx].status = 1
+      this.setData({
+        msgList: tmpMsgList
+      })
 
-    // 同时请求后端接口设为已读
-    this.readMsg(item.id)
+      // 同时请求后端接口设为已读
+      this.readMsg(item.id)
+    }
   },
 
   readMsg(id) {
@@ -79,6 +82,38 @@ Page({
       data: {
         "ids": [id],
         "status": 1
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/json',
+        'Accept': 'application/json'
+      },
+      success: (res) => {
+        console.log(res.data)
+      },
+      fail: (err) => {
+        wx.showToast({
+          title: '发生异常',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+  },
+
+  deleteMsg(e) {
+    // 1. 删除这个item
+    this.data.msgList.splice(e.currentTarget.dataset.index, 1);
+    this.setData({
+      msgList: this.data.msgList
+    })
+
+    // 2. 发请求删除
+    var id = e.currentTarget.dataset.id
+    wx.request({
+      url: app.globalData.baseUrl + '/desire_fu/v1/message/delete',
+      data: {
+        "ids": [id]
       },
       method: "POST",
       header: {
@@ -120,7 +155,7 @@ Page({
 
   // ListTouch计算滚动
   ListTouchEnd(e) {
-    if (this.data.ListTouchDirection =='left'){
+    if (this.data.ListTouchDirection == 'left') {
       this.setData({
         modalName: e.currentTarget.dataset.target
       })
