@@ -20,6 +20,9 @@ Page({
   },
 
   getMsg() {
+    this.setData({
+      loadModal: true
+    })
     wx.request({
       url: app.globalData.baseUrl + '/desire_fu/v1/message/select',
       data: {
@@ -36,8 +39,15 @@ Page({
       },
       success: (res) => {
         console.log('res:', res.data.data)
+        if (res.data.data == null || res.data.data.length == 0) {
+          wx.showToast({
+            title: '已经全部加载完',
+            icon: 'none',
+            duration: 2000
+          })
+        }
         this.setData({
-          msgList: res.data.data
+          msgList: this.data.msgList.concat(res.data.data)
         })
       },
       fail: (err) => {
@@ -45,6 +55,11 @@ Page({
           title: '获取数据异常,可退出重试',
           icon: 'none',
           duration: 2000
+        })
+      },
+      complete: () => {
+        this.setData({
+          loadModal: false
         })
       }
     })
@@ -99,6 +114,20 @@ Page({
         })
       }
     })
+  },
+
+  readOneMsg(e) {
+    if (this.data.msgList[e.currentTarget.dataset.index].status == 0) {
+      // 1. 处理这个item
+      this.data.msgList[e.currentTarget.dataset.index].status = 1;
+      this.setData({
+        msgList: this.data.msgList
+      })
+
+      // 2. 发请求修改状态
+      var id = e.currentTarget.dataset.id
+      this.readMsg(id)
+    }
   },
 
   deleteMsg(e) {
@@ -240,7 +269,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log('reachBottom')
+    this.data.page = this.data.page + 1
+    this.getMsg()
   },
 
   /**

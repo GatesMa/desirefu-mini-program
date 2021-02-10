@@ -19,10 +19,10 @@
       data-target="move-box-{{index}}" data-item="{{item}}" data-idx="{{index}}" bindtap="showDetail">
       <view class="content padding-tb-sm">
         <view>
-          <text class="cuIcon-{{item.status==0?'title':''}} text-red margin-right-xs"></text> 11111  {{item.id}}
+          <text class="cuIcon-{{item.status==0?'title':''}} text-red margin-right-xs"></text> {{item.title}}
         </view>
         <view class="text-gray text-sm">
-          <view class="margin-right-xs text-cut" style="width:{{item.status==0?600:700}}rpx">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内</view> 
+          <view class="margin-right-xs text-cut" style="width:{{item.status==0?600:700}}rpx">{{item.content}}</view> 
         </view>
         <view class="text-grey text-sm">
           <text class="cuIcon-time"></text> {{item.createdTime}}
@@ -30,7 +30,7 @@
       </view>
       <view class="action text-red text-sm" wx:if="{{item.status==0}}">新！</view>
       <view class="move">
-        <view class="bg-red" catchtap="deleteMsg" data-id="{{item.id}}" data-index="{{index}}">删除</view>
+        <view class="bg-gray" catchtap="readOneMsg" data-id="{{item.id}}" data-index="{{index}}">设为已读</view>
       </view>
     </view>
   </view>
@@ -49,4 +49,11 @@
       {{item.content}}
     </view>
   </view>
+</view>
+
+<!-- 加载中的弹框 -->
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <!-- <view class='cuIcon-emojifill text-orange'></view> -->
+  <image src='/images/logo.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
 </view>
