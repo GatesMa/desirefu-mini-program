@@ -1,0 +1,34 @@
+<!--pages/normal/inside/hotComp/hotComp.wxml-->
+<scroll-view scroll-y>
+  <cu-custom bgColor="" isBack="{{true}}">
+  </cu-custom>
+
+  <view class="text-xxl padding-top padding-left padding-right">
+    <text class="cuIcon-rank text-blue"></text><text class="text-white text-bold"> 人气榜单</text>
+  </view>
+  <view class="padding-bottom padding-left padding-right">
+    <text class="text-white">近时间段内访问较多、申请组队较多、浏览人数较多的比赛（含主观排序）</text>
+  </view>
+
+  <view class="cu-list menu card-menu  margin-bottom-xl shadow-lg">
+    <view class="cu-item margin-bottom padel padding-top padding-bottom" wx:for="{{3}}" wx:key="organizeId" wx:for-index="idx" data-item="{{item}}"
+      bindtap="applicationOrganize">
+      <view class="content padding-tb-sm">
+        <!-- <view class="text-{{item.memberNum>=1?'red':'grey'}}">
+          item.nickName<view class="cu-tag round bg-red sm" wx:if="{{item.memberNum>=1}}">申请人数多</view>
+        </view> -->
+        <view class="content">
+          <image src="/images/logo.png" class="png" mode="aspectFit"></image>
+          <text class="text-black">图片 + 标题</text>
+        </view>
+        <view class="text-gray text-sm">创办组织：四川大学计算机学院</view>
+        <!-- <view class="text-gray text-sm">
+          <text class="cuIcon-{{idx%3==0?'favor':'info'}} margin-right-xs"></text>
+          队长：{{item.captain.college_name+item.captain.department_name+item.captain.major+item.captain.real_name}}
+        </view> -->
+      </view>
+
+    </view>
+  </view>
+
+</scroll-view>

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/normal/inside/hotComp/hotComp",
 
     "pages/index/index",
     "pages/logs/logs",

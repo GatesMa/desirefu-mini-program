@@ -1,0 +1,17 @@
+/* pages/normal/inside/hotComp/hotComp.wxss */
+page {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  background-image: url("https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/dfu2.png");
+  background-size: 100% 40%;
+  background-repeat: no-repeat;
+  background-color: #f8f8f8;
+}
+
+.padel {
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
