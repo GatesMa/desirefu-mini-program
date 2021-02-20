@@ -1,18 +1,19 @@
 // pages/normal/inside/hotComp/hotComp.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    competitions: [] // 榜单比赛 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.fillRank()
   },
 
   // 获取比赛列表
@@ -22,7 +23,11 @@ Page({
     })
 
     this.getCompetitionData().then((list) => {
-      // console.log('competitionList:', list)
+      list = list.concat(list)
+      list = list.concat(list)
+      list = list.concat(list)
+      list = list.concat(list)
+      console.log('competitionList:', list)
       this.setData({
         competitions: list,
         loadModal: false
@@ -37,15 +42,12 @@ Page({
         url: app.globalData.baseUrl + '/desire_fu/v1/competition/select_scroll',
         data: {
           status: 1, // 默认只获取正常状态，不获取草稿
-          state: this.data.state == -1 ? null : this.data.state,
-          type: this.data.type == -1 ? null : this.data.type,
-          sort_field: this.data.sortField,
-          sort_seq: this.data.sortType,
-          title: this.data.title ? this.data.title : null,
-          founder: this.data.founder ? this.data.founder : null,
+          state: 1,
+          sort_field: 'pv',
+          sort_seq: 'desc',
           page: {
-            page_num: this.data.page,
-            page_size: this.data.pageSize
+            page_num: 1,
+            page_size: 10
           }
         },
         method: "POST",
