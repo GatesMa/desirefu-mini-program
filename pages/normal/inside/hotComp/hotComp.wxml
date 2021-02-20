@@ -3,6 +3,13 @@
   <cu-custom bgColor="" isBack="{{true}}">
   </cu-custom>
 
+  <!-- 加载中的弹框 -->
+  <view class='cu-load load-modal' wx:if="{{loadModal}}">
+    <!-- <view class='cuIcon-emojifill text-orange'></view> -->
+    <image src='/images/logo.png' class='png' mode='aspectFit'></image>
+    <view class='gray-text'>加载中...</view>
+  </view>
+
   <view class="text-xxl padding-top padding-left padding-right">
     <text class="cuIcon-rank text-blue"></text><text class="text-white text-bold"> 人气榜单</text>
   </view>
