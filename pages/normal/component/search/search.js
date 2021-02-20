@@ -161,6 +161,12 @@ Component({
       wx.navigateTo({
         url: '/pages/normal/inside/msg/msg'
       })
+    },
+    // 跳转到热门
+    navToHot() {
+      wx.navigateTo({
+        url: '/pages/normal/inside/hotComp/hotComp'
+      })
     }
   }
 

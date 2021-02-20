@@ -1,7 +1,5 @@
 {
   "pages": [
-    "pages/normal/inside/hotComp/hotComp",
-
     "pages/index/index",
     "pages/logs/logs",
     "pages/normal/index/index",
@@ -14,6 +12,7 @@
     "pages/competition/preview/preview",
     "pages/competition/edit/edit",
     "pages/normal/inside/msg/msg",
+    "pages/normal/inside/hotComp/hotComp",
     "pages/normal/inside/application/application"
   ],
   "window": {

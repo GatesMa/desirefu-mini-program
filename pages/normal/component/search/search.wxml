@@ -17,7 +17,7 @@
 <view class="UCenter-bg">
   <!-- 图标 -->
   <view class="padel cu-list grid col-{{gridCol}} no-border margin-left-sm margin-right-sm margin-top-sm  bg-white">
-    <view class="cu-item">
+    <view class="cu-item" bindtap="navToHot">
       <view class="cuIcon-upstage text-cyan"></view>
       <text>热门</text>
     </view>
