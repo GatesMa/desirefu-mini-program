@@ -11,15 +11,17 @@
   </view>
 
   <view class="cu-list menu card-menu  margin-bottom-xl shadow-lg">
-    <view class="cu-item margin-bottom padel padding-top padding-bottom" wx:for="{{3}}" wx:key="organizeId" wx:for-index="idx" data-item="{{item}}"
+    <view class="cu-item margin-bottom padel padding-top padding-bottom" wx:for="{{10}}" wx:key="organizeId" wx:for-index="idx" data-item="{{item}}"
       bindtap="applicationOrganize">
       <view class="content padding-tb-sm">
         <!-- <view class="text-{{item.memberNum>=1?'red':'grey'}}">
           item.nickName<view class="cu-tag round bg-red sm" wx:if="{{item.memberNum>=1}}">申请人数多</view>
         </view> -->
         <view class="content">
-          <image src="/images/logo.png" class="png" mode="aspectFit"></image>
-          <text class="text-black">图片 + 标题</text>
+          <image src="https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/rank/{{idx+1}}.png" class="png" mode="aspectFit"></image>
+          <text class="{{idx<3?'text-red':'text-black'}}">图片 + 标题</text>
+          <text class="cu-tag round bg-red sm" wx:if="{{idx==0}}">热度高</text>
+          <text class="cu-tag round bg-yellow sm" wx:if="{{idx==2}}">荐</text>
         </view>
         <view class="text-gray text-sm">创办组织：四川大学计算机学院</view>
         <!-- <view class="text-gray text-sm">
