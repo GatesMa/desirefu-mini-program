@@ -16,6 +16,14 @@ Page({
     this.fillRank()
   },
 
+  navigateToCom: function (e) {
+    var item = e.currentTarget.dataset.item
+    var competitionId = item.competition_id // 比赛的id放在content里了
+    wx.navigateTo({
+      url: '/pages/normal/preview/preview?isPre=false&hasId=true&competitionId=' + competitionId
+    })
+  },
+
   // 获取比赛列表
   fillRank() {
     this.setData({
@@ -23,10 +31,6 @@ Page({
     })
 
     this.getCompetitionData().then((list) => {
-      list = list.concat(list)
-      list = list.concat(list)
-      list = list.concat(list)
-      list = list.concat(list)
       console.log('competitionList:', list)
       this.setData({
         competitions: list,

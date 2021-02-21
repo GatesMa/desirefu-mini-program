@@ -41,7 +41,7 @@ Page({
         url: app.globalData.baseUrl + '/desire_fu/v1/competition/select_scroll',
 
         data: {
-          "competition_ids": competitionIds
+          "competition_ids": [competitionId]
         },
         method: "POST",
         header: {

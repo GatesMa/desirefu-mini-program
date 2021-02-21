@@ -67,7 +67,7 @@ App({
     console.log('当前环境：' + env)
     var baseApi = {
       // 开发版
-      develop: "http://192.168.124.8:8088", // localhost
+      develop: "http://192.168.124.3:8088", // localhost
       // 体验版
       trial: "https://gatesma.cn:8088",
       // 正式版
@@ -95,6 +95,7 @@ App({
         success: res => {
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
           var code = res.code; //返回code
+          console.log('code:', code)
           wx.request({
             url: this.globalData.baseUrl + '/desire_fu/v1/external/code_2_wx_openid',
             data: {

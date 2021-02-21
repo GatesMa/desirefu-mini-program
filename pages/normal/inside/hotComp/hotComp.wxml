@@ -18,7 +18,7 @@
   </view>
 
   <view class="cu-list menu card-menu  margin-bottom-xl shadow-lg">
-    <view class="cu-item margin-bottom padel padding-top padding-bottom" wx:for="{{competitions}}" wx:key="competition_id" wx:for-index="idx" data-item="{{item}}" bindtap="applicationOrganize" wx:if="{{idx<10}}">
+    <view class="cu-item margin-bottom padel padding-top padding-bottom" wx:for="{{competitions}}" wx:key="competition_id" wx:for-index="idx" data-item="{{item}}" catchtap="navigateToCom" wx:if="{{idx<10}}">
       <view class="content padding-tb-sm">
         <view class="content">
           <image src="https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/rank/{{idx+1}}.png" class="png" mode="aspectFit"></image>
