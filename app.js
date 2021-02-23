@@ -67,7 +67,7 @@ App({
     console.log('当前环境：' + env)
     var baseApi = {
       // 开发版
-      develop: "http://192.168.124.3:8088", // localhost
+      develop: "http://47.102.121.0:81", // localhost
       // 体验版
       trial: "https://gatesma.cn:8088",
       // 正式版
@@ -178,6 +178,14 @@ App({
           'Accept': 'application/json'
         },
         success: (res) => {
+          console.log(res.data)
+          if (res.data.code != 0) {
+            wx.showToast({
+              title: '获取数据异常, 请退出小程序重试',
+              icon: 'none',
+              duration: 2000
+            })
+          }
           var userId = res.data.data.user_id //返回userId
           this.globalData.userId = userId;
           resolve(res);

@@ -170,7 +170,7 @@ Page({
         this.setData({
           canLoginAccountData: canLoginAccountData
         })
-        // console.log('canLoginAccountData:' + canLoginAccountData)
+        console.log('canLoginAccountData:', res)
       },
       fail: (err) => {
         wx.showToast({
@@ -201,7 +201,7 @@ Page({
   },
   addNormal() {
     // 如果存在学生账号
-    if (this.data.canLoginAccountData[0].platform_type == 1) {
+    if (this.data.canLoginAccountData!=null && this.data.canLoginAccountData.length!=0 && this.data.canLoginAccountData[0].platform_type == 1) {
       wx.showModal({
         title: '提示',
         content: '一个微信号只能创建或绑定一个学生账号',

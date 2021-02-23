@@ -137,9 +137,11 @@ Component({
         },
         success: (res) => {
           console.log('res:', res.data.data.list)
-          this.setData({
-            noticeContent: res.data.data.list[0].content
-          })
+          if (res.data.data.list && res.data.data.list.lenght != 0) {
+            this.setData({
+              noticeContent: res.data.data.list[0].content
+            })
+          }
         },
         fail: (err) => {
           wx.showToast({
