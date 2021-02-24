@@ -17,7 +17,8 @@
   </view>
 
   <scroll-view scroll-x class="nav padding-left padding-bottom text-sm bg-white" scroll-with-animation>
-    <view class="cu-tag text-gray radius">原创</view>
+    <view class="cu-tag text-gray radius">ID:{{competition.competition_id}}</view>
+    <view class="cu-tag text-blue radius">原创</view>
 
     <view wx:if="{{competition.type==4}}" class="cu-tag bg-red light radius">国际级</view>
     <view wx:elif="{{competition.type==3}}" class="cu-tag bg-orange light radius">国家级</view>
