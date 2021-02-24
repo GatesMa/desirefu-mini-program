@@ -1,4 +1,5 @@
 // pages/competition/index/index.js
+const app = getApp()
 Page({
 
   /**
@@ -17,7 +18,7 @@ Page({
         "text": "我的"
       }
     ],
-    tabbarHeight: 60 // tabbar高度，默认60，会在onLoad中动态修改
+    tabbarHeight: app.globalData.CustomBar // tabbar高度，默认60，会在onLoad中动态修改
   },
   swichNav: function (e) {
     let that = this;
@@ -34,13 +35,13 @@ Page({
    */
   onLoad: function (options) {
     // 获取tabber栏的高度
-    const query = wx.createSelectorQuery().in(this)
-    query.select('.nav-tabs').boundingClientRect((rect) => {
-      console.log(rect.height)
-      this.setData({
-        tabbarHeight: rect.height
-      })
-    }).exec()
+    // const query = wx.createSelectorQuery().in(this)
+    // query.select('.nav-tabs').boundingClientRect((rect) => {
+    //   console.log(rect.height)
+    //   this.setData({
+    //     tabbarHeight: rect.height
+    //   })
+    // }).exec()
   },
 
   /**

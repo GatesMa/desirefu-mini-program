@@ -55,7 +55,20 @@ Page({
       })
     }
   },
-  
+
+
+  // 使用体验账号
+  tiyan: function() {
+    app.globalData.userId = 1
+    this.setData({
+      loadModal: true
+    }, () => {
+      // 通过userId获取可以登陆的账号
+      this.getCanLoginAccount()
+    })
+    
+  },
+
   //事件处理函数
   bindViewTap: function () {
     wx.navigateTo({
@@ -159,7 +172,7 @@ Page({
       // 2. 获取openId,等待app.js回调完成
       app.wxLogin().then(() => {
         console.log('3:' + new Date())
-        // console.log('openId index:' + app.globalData.openId)
+        console.log('openId index:' + app.globalData.openId)
         this.setData({
           openId: app.globalData.openId,
         })
@@ -180,6 +193,7 @@ Page({
   },
 
   getCanLoginAccount() {
+    console.log('getCanLoginAccount, ', app.globalData.userId)
     wx.request({
       url: app.globalData.baseUrl + '/desire_fu/v1/login/can_login_account',
       data: {
