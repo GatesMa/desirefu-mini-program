@@ -67,11 +67,11 @@ App({
     console.log('当前环境：' + env)
     var baseApi = {
       // 开发版
-      develop: "https://gatesma.cn:81", // localhost
+      develop: "http://localhost:8088", // localhost
       // 体验版
-      trial: "https://gatesma.cn:8088",
+      trial: "https://gatesma.cn:81",
       // 正式版
-      release: "https://gatesma.cn:8088" // 正式版本
+      release: "https://gatesma.cn:81" // 正式版本
     };
 
     // request请求baseURL
