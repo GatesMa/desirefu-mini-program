@@ -18,6 +18,30 @@ Page({
   },
   navigateToSystem: function (e) {
     var item = e.currentTarget.dataset.item
+    console.log('item:', item)
+    if (item.account_status==0) {
+      wx.showToast({
+        title: '账号正在审核中，请等待审核完成',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    } else if (item.account_status==2) {
+      wx.showToast({
+        title: '账号审核不通过',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    } else if (item.account_status==3) {
+      wx.showToast({
+        title: '账号已经被冻结',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+
     // 全局设置account信息
     app.globalData.account = item
     if (item.account_type == 1) {
