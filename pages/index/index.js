@@ -16,6 +16,7 @@ Page({
 
     grant: true, // 是否已经授权
   },
+
   navigateToSystem: function (e) {
     var item = e.currentTarget.dataset.item
     console.log('item:', item)
@@ -54,6 +55,7 @@ Page({
       })
     }
   },
+  
   //事件处理函数
   bindViewTap: function () {
     wx.navigateTo({

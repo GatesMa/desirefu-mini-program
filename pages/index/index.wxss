@@ -38,3 +38,7 @@ page {
   right: 0;
 }
 
+.tiyan {
+  text-decoration-line: underline;
+}
+

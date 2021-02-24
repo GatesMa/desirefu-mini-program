@@ -38,6 +38,7 @@
   <view class="text-xl padding">
     <text class="cuIcon-titles text-blue"></text>
     <text class="text-black text-bold">请选择账号进行登陆</text>
+    <text class="padding-left text-sm text-blue tiyan" bindtap="tiyan">使用体验账号</text>
   </view>
 </view>
 <view class="padding-top">
