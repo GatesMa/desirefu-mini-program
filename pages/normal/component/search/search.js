@@ -169,7 +169,12 @@ Component({
       wx.navigateTo({
         url: '/pages/normal/inside/hotComp/hotComp'
       })
-    }
+    },
+    navToQuestion() {
+      wx.navigateTo({
+        url: '/pages/normal/inside/question/question'
+      })
+    },
   }
 
 })

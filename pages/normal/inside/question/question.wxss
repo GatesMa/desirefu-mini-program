@@ -1,0 +1,13 @@
+/* pages/normal/inside/question/question.wxss */
+page {
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+/* 浮动按钮 */
+.float-btn {
+  position: fixed;
+  bottom: 50rpx;
+  right: 50rpx;
+}

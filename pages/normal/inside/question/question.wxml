@@ -1,0 +1,48 @@
+<!--pages/normal/inside/question/question.wxml-->
+<cu-custom bgColor="tx-blue" isBack="{{true}}">
+  <view slot="backText">常见问题</view>
+</cu-custom>
+<view class="cu-bar justify-center bg-white" style='margin-top: 20rpx;'>
+  <view class="action border-title">
+    <text class="text-xl text-bold">Q & A</text>
+    <text class="bg-grey" style="width:2rem"></text>
+  </view>
+</view>
+
+<view class="text-center text-xs padding">
+  <text class="text-gray">常见问题解答，没有找到可以在下面的按钮反馈</text>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">2</view>
+        <view class="cu-tag line-cyan">2021-02-25</view>
+      </view>
+      <view class="margin-top text-black text-bold">如何发布竞赛信息</view>
+      <view class="margin-top-sm">竞赛信息只能由比赛创建者账号创建，该账号需要申请，然后与你的微信号绑定后，即可实现多人共同使用一个账号创建比赛</view>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">1</view>
+        <view class="cu-tag line-cyan">2021-02-25</view>
+      </view>
+      <view class="margin-top text-black text-bold">怎么查看已经参加的队伍</view>
+      <view class="margin-top-sm">本小程序是多账号类型系统，参加的队伍理解为一种账号类型，需要冲首页的账号列表进入，进入队伍系统后即可查看队伍信息等</view>
+    </view>
+  </view>
+</view>
+
+
+<view class="grid col-1 padding-sm float-btn">
+  <view class="animation-{{isFold?'slide-bottom':''}} animation-reverse" style="animation-delay: 0.1s;">
+    <view class="margin-tb text-right">
+      <button class="cu-btn icon lg bg-grey shadow basis-sm" open-type="feedback">
+        <text class="cuIcon-add"></text>
+      </button>
+    </view>
+  </view>
+</view>
