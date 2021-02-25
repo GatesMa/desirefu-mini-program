@@ -98,6 +98,15 @@ Page({
     // this.getCanLoginAccount()
   },
 
+  refresh: function() {
+    this.setData({
+      loadModal: true
+    }, () => {
+      // 通过userId获取可以登陆的账号
+      this.getCanLoginAccount()
+    })
+  },
+
   // 查询是否已授权，如果没有授权，展示授权按钮
   grantUserInfo() {
     return new Promise((resolve, reject) => {
