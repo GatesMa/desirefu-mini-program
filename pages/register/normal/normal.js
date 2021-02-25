@@ -108,6 +108,18 @@ Page({
     })
   },
 
+  getUserInfo: function (e) {
+    app.globalData.userInfo = e.detail.userInfo
+    console.log('getUserInfo:', app.globalData.userInfo)
+    if (app.globalData.userInfo != null) {
+      // 如果成功获取到，设置一下
+      this.setData({
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
+    }
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -174,56 +186,74 @@ Page({
 
     if (e.detail.value.memo.length >= 50) {
       //名字限制在50字符
-      wx.showModal({
-        title: '提示',
-        content: '简介限制在50字符',
-        success(res) {
-          if (res.confirm) {
-            console.log('用户点击确定')
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
-        }
+      wx.showToast({
+        title: '简介限制在50字符',
+        icon: 'none',
+        duration: 2000
       })
-    } else {
-      //数据正确，发起网络请求
-
-      console.log('发起注册网络请求')
-      var collegeId = this.data.collegeData[this.data.multiIndex[0]].collegeId
-      var departmentId = this.data.collegeData[this.data.multiIndex[0]].departments[this.data.multiIndex[1]].departmentId
-      var nickName = app.globalData.userInfo.nickName
-      var rootUserId = app.globalData.userId
-      console.log(collegeId + ' ' + departmentId + ' ' + nickName + ' ' + rootUserId)
-      wx.request({
-        url: app.globalData.baseUrl + '/desire_fu/v1/normal_account/add', // 仅为示例，并非真实的接口地址
-        method: 'POST',
-        data: {
-          account_type: 1,
-          college_id: collegeId,
-          department_id: departmentId,
-          major: e.detail.value.major,
-          memo: e.detail.value.memo,
-          nick_name: nickName,
-          root_user_id: rootUserId,
-          stu_id: e.detail.value.stuId,
-          real_name: e.detail.value.realName
-        },
-        header: {
-          'content-type': 'application/json',
-          'Accept': 'application/json'
-        },
-        success(res) {
-          console.log('请求成功...')
-
-          wx.showToast({
-            title: '注册成功',
-            icon: 'success',
-            duration: 1000
-          })
-
-        }
-      })
+      return
     }
+
+    if (app.globalData.userInfo == null) {
+      //需要获取昵称
+      wx.showToast({
+        title: '需要授权获取昵称信息',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+
+    if (e.detail.value.major==null || e.detail.value.major=='' 
+     || e.detail.value.stuId==null || e.detail.value.stuId==''
+     || e.detail.value.realName==null || e.detail.value.realName=='') {
+      //需要专业
+      wx.showToast({
+        title: '专业、学号、真实姓名不能为空',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+
+    //数据正确，发起网络请求
+
+    console.log('发起注册网络请求')
+    var collegeId = this.data.collegeData[this.data.multiIndex[0]].collegeId
+    var departmentId = this.data.collegeData[this.data.multiIndex[0]].departments[this.data.multiIndex[1]].departmentId
+    var nickName = app.globalData.userInfo.nickName
+    var rootUserId = app.globalData.userId
+    console.log(collegeId + ' ' + departmentId + ' ' + nickName + ' ' + rootUserId)
+    wx.request({
+      url: app.globalData.baseUrl + '/desire_fu/v1/normal_account/add', // 仅为示例，并非真实的接口地址
+      method: 'POST',
+      data: {
+        account_type: 1,
+        college_id: collegeId,
+        department_id: departmentId,
+        major: e.detail.value.major,
+        memo: e.detail.value.memo,
+        nick_name: nickName,
+        root_user_id: rootUserId,
+        stu_id: e.detail.value.stuId,
+        real_name: e.detail.value.realName
+      },
+      header: {
+        'content-type': 'application/json',
+        'Accept': 'application/json'
+      },
+      success(res) {
+        console.log('请求成功...')
+
+        wx.showToast({
+          title: '注册成功',
+          icon: 'success',
+          duration: 1000
+        })
+
+      }
+    })
+
   },
   bindMultiPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)

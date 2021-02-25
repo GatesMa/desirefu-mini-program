@@ -36,6 +36,12 @@
     <input placeholder="真实姓名" name="realName" type='text'></input>
     <text class="cuIcon-info text-orange"></text>
   </view>
+  <view class="cu-form-group margin-left margin-right">
+    <view class="title">授权获取微信昵称</view>
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"
+      class="cu-btn round bg-orange" role="button" aria-disabled="false"> 获取头像昵称 </button>
+    <button wx:else class="cu-btn round bg-blue" role="button" aria-disabled="false"> 获取成功 </button>
+  </view>
   <view class="cu-form-group align-start margin-left margin-right">
     <view class="title">个人介绍</view>
     <textarea placeholder="简短介绍（可选）" name="memo"></textarea>

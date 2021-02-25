@@ -67,7 +67,7 @@ App({
     console.log('当前环境：' + env)
     var baseApi = {
       // 开发版
-      develop: "http://localhost:8088", // localhost
+      develop: "https://gatesma.cn:81", // http://192.168.124.3:8088
       // 体验版
       trial: "https://gatesma.cn:81",
       // 正式版
@@ -145,10 +145,10 @@ App({
                 if (this.userInfoReadyCallback) {
                   this.userInfoReadyCallback(res)
                 }
-                resolve(res);
               }
             })
           }
+          resolve(res);
         },
         fail: (err) => {
           console.log('getUserInfo 3')
@@ -170,7 +170,7 @@ App({
           email: '',
           login_name: openId,
           login_name_type: 2,
-          user_name: this.globalData.userInfo.nickName
+          user_name: this.globalData.userInfo ? this.globalData.userInfo.nickName : '未知'
         },
         method: "POST",
         header: {

@@ -34,13 +34,24 @@
   <image class='background' src="../../images/img_0182.png" mode="widthFix"></image>
 </view>
 
-<view class="flex-sub solid-bottom margin-top">
-  <view class="text-xl padding">
-    <text class="cuIcon-titles text-blue"></text>
-    <text class="text-black text-bold">请选择账号进行登陆</text>
-    <text class="padding-left text-sm text-blue tiyan" bindtap="tiyan">使用体验账号</text>
+
+<view class="cu-bar bg-white solid-bottom margin-top-xl">
+  <view class="action">
+    <view class="text-xl">
+      <text class="cuIcon-titles text-blue"></text>
+      <text class="text-black text-bold">请选择账号进行登陆</text>
+      <!-- <button class="cu-btn round line-blue text-sm" bindtap="tiyan">体验账号</button> -->
+      <text class="padding-left-sm text-sm text-blue tiyan" bindtap="tiyan">使用体验账号</text>
+    </view>
+  </view>
+  <view class="action">
+    <button class="cu-btn icon" bindtap="refresh">
+      <text class="cuIcon-refresh"></text>
+    </button>
   </view>
 </view>
+
+
 <view class="padding-top">
 
   <scroll-view scroll-x class="bg-white nav padding-left" scroll-with-animation scroll-left="{{scrollLeft}}">

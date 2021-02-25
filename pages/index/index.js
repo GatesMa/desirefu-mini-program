@@ -76,25 +76,26 @@ Page({
     })
   },
   onLoad: function () {
-    this.grantUserInfo().then(res => {
-      if (res) {
-        // 已经有授权
-        this.setData({
-          grant: true
-        })
-        this.init()
-      } else {
-        // 没有授权，展示授权窗口
-        this.setData({
-          grant: false
-        })
-      }
-    })
+    this.init()
+    // this.grantUserInfo().then(res => {
+    //   if (res) {
+    //     // 已经有授权
+    //     this.setData({
+    //       grant: true
+    //     })
+    //     this.init()
+    //   } else {
+    //     // 没有授权，展示授权窗口
+    //     this.setData({
+    //       grant: false
+    //     })
+    //   }
+    // })
   },
 
   onShow: function () {
     // 每次回到这个界面的时候请求当前账号列表
-    this.getCanLoginAccount()
+    // this.getCanLoginAccount()
   },
 
   // 查询是否已授权，如果没有授权，展示授权按钮
