@@ -118,7 +118,11 @@ Component({
     // 标题
     title: null,
     // founder
-    founder: null
+    founder: null,
+
+
+    basicData: {}
+
   },
 
   /* 组件声明周期函数 */
@@ -139,6 +143,7 @@ Component({
       // 页面被展示
       console.log('show')
       this.fillCompetitions()
+      this.getBasicData()
     },
     hide: function () {
       // 页面被隐藏
@@ -337,6 +342,34 @@ Component({
     navToPreview(e) {
       wx.navigateTo({
         url: '/pages/competition/preview/preview?isPre=false&competition=' + encodeURIComponent(JSON.stringify(e.currentTarget.dataset.item))
+      })
+    },
+
+    // 获取头部的几个数字
+    getBasicData() {
+      wx.request({
+        url: app.globalData.baseUrl + '/desire_fu/v1/competition_creator_account/get_basic_number',
+        data: {
+          accountId: app.globalData.account.account_id // 默认只获取正常状态，不获取草稿
+        },
+        method: "POST",
+        header: {
+          'content-type': 'application/json',
+          'Accept': 'application/json'
+        },
+        success: (res) => {
+          // console.log('res:', res.data)
+          this.setData({
+            basicData: res.data.data
+          })
+        },
+        fail: (err) => {
+          wx.showToast({
+            title: '获取数据异常',
+            icon: 'none',
+            duration: 2000
+          })
+        }
       })
     }
   }
