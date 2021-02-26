@@ -220,6 +220,16 @@ Page({
         this.setData({
           canLoginAccountData: canLoginAccountData
         })
+        // 如果没有可用账号，跳到账号申请
+        if (canLoginAccountData == null || canLoginAccountData.length==0) {
+          this.setData({
+            TabCur: -1
+          })
+        } else {
+          this.setData({
+            TabCur: 0
+          })
+        }
         console.log('canLoginAccountData:', res)
       },
       fail: (err) => {
