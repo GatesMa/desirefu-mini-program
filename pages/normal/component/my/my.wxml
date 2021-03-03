@@ -1,7 +1,7 @@
 <!--pages/competition/component/my/my.wxml-->
 <scroll-view scroll-y class="scrollPage">
   <view class="UCenter-bg">
-    <image src="{{userInfo.avatarUrl}}" class="png round" mode="widthFix"></image>
+    <image src="{{userInfo.avatarUrl?userInfo.avatarUrl:'https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/mbg.jpeg'}}" class="png round" mode="widthFix"></image>
     <view class="text-xl">学生账号(ID：{{account.account_id}})
       <!-- <text class="text-df">v2.0</text> -->
     </view>
