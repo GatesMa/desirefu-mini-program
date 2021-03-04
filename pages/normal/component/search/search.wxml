@@ -110,22 +110,22 @@
     <view class="flex flex-sub flex-direction">
       <view class="text-xxl text-orange">12</view>
       <view class="margin-top-sm">
-        <text class="cuIcon-all"></text> 全部</view>
+        <text class="cuIcon-all"></text> 队伍</view>
     </view>
     <view class="flex flex-sub flex-direction">
       <view class="text-xxl text-blue">10</view>
       <view class="margin-top-sm">
-        <text class="cuIcon-hot"></text> 有效</view>
+        <text class="cuIcon-hot"></text> 比赛</view>
     </view>
     <view class="flex flex-sub flex-direction">
       <view class="text-xxl text-green">1004</view>
       <view class="margin-top-sm">
-        <text class="cuIcon-attentionfill"></text> 浏览</view>
+        <text class="cuIcon-like"></text> 收藏</view>
     </view>
     <view class="flex flex-sub flex-direction">
       <view class="text-xxl text-green">1004</view>
       <view class="margin-top-sm">
-        <text class="cuIcon-attentionfill"></text> 浏览</view>
+        <text class="cuIcon-attention"></text> 浏览</view>
     </view>
   </view>
 </view>
