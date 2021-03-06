@@ -135,6 +135,35 @@ Page({
     })
   },
 
+  collect() {
+    wx.request({
+      url: app.globalData.baseUrl + '/desire_fu/v1/competition/collect',
+      data: {
+        "accountId": app.globalData.account.account_id,
+        "competitionId": this.data.competition.competition_id,
+        "like": this.data.isLiked ? 0 : 1
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/json',
+        'Accept': 'application/json'
+      },
+      success: (res) => {
+        console.log('res:', res.data)
+        this.setData({
+          isLiked: !this.data.isLiked
+        })
+      },
+      fail: (err) => {
+        wx.showToast({
+          title: '获取数据异常,可退出重试',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+  },
+
   // 队伍列表
   getOrganize() {
     wx.request({
