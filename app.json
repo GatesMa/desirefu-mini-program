@@ -14,6 +14,7 @@
     "pages/normal/inside/msg/msg",
     "pages/normal/inside/hotComp/hotComp",
     "pages/normal/inside/question/question",
+    "pages/normal/inside/collect/collect",
     "pages/normal/inside/application/application"
   ],
   "window": {

@@ -175,6 +175,11 @@ Component({
         url: '/pages/normal/inside/question/question'
       })
     },
+    navToCollect() {
+      wx.navigateTo({
+        url: '/pages/normal/inside/collect/collect' 
+      })
+    }
   }
 
 })

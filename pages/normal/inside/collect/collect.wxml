@@ -1,0 +1,33 @@
+<!--pages/normal/inside/collect/collect.wxml-->
+<scroll-view scroll-y>
+  <cu-custom bgColor="" isBack="{{true}}">
+  </cu-custom>
+
+  <!-- 加载中的弹框 -->
+  <view class='cu-load load-modal' wx:if="{{loadModal}}">
+    <!-- <view class='cuIcon-emojifill text-orange'></view> -->
+    <image src='/images/logo.png' class='png' mode='aspectFit'></image>
+    <view class='gray-text'>加载中...</view>
+  </view>
+
+  <view class="text-xxl padding-top padding-left padding-right">
+    <text class="cuIcon-barcode text-red"></text><text class="text-white text-bold"> 收藏比赛</text>
+  </view>
+  <view class="padding-bottom padding-left padding-right">
+    <text class="text-white">你的账号收藏的比赛列表</text>
+  </view>
+
+  <view class="cu-list menu card-menu  margin-bottom-xl shadow-lg">
+    <view class="cu-item margin-bottom padel padding-top padding-bottom" wx:for="{{collectList}}" wx:key="id" wx:for-index="idx" data-item="{{item}}" catchtap="navigateToCom">
+      <view class="content padding-tb-sm">
+        <view class="content">
+          <text class="text-black">{{item.competition.title}}</text>
+          <text class="cu-tag round bg-red sm" wx:if="{{idx==0}}">热度高</text>
+          <text class="cu-tag round bg-yellow sm" wx:if="{{idx==5}}">浏览</text>
+        </view>
+        <view class="text-gray text-sm">创办组织：{{item.competition.founder}}</view>
+        <view class="text-gray text-sm">{{item.createdTime}}</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
