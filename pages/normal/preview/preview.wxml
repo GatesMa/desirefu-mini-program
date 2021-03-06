@@ -37,7 +37,7 @@
   <view class="grid col-1 padding-sm float-btn">
     <view class="animation-{{isFold?'slide-bottom':''}} animation-reverse" style="animation-delay: 0.1s;">
       <view class="margin-tb text-right">
-        <button class="cu-btn icon lg shadow basis-sm">
+        <button class="cu-btn icon lg shadow basis-sm {{isLiked ? 'bg-red' : ''}}">
           <text class="cuIcon-like"></text>
         </button>
       </view>

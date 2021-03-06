@@ -23,7 +23,10 @@ Page({
     TabCur: 1,
     scrollLeft: 0,
     // 抽屉
-    organizeList: []
+    organizeList: [],
+
+    // 是否收藏
+    isLiked: false,
   },
 
   /**
@@ -99,6 +102,37 @@ Page({
     // 获取队伍列表
     this.getOrganize()
 
+    // 获取是否收藏
+    this.checkCollect()
+
+  },
+
+  checkCollect() {
+    wx.request({
+      url: app.globalData.baseUrl + '/desire_fu/v1/competition/check_collect',
+      data: {
+        "accountId": app.globalData.account.account_id,
+        "competitionId": this.data.competition.competition_id
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/json',
+        'Accept': 'application/json'
+      },
+      success: (res) => {
+        console.log('res:', res.data.data)
+        this.setData({
+          isLiked: res.data.data.isLiked == 1 ? true : false
+        })
+      },
+      fail: (err) => {
+        wx.showToast({
+          title: '获取数据异常,可退出重试',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
   },
 
   // 队伍列表
