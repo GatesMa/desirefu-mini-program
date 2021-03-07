@@ -16,7 +16,8 @@
     "pages/normal/inside/question/question",
     "pages/normal/inside/collect/collect",
     "pages/oss/inside/idx-swiper/idx-swiper",
-    "pages/normal/inside/application/application"
+    "pages/normal/inside/application/application",
+    "pages/oss/chart/bar/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
