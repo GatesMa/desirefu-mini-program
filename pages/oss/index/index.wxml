@@ -16,7 +16,7 @@
 
 
 <!-- 自定义 tabbar -->
-<view class="nav-tabs bg-white solid-top shadow-warp">
+<view class="nav-tabs bg-white solid-top shadow-warp foot tabbar">
   <view class="tab-list {{currentTab == idx ? 'active' : 'default' }}" wx:for="{{items}}" wx:key="prototype"
     wx:for-index="idx" wx:for-item="item" data-current="{{idx}}" bindtap="swichNav">
     <text class="tab-text" wx:for-index="idx" data-current="{{idx}}"

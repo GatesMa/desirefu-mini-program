@@ -9,6 +9,7 @@ page {
   display: flex;
   position: fixed;
   bottom: 0;
+  z-index: 100;
 }
 
 .tab-list {

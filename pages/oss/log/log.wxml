@@ -1,0 +1,15 @@
+<cu-custom bgColor="bg-gradual-tx-blue" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">日志</view></cu-custom>
+<view class="cu-timeline">
+  <view class="cu-item text-green">
+    <view class="bg-gradual-tx-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-green">v1.0.0</view>
+        <view class="cu-tag line-white">2021/03/07</view>
+      </view>
+      <view class="margin-top-sm text-content">
+        <view>1.运营系统总览</view>
+        <view>2.运营系统总体样式、首页轮播图编辑页</view>
+      </view>
+    </view>   
+  </view>
+</view>

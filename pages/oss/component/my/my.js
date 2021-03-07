@@ -59,7 +59,7 @@ Component({
     },
     navToProfile() {
       wx.navigateTo({
-        url: `/pages/normal/profile/profile`,
+        url: `/pages/oss/profile/profile`,
       })
     }
   }

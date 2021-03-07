@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/oss/inside/idx-swiper/idx-swiper",
     "pages/index/index",
     "pages/logs/logs",
     "pages/normal/index/index",
@@ -16,6 +15,7 @@
     "pages/normal/inside/hotComp/hotComp",
     "pages/normal/inside/question/question",
     "pages/normal/inside/collect/collect",
+    "pages/oss/inside/idx-swiper/idx-swiper",
     "pages/normal/inside/application/application"
   ],
   "window": {
