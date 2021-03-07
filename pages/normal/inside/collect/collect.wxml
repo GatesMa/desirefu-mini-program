@@ -26,7 +26,7 @@
           <text class="cu-tag round bg-yellow sm" wx:if="{{idx==5}}">浏览</text>
         </view>
         <view class="text-gray text-sm">创办组织：{{item.competition.founder}}</view>
-        <view class="text-gray text-sm">{{item.createdTime}}</view>
+        <view class="text-gray text-sm"><text class="cuIcon-time"></text> 收藏时间：{{item.createdTime}}</view>
       </view>
     </view>
   </view>

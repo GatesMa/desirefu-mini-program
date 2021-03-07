@@ -44,31 +44,7 @@ Component({
         name: 'tag',
         color: 'brown',
         icon: 'tagfill'
-      },
-      {
-        title: '头像',
-        name: 'avatar',
-        color: 'red',
-        icon: 'myfill'
-      },
-      {
-        title: '进度条',
-        name: 'progress',
-        color: 'orange',
-        icon: 'icloading'
-      },
-      {
-        title: '边框阴影',
-        name: 'shadow',
-        color: 'olive',
-        icon: 'copy'
-      },
-      {
-        title: '加载',
-        name: 'loading',
-        color: 'green',
-        icon: 'loading2'
-      },
+      }
     ],
   },
 
