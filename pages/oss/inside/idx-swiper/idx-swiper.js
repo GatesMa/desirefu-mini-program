@@ -166,7 +166,42 @@ Page({
   },
 
   deleteItem(e) {
-    console.log(e.currentTarget.dataset.item)
+    // 1. 删除这个item
+    this.data.swiperList.splice(e.currentTarget.dataset.index, 1);
+    this.setData({
+      swiperList: this.data.swiperList
+    })
+
+    // 2. 发请求删除
+    var noticeId = e.currentTarget.dataset.item.noticeId
+    console.log(noticeId)
+    console.log(e.currentTarget.dataset.index)
+    wx.request({
+      url: app.globalData.baseUrl + '/desire_fu/v1/notification/delete',
+      data: {
+        "noticeId": noticeId
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/json',
+        'Accept': 'application/json'
+      },
+      success: (res) => {
+        console.log(res.data)
+        wx.showToast({
+          title: '删除成功',
+          icon: 'none',
+          duration: 2000
+        })
+      },
+      fail: (err) => {
+        wx.showToast({
+          title: '发生异常',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
   },
 
   /**

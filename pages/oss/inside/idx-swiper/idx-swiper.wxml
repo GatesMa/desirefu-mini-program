@@ -75,7 +75,7 @@
           <text class='cuIcon-creative text-orange '></text> 指向的比赛：（ID：{{item.content}}）
         </view>
         <view class='action'>
-          <button class="cu-btn round line-red shadow" bindtap="deleteItem" data-item="{{item}}">
+          <button class="cu-btn round line-red shadow" data-item="{{item}}" data-noticeId="{{item.noticeId}}" data-index="{{idx}}" bindtap="deleteItem" >
             <text class="cuIcon-delete text-red"></text> 删除
           </button>
         </view>
