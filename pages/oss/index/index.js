@@ -1,5 +1,4 @@
-// pages/competition/index/index.js
-const app = getApp()
+// pages/normal/index/index.js
 Page({
 
   /**
@@ -8,9 +7,14 @@ Page({
   data: {
     currentTab: 0,
     items: [{
-        "iconPath": "/images/tabbar/com.png",
-        "selectedIconPath": "/images/tabbar/com-selec.png",
-        "text": "总览"
+        "iconPath": "/images/tabbar/oss-home.png",
+        "selectedIconPath": "/images/tabbar/oss-home-selec.png",
+        "text": "首页"
+      },
+      {
+        "iconPath": "/images/tabbar/chart.png",
+        "selectedIconPath": "/images/tabbar/chart-selec.png",
+        "text": "图表"
       },
       {
         "iconPath": "/images/tabbar/oss-my.png",
@@ -18,7 +22,7 @@ Page({
         "text": "我的"
       }
     ],
-    tabbarHeight: app.globalData.CustomBar // tabbar高度，默认60，会在onLoad中动态修改
+    tabbarHeight: 60 // tabbar高度，默认60，会在onLoad中动态修改
   },
   swichNav: function (e) {
     let that = this;
@@ -35,13 +39,13 @@ Page({
    */
   onLoad: function (options) {
     // 获取tabber栏的高度
-    // const query = wx.createSelectorQuery().in(this)
-    // query.select('.nav-tabs').boundingClientRect((rect) => {
-    //   console.log(rect.height)
-    //   this.setData({
-    //     tabbarHeight: rect.height
-    //   })
-    // }).exec()
+    const query = wx.createSelectorQuery().in(this)
+    query.select('.nav-tabs').boundingClientRect((rect) => {
+      console.log(rect.height)
+      this.setData({
+        tabbarHeight: rect.height
+      })
+    }).exec()
   },
 
   /**
@@ -83,7 +87,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log(1)
   },
 
   /**

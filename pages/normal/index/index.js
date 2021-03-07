@@ -7,18 +7,18 @@ Page({
   data: {
     currentTab: 0,
     items: [{
-        "iconPath": "/images/tabbar/info.png",
-        "selectedIconPath": "/images/tabbar/info-selec.png",
+        "iconPath": "/images/tabbar/normal1.png",
+        "selectedIconPath": "/images/tabbar/normal1-selec.png",
         "text": "首页"
       },
       {
-        "iconPath": "/images/tabbar/search.png",
-        "selectedIconPath": "/images/tabbar/search-selec.png",
+        "iconPath": "/images/tabbar/normal2.png",
+        "selectedIconPath": "/images/tabbar/normal2-selec.png",
         "text": "广场"
       },
       {
-        "iconPath": "/images/tabbar/usercenter.png",
-        "selectedIconPath": "/images/tabbar/user-selec.png",
+        "iconPath": "/images/tabbar/oss-my.png",
+        "selectedIconPath": "/images/tabbar/oss-my-selec.png",
         "text": "我的"
       }
     ],

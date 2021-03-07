@@ -53,6 +53,10 @@ Page({
       wx.navigateTo({
         url: '../competition/index/index',
       })
+    } else if (item.account_type == 3) {
+      wx.navigateTo({
+        url: '../oss/index/index',
+      })
     }
   },
 

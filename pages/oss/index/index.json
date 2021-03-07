@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "component_search": "/pages/oss/component/chart/chart",
+    "component_homepage": "/pages/oss/component/homepage/homepage",
+    "component_my": "/pages/oss/component/my/my"
+  }
+}
