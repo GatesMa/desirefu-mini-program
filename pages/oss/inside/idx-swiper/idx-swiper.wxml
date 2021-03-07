@@ -1,0 +1,91 @@
+<!--pages/oss/inside/idx-swiper/idx-swiper.wxml-->
+<cu-custom bgColor="tx-blue" isBack="{{true}}">
+  <view slot="backText">首页轮播图</view>
+</cu-custom>
+
+<scroll-view scroll-y="true" class="page show">
+  <view class="cu-bar bg-white solid-bottom">
+    <view class='action'>
+      <text class='cuIcon-titles text-blue '></text> 效果预览：
+    </view>
+  </view>
+  <view class="UCenter-bg">
+    <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000"
+      duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+      <swiper-item wx:for="{{swiperList}}" wx:key="noticeId" class="{{cardCur==index?'cur':''}}" data-item="{{item}}"
+        catchtap="navigateToNotice">
+        <view class="swiper-item">
+          <image src="{{item.front_img}}" mode="aspectFill"></image>
+        </view>
+      </swiper-item>
+    </swiper>
+    <image src="/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+
+  <view class="cu-bar bg-white">
+    <view class='action'>
+      <text class='cuIcon-titles text-blue '></text> 新增：
+    </view>
+    <view class='action'>
+      <button class="cu-btn round line-green shadow" bindtap="addItem">
+        <text class="cuIcon-add text-green"></text> 添加
+      </button>
+    </view>
+  </view>
+  <view>
+    <form>
+      <view class="cu-bar bg-white">
+        <view class="action">
+          上传封面图片
+        </view>
+        <view class="action">
+          {{imgList.length}}/1
+        </view>
+      </view>
+      <view class="cu-form-group">
+        <view class="grid col-4 grid-square flex-sub">
+          <view class="bg-img" wx:for="{{imgList}}" wx:key="id" bindtap="ViewImage"
+            data-url="{{imgList[index]}}">
+            <image src='{{imgList[index]}}' mode='aspectFill'></image>
+            <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+              <text class="cuIcon-close"></text>
+            </view>
+          </view>
+          <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+            <text class="cuIcon-cameraadd"></text>
+          </view>
+        </view>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">指向的比赛</view>
+        <input type="number" class="text-xs" data-id='id' bindinput='idInput' placeholder="填比赛的ID"></input>
+        <text class="cuIcon-info text-orange"></text>
+      </view>
+    </form>
+  </view>
+  <view class="cu-card case">
+    <view class="cu-item shadow" wx:for="{{swiperList}}" wx:for-index="idx" wx:key="noticeId"> 
+      <view class="image">
+        <image src="{{item.front_img}}" mode="widthFix"></image>
+        <view class="cu-tag bg-blue">{{idx + 1}}</view>
+
+      </view>
+      <view class="cu-bar bg-white">
+        <view class='action'>
+          <text class='cuIcon-creative text-orange '></text> 指向的比赛：（ID：{{item.content}}）
+        </view>
+        <view class='action'>
+          <button class="cu-btn round line-red shadow" bindtap="deleteItem" data-item="{{item}}">
+            <text class="cuIcon-delete text-red"></text> 删除
+          </button>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+
+
+
+
+</scroll-view>

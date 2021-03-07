@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/oss/inside/idx-swiper/idx-swiper",
     "pages/index/index",
     "pages/logs/logs",
     "pages/normal/index/index",
