@@ -38,7 +38,7 @@ page {
   right: 0;
 }
 
-.tiyan {
+/* .tiyan {
   text-decoration-line: underline;
-}
+} */
 
