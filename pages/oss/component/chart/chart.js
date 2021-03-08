@@ -17,33 +17,47 @@ Component({
         icon: 'newsfill'
       },
       {
-        title: '背景',
-        name: 'background',
+        title: '饼图热度',
+        name: 'Pie',
+        url: 'pie',
         color: 'blue',
         icon: 'colorlens'
       },
       {
-        title: '文本',
-        name: 'text',
+        title: '散点图',
+        name: 'Scatter',
+        url: 'scatter',
         color: 'purple',
         icon: 'font'
       },
       {
-        title: '图标 ',
-        name: 'icon',
-        color: 'mauve',
+        title: '敬请期待 ',
+        name: 'Coming soon',
+        color: 'grey',
         icon: 'icon'
       },
       {
-        title: '按钮',
-        name: 'button',
-        color: 'pink',
+        title: '敬请期待',
+        name: 'Coming soon',
+        color: 'grey',
         icon: 'btn'
       },
       {
-        title: '标签',
-        name: 'tag',
-        color: 'brown',
+        title: '敬请期待',
+        name: 'Coming soon',
+        color: 'grey',
+        icon: 'tagfill'
+      },
+      {
+        title: '敬请期待',
+        name: 'Coming soon',
+        color: 'grey',
+        icon: 'btn'
+      },
+      {
+        title: '敬请期待',
+        name: 'Coming soon',
+        color: 'grey',
         icon: 'tagfill'
       }
     ],

@@ -3,9 +3,9 @@
   <view slot="backText">比赛热度</view>
 </cu-custom>
 <view class='margin-xl bg-white padding-xl radius shadow-lg padel'>
-  <view class='text-center margin-bottom text-lg  text-grey'>关于热度条形图</view>
+  <view class='text-center margin-bottom text-lg  text-grey'>关于散点图</view>
   <view class='text-content'>
-    <view class='margin-top-sm'>根据浏览量排名而成。该项目是我个人开发的一款高颜值的微信小程序组件库。不定期更新一些解决方案，或者你有一些好的想法可以在GitHub里提交给我，我会加入到扩展里。</view>
+    <view class='margin-top-sm'>小程序及小游戏代码审核将在2021年春节假期2月11日（除夕）至2月17日（初六）支持开发者紧急审核需求，充分保障开发者在过年期间的紧急情况提审需求........</view>
     <view class='margin-top-sm'>更多功能敬请期待！</view>
   </view>
 </view>

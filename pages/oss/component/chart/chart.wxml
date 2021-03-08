@@ -1,5 +1,5 @@
 <scroll-view scroll-y class="scrollPage">
-  <image src='/images/chartBg.png' mode='widthFix' class='png' style='width:100%;height:286rpx'></image>
+  <image src='https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/images/chartBg.png' mode='widthFix' class='png' style='width:100%;height:286rpx'></image>
   <view class='nav-list'>
     <navigator open-type="navigate" hover-class='none' url="/pages/oss/chart/{{item.url}}/index"
       class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key="title">

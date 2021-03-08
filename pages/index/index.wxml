@@ -31,7 +31,7 @@
 <!--页面根标签-->
 <view class="baseImg">
   <!--pics文件夹下的background.jpg文件-->
-  <image class='background' src="../../images/img_0182.png" mode="widthFix"></image>
+  <image class='background' src="https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/images/img_0182.png" mode="widthFix"></image>
 </view>
 
 

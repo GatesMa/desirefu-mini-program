@@ -13,7 +13,7 @@
         </view>
       </swiper-item>
     </swiper>
-    <image src="/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+    <image src="https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
   </view>
 
   <!-- 加载中的弹框 -->
