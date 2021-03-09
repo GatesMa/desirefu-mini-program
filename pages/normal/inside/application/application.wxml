@@ -4,7 +4,7 @@
 </cu-custom>
 <!-- <image src="https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/dfu1.png" class="png" mode="scaleToFill" style="width:100%"></image> -->
 
-<view class="container">
+<view class="tcontainer">
   <view class="text-xxl padding-top padding-left padding-right">
     <text class="cuIcon-emoji text-red"></text><text class="text-white text-bold"> 入队请求列表</text>
   </view>

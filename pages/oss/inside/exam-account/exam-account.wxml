@@ -1,0 +1,25 @@
+<!--pages/oss/inside/exam-account/exam-account.wxml-->
+<scroll-view scroll-y>
+  <cu-custom bgColor="" isBack="{{true}}">
+  </cu-custom>
+
+  <view class="text-xxl padding-top padding-left padding-right">
+    <text class="cuIcon-activity text-white"></text><text class="text-white text-bold"> 账号审核</text>
+  </view>
+  <view class="padding-bottom padding-left padding-right">
+    <text class="text-white">待审核的学生账号列表</text>
+  </view>
+
+  <view class="cu-list menu card-menu  margin-bottom-xl shadow-lg">
+    <view class="cu-item margin-bottom padel padding-top padding-bottom" wx:for="{{accountList}}" wx:key="id" wx:for-index="idx" data-item="{{item}}" catchtap="navigateToCom">
+      <view class="content padding-tb-sm">
+        <view class="content">
+          <text class="text-black">学生账号ID：{{item.account_id}}</text>
+        </view>
+        <view class="text-gray text-sm">{{item.college_name + item.department_name + item.major}}</view>
+        <view class="text-gray text-sm"><text class="cuIcon-info text-red"></text> 真实姓名：{{item.real_name}} ｜ 学号：{{item.stu_id}}</view>
+        <view class="text-gray text-sm"><text class="cuIcon-time text-blue"></text> 提交时间：{{item.created_time}} </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

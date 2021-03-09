@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/oss/inside/exam-account/exam-account",
     "pages/index/index",
     "pages/logs/logs",
     "pages/normal/index/index",
