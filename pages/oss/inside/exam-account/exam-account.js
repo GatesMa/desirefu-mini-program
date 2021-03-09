@@ -19,8 +19,7 @@ Page({
   getAccountList() {
     wx.request({
       url: app.globalData.baseUrl + '/desire_fu/v1/normal_account/getExamList',
-      data: {
-      },
+      data: {},
       method: "POST",
       header: {
         'content-type': 'application/json',
@@ -39,7 +38,55 @@ Page({
           duration: 2000
         })
       },
-      complete: () => {
+      complete: () => {}
+    })
+  },
+
+  handleAccount(e) {
+    var item = e.currentTarget.dataset.item
+    var that = this
+    wx.showModal({
+      title: '审批',
+      content: '请选择是否审核通过该账号',
+      cancelText: '拒绝',
+      confirmText: '通过',
+      success(res) {
+        var status = 0
+        if (res.confirm) {
+          status = 1
+        } else if (res.cancel) {
+          status = 2
+        }
+        wx.request({
+          url: app.globalData.baseUrl + '/desire_fu/v1/account/update',
+          data: {
+            "accountId": item.account_id,
+            "accountStatus": status
+          },
+          method: "POST",
+          header: {
+            'content-type': 'application/json',
+            'Accept': 'application/json'
+          },
+          success: (res) => {
+            if (res.data.code != 0) {
+              wx.showToast({
+                title: '操作异常,可退出重试',
+                icon: 'none',
+                duration: 2000
+              })
+            } else {
+              // 刷新请求列表
+              wx.showToast({
+                title: '审批成功',
+                icon: 'success',
+                duration: 2000
+              })
+              that.getAccountList()
+            }
+          },
+          fail: (err) => {}
+        })
       }
     })
   },

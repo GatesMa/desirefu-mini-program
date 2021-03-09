@@ -11,7 +11,7 @@
   </view>
 
   <view class="cu-list menu card-menu  margin-bottom-xl shadow-lg">
-    <view class="cu-item margin-bottom padel padding-top padding-bottom" wx:for="{{accountList}}" wx:key="id" wx:for-index="idx" data-item="{{item}}" catchtap="navigateToCom">
+    <view class="cu-item margin-bottom padel padding-top padding-bottom" wx:for="{{accountList}}" wx:key="id" wx:for-index="idx" data-item="{{item}}" catchtap="handleAccount">
       <view class="content padding-tb-sm">
         <view class="content">
           <text class="text-black">学生账号ID：{{item.account_id}}</text>

@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/oss/inside/exam-account/exam-account",
     "pages/index/index",
     "pages/logs/logs",
     "pages/normal/index/index",
@@ -18,6 +17,7 @@
     "pages/normal/inside/collect/collect",
     "pages/oss/inside/idx-swiper/idx-swiper",
     "pages/normal/inside/application/application",
+    "pages/oss/inside/exam-account/exam-account",
     "pages/oss/chart/bar/index"
   ],
   "window": {

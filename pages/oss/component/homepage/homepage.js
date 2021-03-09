@@ -110,6 +110,11 @@ Component({
         url: '/pages/oss/inside' + e.currentTarget.dataset.url
       })
     },
+    navToAccount() {
+      wx.navigateTo({
+        url: '/pages/oss/inside/exam-account/exam-account' 
+      })
+    }
   }
 
 })
