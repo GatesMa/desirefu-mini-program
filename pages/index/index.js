@@ -59,7 +59,7 @@ Page({
       })
     } else if (item.account_type == 4) {
       wx.navigateTo({
-        url: '../root/index/index',
+        url: '../root/index',
       })
     }
   },

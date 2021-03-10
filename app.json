@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/root/index",
     "pages/index/index",
     "pages/logs/logs",
     "pages/normal/index/index",
@@ -20,6 +19,7 @@
     "pages/normal/inside/application/application",
     "pages/oss/inside/exam-account/exam-account",
     "pages/oss/chart/bar/index",
+    "pages/root/index",
     "pages/oss/inside/exam-organize/exam-organize"
   ],
   "window": {

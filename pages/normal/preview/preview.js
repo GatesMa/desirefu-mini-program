@@ -150,6 +150,11 @@ Page({
       },
       success: (res) => {
         console.log('res:', res.data)
+        wx.showToast({
+          title: '收藏成功',
+          icon: 'none',
+          duration: 2000
+        })
         this.setData({
           isLiked: !this.data.isLiked
         })
