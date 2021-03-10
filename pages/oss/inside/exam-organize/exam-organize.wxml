@@ -1,0 +1,24 @@
+<scroll-view scroll-y>
+  <cu-custom bgColor="" isBack="{{true}}">
+  </cu-custom>
+
+  <view class="text-xxl padding-top padding-left padding-right">
+    <text class="cuIcon-activity text-white"></text><text class="text-white text-bold"> 队伍审核</text>
+  </view>
+  <view class="padding-bottom padding-left padding-right">
+    <text class="text-white">待审核的队伍列表</text>
+  </view>
+
+  <view class="cu-list menu card-menu  margin-bottom-xl shadow-lg">
+    <view class="cu-item margin-bottom padel padding-top padding-bottom" wx:for="{{organizeList}}" wx:key="id" wx:for-index="idx" data-item="{{item}}" catchtap="handleOrganize">
+      <view class="content padding-tb-sm">
+        <view class="content">
+          <text class="text-black">{{item.nickName}}</text>
+        </view>
+        <view class="text-gray text-sm">比赛：{{item.competition.title}}</view>
+        <view class="text-gray text-sm"><text class="cuIcon-info text-red"></text> 队长：{{item.captain.college_name+item.captain.department_name+item.captain.major+item.captain.real_name}}</view>
+        <view class="text-gray text-sm"><text class="cuIcon-time text-blue"></text> 提交时间：{{item.created_ime}} </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

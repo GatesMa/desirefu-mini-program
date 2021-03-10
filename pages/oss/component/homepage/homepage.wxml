@@ -10,7 +10,7 @@
         <view class="cuIcon-send text-blue"></view>
         <text>账号审核</text>
       </view>
-      <view class="cu-item" bindtap="navToQuestion">
+      <view class="cu-item" bindtap="navToOrganize">
         <view class="cuIcon-cardboardfill text-red"></view>
         <text>队伍审核</text>
       </view>

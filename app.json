@@ -18,7 +18,8 @@
     "pages/oss/inside/idx-swiper/idx-swiper",
     "pages/normal/inside/application/application",
     "pages/oss/inside/exam-account/exam-account",
-    "pages/oss/chart/bar/index"
+    "pages/oss/chart/bar/index",
+    "pages/oss/inside/exam-organize/exam-organize"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

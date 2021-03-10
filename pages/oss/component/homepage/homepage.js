@@ -114,7 +114,12 @@ Component({
       wx.navigateTo({
         url: '/pages/oss/inside/exam-account/exam-account' 
       })
-    }
+    },
+    navToOrganize() {
+      wx.navigateTo({
+        url: '/pages/oss/inside/exam-organize/exam-organize' 
+      })
+    },
   }
 
 })
