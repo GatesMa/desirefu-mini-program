@@ -42,3 +42,10 @@ page {
   text-decoration-line: underline;
 } */
 
+.weui-loadmore_line .weui-loadmore__tips {
+  position: relative;
+  top: -.9em;
+  padding: 0.3em .55em;
+  color: rgba(0, 0, 0, .3);
+  background-color:  #ffffff;
+}
