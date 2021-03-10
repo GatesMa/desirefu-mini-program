@@ -51,7 +51,7 @@
       </view>
       <view class="action">
         <button class="cu-btn round text-xs text-blue margin-left-sm padding-top-xm line-blue"
-          bindtap="fillCompetitions" style="height:65rpx">搜索 🔍</button>
+          bindtap="fillRoleRelations" style="height:65rpx">搜索 🔍</button>
       </view>
     </view>
     <view class="flex">
@@ -73,7 +73,7 @@
     <view class="tr bg-w">
       <view class="th">账号ID</view>
       <view class="th">用户ID</view>
-      <view class="th ">时间</view>
+      <view class="th "><text class="cuIcon-time text-white"></text></view>
       <view class="th ">删除</view>
     </view>
     <block wx:for="{{roleList}}" wx:key="{{accountRoleId}}">
@@ -81,7 +81,7 @@
         <view class="td">{{item.accountId}}</view>
         <view class="td">{{item.userId}}</view>
         <view class="td ">{{item.createdTime}}</view>
-        <view class="td"><text class="cuIcon-close text-red"></text></view>
+        <view class="td"><text class="cuIcon-close text-red" data-id="{{item.accountRoleId}}" bindtap="delete"></text></view>
       </view>
     </block>
 

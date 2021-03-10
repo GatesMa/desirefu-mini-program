@@ -10,12 +10,27 @@ Page({
     userId: null,
     searchAccountId: null,
     searchUserId: null,
-    listData: [
-      { "code": "120", "text": "70", "date": "2018年4月19日" },
-      { "code": "125", "text": "74", "date": "2018年4月17日" },
-    
-      { "code": "119", "text": "76", "date": "2018年4月16日" },
-      { "code": "117", "text": "78", "date": "2018年4月15日" }
+    listData: [{
+        "code": "120",
+        "text": "70",
+        "date": "2018年4月19日"
+      },
+      {
+        "code": "125",
+        "text": "74",
+        "date": "2018年4月17日"
+      },
+
+      {
+        "code": "119",
+        "text": "76",
+        "date": "2018年4月16日"
+      },
+      {
+        "code": "117",
+        "text": "78",
+        "date": "2018年4月15日"
+      }
     ],
     roleList: [],
     page: 1,
@@ -185,6 +200,57 @@ Page({
         this.setData({
           roleList: list
         })
+      }
+    })
+  },
+
+  delete(e) {
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: '是否继续',
+      cancelText: '取消',
+      confirmText: '删除',
+      success(res) {
+        if (res.confirm) {
+          var id = e.currentTarget.dataset.id
+          // console.log('roleId ', e.currentTarget.dataset)
+          wx.request({
+            url: app.globalData.baseUrl + '/desire_fu/v1/login/deleteRoleRelation',
+            data: {
+              "accountRoleId": id
+            },
+            method: "POST",
+            header: {
+              'content-type': 'application/json',
+              'Accept': 'application/json'
+            },
+            success: (res) => {
+              console.log(res.data)
+              wx.showToast({
+                title: '删除成功',
+                icon: 'none',
+                duration: 2000
+              })
+              that.setData({
+                page: 1
+              })
+              that.getRoleRelationData().then((list) => {
+                // console.log('roleList:', list)
+                that.setData({
+                  roleList: list
+                })
+              })
+            },
+            fail: (err) => {
+              wx.showToast({
+                title: '发生异常',
+                icon: 'none',
+                duration: 2000
+              })
+            }
+          })
+        } else if (res.cancel) {}
       }
     })
   },
