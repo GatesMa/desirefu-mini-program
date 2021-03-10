@@ -44,7 +44,7 @@
       <view class="margin-tb text-right">
         <button class="cu-btn icon lg bg-brown shadow basis-sm" data-target="nameModal" bindtap="showModal">
           <!-- <text class="cuIcon-add text-white"></text> -->
-          <text class="text-xs">组队</text>
+          <text class="text-xs">创建</text>
         </button>
       </view>
       <view class="margin-tb text-right">
