@@ -31,7 +31,8 @@
 <!--页面根标签-->
 <view class="baseImg">
   <!--pics文件夹下的background.jpg文件-->
-  <image class='background' src="https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/images/img_0182.png" mode="widthFix"></image>
+  <image class='background' src="https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/images/img_0182.png"
+    mode="widthFix"></image>
 </view>
 
 
@@ -41,13 +42,19 @@
       <text class="cuIcon-titles text-blue"></text>
       <text class="text-black text-bold">请选择账号进行登陆</text>
       <!-- <button class="cu-btn round line-blue text-sm" bindtap="tiyan">体验账号</button> -->
-      <text class="padding-left-sm text-sm text-blue tiyan" bindtap="tiyan">使用体验账号</text>
+      <text class="padding-left-sm text-sm text-blue text-bold tiyan" bindtap="tiyan">使用体验账号</text>
     </view>
   </view>
   <view class="action">
     <button class="cu-btn icon" bindtap="refresh">
       <text class="cuIcon-refresh"></text>
     </button>
+  </view>
+</view>
+
+<view class="bg-white text-center">
+  <view class="action title-style-3">
+    <text class="text-xs text-bold ">你的用户ID：{{userId}}</text>
   </view>
 </view>
 
