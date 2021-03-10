@@ -57,6 +57,10 @@ Page({
       wx.navigateTo({
         url: '../oss/index/index',
       })
+    } else if (item.account_type == 4) {
+      wx.navigateTo({
+        url: '../root/index/index',
+      })
     }
   },
 

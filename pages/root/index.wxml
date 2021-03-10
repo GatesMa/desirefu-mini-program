@@ -1,0 +1,100 @@
+<!--pages/root/index.wxml-->
+<scroll-view scroll-y class="scrollPage">
+  <cu-custom bgColor="tx-blue" isBack="{{true}}">
+    <view slot="backText">ROOT - 账号权限分配</view>
+  </cu-custom>
+
+
+  <!-- 图标 -->
+  <view class='margin-sm bg-white padding-xl radius shadow-lg padel'>
+    <view class='text-center margin-bottom text-lg  text-grey'>关于ROOT用户</view>
+    <view class='text-content'>
+      <view class='margin-top-sm'>
+        ROOT用户唯一的功能就是为其他几个系统添加用户，DesireFU是多用户多账号系统，例如可以为一个比赛创建账号或者运营账号添加多个微信用户，这样这些微信账号都可以进入系统。
+      </view>
+      <view class='margin-top-sm'>添加用户，我们只需要两个参数，一个是账号ID，可以在账号列表的首页查看，已经标注在了昵称后面。另一个是用户ID，唯一标识一个用户，已经标注在了系统首页中部位置。
+      </view>
+      <view class='margin-top-sm'>更多功能敬请期待！</view>
+    </view>
+  </view>
+  <view class='margin-sm bg-white padding-left-sm padding-right-sm radius shadow-lg padel'>
+    <view class="cu-bar bg-white text-sm">
+      <view class="action border-title">
+        <text class="text-bold text-blue">为一个账号添加用户</text>
+        <text class="bg-gradual-blue" style="width:3rem"></text>
+      </view>
+      <view class="action">
+        <button class="cu-btn round line-blue shadow" bindtap="add">
+          <text class="cuIcon-add text-green"></text> 添加</button>
+      </view>
+    </view>
+    <form>
+      <view class="cu-form-group margin-top">
+        <view class="title">账号ID</view>
+        <input type="number" placeholder="---" bindinput='accountIdInput'></input>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">用户ID</view>
+        <input type="number" placeholder="---" bindinput='userIdInput'></input>
+      </view>
+    </form>
+  </view>
+
+
+  <view class="table margin-sm bg-white radius shadow-lg padel">
+
+    <view class="cu-bar bg-white">
+      <view class="action sub-title">
+        <text class="text-xl text-bold text-green">数据</text>
+        <text class="bg-green"></text>
+        <!-- last-child选择器-->
+      </view>
+      <view class="action">
+        <button class="cu-btn round text-xs text-blue margin-left-sm padding-top-xm line-blue"
+          bindtap="fillCompetitions" style="height:65rpx">搜索 🔍</button>
+      </view>
+    </view>
+    <view class="flex">
+      <view class="flex-sub cu-bar search">
+        <view class="search-form round solid">
+          <text class="text-xs padding-left-sm text-grey ">AccountId：</text>
+          <input type="number" class="text-xs" data-title='title' bindinput='searchAccountIdInput'
+            placeholder="-"></input>
+        </view>
+      </view>
+      <view class="flex-sub cu-bar search">
+        <view class="search-form round solid">
+          <text class="text-xs padding-left-sm text-grey ">UserId：</text>
+          <input type="number" class="text-xs" data-title='founder' bindinput='searchUserIdInput'
+            placeholder="-"></input>
+        </view>
+      </view>
+    </view>
+    <view class="tr bg-w">
+      <view class="th">账号ID</view>
+      <view class="th">用户ID</view>
+      <view class="th ">时间</view>
+      <view class="th ">删除</view>
+    </view>
+    <block wx:for="{{roleList}}" wx:key="{{accountRoleId}}">
+      <view class="tr">
+        <view class="td">{{item.accountId}}</view>
+        <view class="td">{{item.userId}}</view>
+        <view class="td ">{{item.createdTime}}</view>
+        <view class="td"><text class="cuIcon-close text-red"></text></view>
+      </view>
+    </block>
+
+    <view class="flex  padding justify-between">
+      <button class="cu-btn padding-sm margin-xs radius text-gray text-sm" bindtap="scrollBack">
+        <text class="cuIcon-back"></text>上一页
+      </button>
+      <button class="cu-btn padding-sm margin-xs radius text-gray text-sm" bindtap="scrollFront">
+        <text class="cuIcon-right"></text>下一页
+      </button>
+    </view>
+  </view>
+
+
+
+</scroll-view>
