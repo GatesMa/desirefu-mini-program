@@ -1,0 +1,62 @@
+<!--pages/organize/organize.wxml-->
+<cu-custom bgColor="tx-blue" isBack="{{true}}">
+  <view slot="backText">队伍详情</view>
+</cu-custom>
+
+<view class='margin-sm bg-white padding-xl radius shadow-lg padel'>
+  <view class='text-center margin-bottom text-blod text-blue'>比赛简介</view>
+  <view class='text-content'>
+    <view class="text-sm"><text class="cuIcon-favor text-yellow"></text> 比赛标题：{{organize.competition.title}}</view>
+    <view class="text-sm margin-top-sm"><text class="cuIcon-deliver text-blue"></text> 创办组织：{{organize.competition.founder}}</view>
+    <view class="text-sm margin-top-sm"><text class="cuIcon-time text-red"></text> 举办时间：{{organize.competition.begin_time}} - {{organize.competition.end_time}}
+    </view>
+  </view>
+  <view class='text-center margin-bottom text-blod text-blue margin-top-sm'>队伍简介</view>
+  <view class='text-content'>
+    <view class="text-sm"><text class="cuIcon-favor text-yellow"></text> 队伍名称：{{organize.nickName}}</view>
+    <view class="text-sm margin-top-sm"><text class="cuIcon-deliver text-blue"></text> 队长：{{organize.captain.college_name+organize.captain.department_name+organize.captain.major+organize.captain.real_name}}</view>
+    <view class="text-sm margin-top-sm"><text class="cuIcon-time text-red"></text> 创办时间：{{organize.created_ime}}</view>
+  </view>
+</view>
+
+<view class="margin-sm radius bg-gradual-blue shadow-blur">
+  <image src="https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/images/wave.gif" mode="scaleToFill"
+    class="gif-black response" style="height:100rpx"></image>
+</view>
+
+<view class="cu-bar bg-white">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text> 成员
+  </view>
+</view>
+
+<view class="VerticalBox">
+  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}"
+    style="height:calc(100vh - 375rpx)">
+    <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{member}}" wx:key="account_id" bindtap='tabSelect'
+      data-id="{{index}}">
+      <text class="cuIcon-{{item.account_id == organize.captain.account_id ? 'punch' : ''}} text-blue"></text>
+      {{item.real_name}}
+    </view>
+  </scroll-view>
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 375rpx)"
+    scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+    <view class="padding-top padding-lr" wx:for="{{member}}" wx:key="account_id" id="main-{{index}}">
+      <view class='bg-white padding radius shadow-lg padel'>
+        <view class='padding-bottom-sm solid-bottom bg-white'>
+          <view class='action'>
+            <text class='cuIcon-title text-blue'></text> {{item.real_name}}<text class="cu-tag line-blue margin-left-sm round shadow" wx:if="{{item.account_id == organize.captain.account_id}}">队长</text> </view>
+        </view>
+        <view class='text-content'>
+          <view class="text-sm margin-top-sm"><text class="cuIcon-deliver text-blue"></text> 学校名称：{{item.college_name}}</view>
+          <view class="text-sm margin-top-sm"><text class="cuIcon-explore text-orange"></text> 学院名称：{{item.department_name}}</view>
+          <view class="text-sm margin-top-sm"><text class="cuIcon-write text-purple"></text> 专业：{{item.major}}</view>
+          <view class="text-sm margin-top-sm"><text class="cuIcon-crown text-brown"></text> 学号：{{item.stu_id}}</view>
+          <view class="text-sm margin-top-sm"><text class="cuIcon-wenzi text-olive"></text> 真实姓名：{{item.real_name}}</view>
+          <view class="text-sm margin-top-sm"><text class="cuIcon-time text-red"></text> 入队时间：{{item.created_time}} </view>
+        </view>
+      </view>
+
+    </view>
+  </scroll-view>
+</view>

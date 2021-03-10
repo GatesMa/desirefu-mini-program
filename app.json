@@ -20,6 +20,7 @@
     "pages/oss/inside/exam-account/exam-account",
     "pages/oss/chart/bar/index",
     "pages/root/index",
+    "pages/organize/organize",
     "pages/oss/inside/exam-organize/exam-organize"
   ],
   "window": {

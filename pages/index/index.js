@@ -61,6 +61,10 @@ Page({
       wx.navigateTo({
         url: '../root/index',
       })
+    } else if (item.account_type == 5) {
+      wx.navigateTo({
+        url: '../organize/organize',
+      })
     }
   },
 

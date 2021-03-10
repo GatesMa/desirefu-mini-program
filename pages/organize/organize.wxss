@@ -1,0 +1,60 @@
+/* pages/organize/organize.wxss */
+
+page {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  background-image: url("https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/bg-007.png");
+  background-size: 100% 50%;
+  background-repeat: no-repeat;
+  background-color: #f8f8f8;
+}
+
+.padel {
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+image[class*="gif-"] {
+  border-radius: 6rpx;
+  display: block;
+}
+
+.VerticalNav.nav {
+  width: 200rpx;
+  white-space: initial;
+}
+
+.VerticalNav.nav .cu-item {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  margin: 0;
+  border: none;
+  height: 50px;
+  position: relative;
+}
+
+.VerticalNav.nav .cu-item.cur {
+  background-color: #f1f1f1;
+}
+.VerticalNav.nav .cu-item.cur::after {
+  content: "";
+  width: 8rpx;
+  height: 30rpx;
+  border-radius: 10rpx 0 0 10rpx;
+  position: absolute;
+  background-color: currentColor;
+  top: 0;
+  right: 0rpx;
+  bottom: 0;
+  margin: auto;
+}
+.VerticalBox{
+  display: flex;
+}
+.VerticalMain{
+  background-color: #f1f1f1;
+}
