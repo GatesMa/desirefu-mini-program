@@ -81,13 +81,19 @@ Component({
     hideNotice: false,
     hideNoticeAni: false, // 动画，比hideNotice早设置值
     noticeContent: '通知内容', //通知内容
-    showModel: false
+    showModel: false,
+
+    basic: {}
   },
 
   /* 组件声明周期函数 */
   lifetimes: {
     attached: function () {
-      this.getNotificationType2()
+      var that = this
+      that.getNotificationType2()
+
+      // 数据
+      that.startTimer()
     },
     moved: function () {
 
@@ -95,6 +101,19 @@ Component({
     detached: function () {
 
     },
+  },
+
+  pageLifetimes: {
+    show: function () {
+      // 页面被展示
+      this.getBasicData()
+    },
+    hide: function () {
+      // 页面被隐藏
+    },
+    resize: function (size) {
+      // 页面尺寸变化
+    }
   },
 
   /* 组件的方法列表 */
@@ -107,7 +126,7 @@ Component({
         hideNoticeAni: true
       })
       // 500ms后隐藏元素
-      setTimeout(function() {
+      setTimeout(function () {
         that.setData({
           hideNotice: true
         })
@@ -177,9 +196,47 @@ Component({
     },
     navToCollect() {
       wx.navigateTo({
-        url: '/pages/normal/inside/collect/collect' 
+        url: '/pages/normal/inside/collect/collect'
       })
-    }
+    },
+
+    getBasicData() {
+      wx.request({
+        url: app.globalData.baseUrl + '/desire_fu/v1/normal_account/get_basic_number',
+        data: {
+          accountId: app.globalData.account.account_id // 默认只获取正常状态，不获取草稿
+        },
+        method: "POST",
+        header: {
+          'content-type': 'application/json',
+          'Accept': 'application/json'
+        },
+        success: (res) => {
+          console.log('res:', res.data)
+          this.setData({
+            basic: res.data.data
+          })
+        },
+        fail: (err) => {
+          wx.showToast({
+            title: '获取数据异常',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    },
+
+    startTimer() {
+      var that = this
+      that.getBasicData()
+      // 1 min
+      setInterval(function () {
+        console.log('getBasicData')
+        that.getBasicData()
+      }, 60000);
+    },
+
   }
 
 })

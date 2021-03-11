@@ -90,15 +90,15 @@
     <view class="cu-item" bindtap="navToMsg">
       <view class="cuIcon-notice text-blue">
         <view class="cu-tag badge">
-          <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
+          <block wx:if="{{basic.msgCnt!=1}}">{{basic.msgCnt>99?"99+":basic.msgCnt}}</block>
         </view>
       </view>
       <text>消息</text>
     </view>
     <view class="cu-item" bindtap="navToApplication">
       <view class="cuIcon-form text-red">
-        <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
-          <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
+        <view class="cu-tag badge" wx:if="{{basic.applicationCnt!=0}}">
+          <block wx:if="{{basic.applicationCnt!=1}}">{{basic.applicationCnt>99?"99+":basic.applicationCnt}}</block>
         </view>
       </view>
       <text>入队申请</text>
@@ -112,22 +112,22 @@
   </view>
   <view class="flex text-center padding-bottom">
     <view class="flex flex-sub flex-direction">
-      <view class="text-xxl text-orange">12</view>
+      <view class="text-xxl text-orange">{{basic.organizeCnt}}</view>
       <view class="margin-top-sm">
         <text class="cuIcon-all"></text> 队伍</view>
     </view>
     <view class="flex flex-sub flex-direction">
-      <view class="text-xxl text-blue">10</view>
-      <view class="margin-top-sm">
-        <text class="cuIcon-hot"></text> 比赛</view>
-    </view>
-    <view class="flex flex-sub flex-direction">
-      <view class="text-xxl text-green">1004</view>
+      <view class="text-xxl text-green">{{basic.collectCnt}}</view>
       <view class="margin-top-sm">
         <text class="cuIcon-like"></text> 收藏</view>
     </view>
     <view class="flex flex-sub flex-direction">
-      <view class="text-xxl text-green">1004</view>
+      <view class="text-xxl text-blue">-</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-hot"></text> 比赛</view>
+    </view>
+    <view class="flex flex-sub flex-direction">
+      <view class="text-xxl text-text-purple">-</view>
       <view class="margin-top-sm">
         <text class="cuIcon-attention"></text> 浏览</view>
     </view>

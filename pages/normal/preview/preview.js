@@ -231,7 +231,7 @@ Page({
                 title: '提示',
                 content: content,
                 showCancel: false,
-                success (res) {
+                success(res) {
                   // do noting
                 }
               })
@@ -272,15 +272,23 @@ Page({
         'Accept': 'application/json'
       },
       success(res) {
-        console.log('请求成功...')
-
-        wx.showToast({
-          title: '创建队伍成功',
-          icon: 'success',
-          duration: 1000
+        console.log('请求成功...', res.data)
+        var content = ''
+        if (res.data.code == 0) {
+          content = '创建队伍成功'
+        } else {
+          content = res.data.message
+        }
+        wx.showModal({
+          title: '提示',
+          content: content,
+          showCancel: false,
+          success(res) {
+            // do noting
+          }
         })
         that.setData({
-          showInputName: false
+          modalName: ''
         })
       }
     })
