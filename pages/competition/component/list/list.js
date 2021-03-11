@@ -371,6 +371,12 @@ Component({
           })
         }
       })
+    },
+
+    navToAdd() {
+      wx.navigateTo({
+        url: `/pages/competition/add/add`,
+      })
     }
   }
 })

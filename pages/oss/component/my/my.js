@@ -53,8 +53,8 @@ Component({
     },
     showQrcode() {
       wx.previewImage({
-        urls: ['https://gatesma.cn/myfile/desirefu/img/zanCode.png'],
-        current: 'https://gatesma.cn/myfile/desirefu/img/zanCode.png' // 当前显示图片的http链接      
+        urls: ['https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/zanCode.png'],
+        current: 'https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/zanCode.png' // 当前显示图片的http链接      
       })
     },
     navToProfile() {

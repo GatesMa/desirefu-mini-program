@@ -1,6 +1,6 @@
 /* pages/competition/component/my/my.wxss */
 .UCenter-bg {
-  background-image: url(https://gatesma.cn/myfile/desirefu/img/bg-006.png);
+  background-image: url(https://dfu-1257282228.cos.ap-chengdu.myqcloud.com/dfu/bg-006.png);
   background-size: cover;
   height: 550rpx;
   display: flex;

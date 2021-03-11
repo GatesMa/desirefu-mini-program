@@ -179,3 +179,13 @@
     <text class="cuIcon-right"></text>下一页
   </button>
 </view>
+
+<view class="grid col-1 padding-sm float-btn">
+  <view class="animation-{{isFold?'slide-bottom':''}} animation-reverse" style="animation-delay: 0.1s;">
+    <view class="margin-tb text-right">
+      <button class="cu-btn icon lg bg-blue shadow basis-sm" bindtap="navToAdd">
+        <text class="cuIcon-add"></text>
+      </button>
+    </view>
+  </view>
+</view>
